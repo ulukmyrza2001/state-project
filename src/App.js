@@ -1,10 +1,11 @@
 import React from 'react'
-import Button from './components/UI/buttons/Button'
+import styled from 'styled-components'
+import Footer from './components/layout/Footer'
 
 const App = () => {
    return (
       <div>
-         <Button>hello</Button>
+         <Footer />
       </div>
    )
 }
