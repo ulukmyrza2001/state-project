@@ -1,21 +1,27 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   transition: all 0.2s;
 }
 :root {
-	--default-color: #1c2d63;
+   --default-color: #1c2d63;
 }
 body {
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-		'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-		'Helvetica Neue', sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+   margin: 0;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+      'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+      'Helvetica Neue', sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   background: url(./assets/images/ales-krivec--3LtGq_RPcY-unsplash.jpg);
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   height: 100vh;
 }
 
 code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-		monospace;
+   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
 }
