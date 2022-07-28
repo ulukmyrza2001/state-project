@@ -26,7 +26,7 @@
       "react/jsx-props-no-spreading": "off",
       "react/jsx-no-undef": "warn",
       "react/react-in-jsx-scope": "off",
-      "import/prefer-default-export": "off",
+      "import/prefer-default-export": "error",
       "no-use-before-define": "off",
       "no-shadow": "off",
       "react-hooks/exhaustive-deps": "off",
