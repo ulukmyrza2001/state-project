@@ -1,4 +1,4 @@
-import { store } from '../../store'
+import store from '../../store'
 
 export const getJwt = () => {
    return store.getState().auth.token
@@ -17,4 +17,14 @@ export const localstorage = {
    clear() {
       return localStorage.clear()
    },
+}
+
+export const scrollHeader = () => {
+   if (
+      document.body.scrollTop > 50 ||
+      document.documentElement.scrollTop > 50
+   ) {
+      return true
+   }
+   return false
 }

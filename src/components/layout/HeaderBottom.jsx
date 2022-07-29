@@ -1,17 +1,14 @@
 /* eslint-disable no-return-assign */
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import { IoIosArrowDown } from 'react-icons/io'
 import WindowMenuImage from '../../assets/images/windowMenu.webp'
-import flag from '../../assets/icons/Flag_of_Kyrgyzstan.svg'
-import gerb from '../../assets/icons/GERB.svg'
 import Button from '../UI/buttons/Button'
-import { scrollHeader } from '../../utils/helpers/general'
 
 const navigations = [
    {
       id: Math.random().toString(),
-      title: 'Жетекчилик',
+      title: 'Маданият',
       innerList: [
          {
             id: Math.random().toString(),
@@ -29,7 +26,7 @@ const navigations = [
    },
    {
       id: Math.random().toString(),
-      title: 'Билим беруу',
+      title: 'МЧС',
       innerList: [
          {
             id: Math.random().toString(),
@@ -63,7 +60,7 @@ const navigations = [
    },
    {
       id: Math.random().toString(),
-      title: 'Саламаттыкты сактоо',
+      title: 'Тазалык',
       innerList: [
          {
             id: Math.random().toString(),
@@ -85,7 +82,7 @@ const navigations = [
    },
    {
       id: Math.random().toString(),
-      title: 'Жаштар иштери',
+      title: 'Атактуулар',
       innerList: [
          {
             id: Math.random().toString(),
@@ -111,7 +108,7 @@ const navigations = [
    },
    {
       id: Math.random().toString(),
-      title: 'Дин иштери',
+      title: 'Жанылыктар жана кулактандыруулар',
       innerList: [
          {
             id: Math.random().toString(),
@@ -149,7 +146,7 @@ const navigations = [
    },
    {
       id: Math.random().toString(),
-      title: 'Айыл чарба',
+      title: 'Камера',
       innerList: [
          {
             id: Math.random().toString(),
@@ -179,55 +176,50 @@ const navigations = [
    },
 ]
 
-const Header = () => {
-   const [headerBackground, setHeaderBackground] = useState(false)
+const HeaderBottom = () => {
    const [windowMenu, setWindowMenu] = useState(false)
-   const [sections, setSections] = useState({ innerList: [] })
+   const [is, setIs] = useState({ innerList: [] })
 
-   window.addEventListener('scroll', () => {
-      if (scrollHeader()) setHeaderBackground(true)
-      else setHeaderBackground(false)
-   })
+   const visibleMenuHandler = () => setWindowMenu(true)
+
+   const hideMenuHandler = () => setWindowMenu(false)
 
    return (
-      <HeaderStyled windowMenu={windowMenu} headerBackground={headerBackground}>
-         <StyledFlag>
-            <Img src={gerb} alt="" />
-         </StyledFlag>
+      <HeaderStyled windowMenu={windowMenu}>
+         <StyledFlag />
          <List>
             {navigations.map((item) => (
                <NavButton
                   key={item.id}
                   id={item.id}
                   onMouseMove={(e) => {
-                     setWindowMenu(true)
-                     setSections(
+                     visibleMenuHandler()
+                     setIs(
                         navigations.find((el) => el.id === e.currentTarget.id)
                      )
                   }}
-                  onMouseOut={() => setWindowMenu(false)}
+                  onMouseOut={hideMenuHandler}
                >
                   {item.title}
                   <span />
-                  <NavIconWrapper>
+                  <div>
                      <IoIosArrowDown fontSize={20} />
-                  </NavIconWrapper>
+                  </div>
                </NavButton>
             ))}
          </List>
-         <StyledFlag>
-            <Img src={flag} alt="" />
-         </StyledFlag>
+         <StyledFlag />
          <WindowMenu
-            onMouseMove={() => setWindowMenu(true)}
-            onMouseOut={() => setWindowMenu(false)}
+            onMouseMove={visibleMenuHandler}
+            onMouseOut={hideMenuHandler}
             windowMenu={windowMenu}
+            image={WindowMenuImage}
          >
-            <InnerWindowMenu>
-               {sections.innerList.map((el) => (
+            <div>
+               {is.innerList.map((el) => (
                   <Button key={el.id}>{el.title}</Button>
                ))}
-            </InnerWindowMenu>
+            </div>
          </WindowMenu>
       </HeaderStyled>
    )
@@ -240,17 +232,12 @@ const StyledFlag = styled.div`
    display: flex;
    justify-content: center;
    align-items: center;
-`
-const Img = styled.img`
-   border-radius: 50%;
-   width: 75px;
-   height: 80%;
-   object-fit: cover;
-`
-const NavIconWrapper = styled.div`
-   display: flex;
-   align-items: center;
-   margin-top: 2px;
+   img {
+      border-radius: 50%;
+      width: 60px;
+      height: 80%;
+      object-fit: cover;
+   }
 `
 const NavButton = styled.li`
    font-size: 14px;
@@ -275,11 +262,16 @@ const NavButton = styled.li`
    :hover span::before {
       color: #1e346f53;
    }
+   div {
+      display: flex;
+      align-items: center;
+      margin-top: 2px;
+   }
    :hover {
       background-color: white;
       color: #1e336f;
    }
-   :hover ${NavIconWrapper} {
+   :hover div {
       transform: rotate(180deg);
    }
 `
@@ -288,39 +280,39 @@ const WindowMenu = styled.div`
    width: 100%;
    height: 400px;
    position: absolute;
-   bottom: -400px;
-   background: url(${WindowMenuImage});
+   top: -400px;
+   background: url(${({ image }) => image});
    background-position: center;
    background-size: cover;
    display: ${({ windowMenu }) => (windowMenu ? 'block' : 'none')};
-`
-const InnerWindowMenu = styled.div`
-   width: 100%;
-   height: 100%;
-   padding: 3rem;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   flex-wrap: wrap;
-   gap: 10px;
+   div {
+      width: 100%;
+      height: 100%;
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+   }
 `
 const HeaderStyled = styled.header`
-   position: fixed;
+   position: absolute;
+   bottom: 0;
    width: 100%;
-   height: 90px;
-   background-color: ${({ headerBackground, windowMenu }) =>
-      windowMenu || headerBackground ? '#011835' : 'transparent'};
+   height: 70px;
+   background-color: ${({ windowMenu }) =>
+      windowMenu ? '#011835' : 'transparent'};
    display: flex;
    align-items: center;
    justify-content: center;
-   z-index: 1;
 `
 const List = styled.ul`
    display: flex;
    list-style: none;
    height: 100%;
    align-items: center;
-   background-color: #011835;
+   background-color: #1e336f;
 `
 
-export default Header
+export default HeaderBottom
