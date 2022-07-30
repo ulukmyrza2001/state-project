@@ -5,9 +5,9 @@ export const Input = forwardRef((props, ref) => {
    return (
       <WrapperInput>
          {props.label ? (
-            <label htmlFor={props.htmlFor}>
-               {props.labelChildren} &nbsp;
-               {props.necessarily ? <b style={{ color: 'red' }}>*</b> : ''}
+            <label htmlFor={props.id}>
+               {props.title} &nbsp;
+               {props.required ? <b style={{ color: 'red' }}>*</b> : ''}
             </label>
          ) : (
             ''
@@ -26,10 +26,14 @@ const WrapperInput = styled.div`
    display: flex;
    flex-direction: column;
    align-items: flex-start;
-   gap: 15px;
+   gap: 10px;
    font-family: 'Open Sans', sans-serif;
    font-weight: 700;
    font-size: 18px;
+   label {
+      font-weight: 500;
+      text-transform: capitalize;
+   }
 `
 const InputStyled = styled.input`
    width: 100%;
