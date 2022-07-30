@@ -42,7 +42,7 @@ const Footer = () => {
                            <div>
                               <IoIosArrowRoundForward fontSize="20px" />
                            </div>
-                           {item.title}
+                           <a href="/"> {item.title}</a>
                         </li>
                      </ul>
                   ))}
@@ -55,7 +55,7 @@ const Footer = () => {
                            <div>
                               <IoIosArrowRoundForward fontSize="20px" />
                            </div>
-                           {item.title}
+                           <a href="/">{item.title}</a>
                         </li>
                      </ul>
                   ))}
@@ -68,7 +68,7 @@ const Footer = () => {
                            <div>
                               <IoIosArrowRoundForward fontSize="20px" />
                            </div>
-                           {item.title}
+                           <a href="/">{item.title}</a>
                         </li>
                      </ul>
                   ))}
@@ -81,7 +81,7 @@ const Footer = () => {
                            <div>
                               <IoIosArrowRoundForward fontSize="20px" />
                            </div>
-                           {item.title}
+                           <a href="/">{item.title}</a>
                         </li>
                      </ul>
                   ))}
@@ -196,6 +196,17 @@ const NavBlock = styled.div`
          }
          :hover {
             color: #ff9500;
+         }
+         :hover a {
+            color: #ff9500;
+         }
+         a {
+            text-decoration: none;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 19px;
+            color: #ffffff;
          }
       }
    }
