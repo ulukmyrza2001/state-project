@@ -1,11 +1,10 @@
 import styled from 'styled-components'
-import ContainerHeader from './components/layout/ContainerHeader'
+import ClientRoutes from './routes/ClientRoutes'
 
 function App() {
    return (
       <div className="App">
-         <ContainerHeader />
-         <Div />
+         <ClientRoutes />
       </div>
    )
 }
