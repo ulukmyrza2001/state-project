@@ -1,23 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Exo:wght@700&family=Inter:wght@400;500&family=Lato:wght@100&family=Montserrat:wght@300;400;500&family=Roboto&family=Titillium+Web&family=Trispace&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600&display=swap');
 * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-   transition: all 0.2s;
-   font-family: 'Montserrat', sans-serif;
-}
-:root {
-   --default-color: #1c2d63;
 }
 body {
    margin: 0;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+      'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+      'Helvetica Neue', sans-serif;
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
-   background: url(./assets/images/ales-krivec--3LtGq_RPcY-unsplash.jpg);
-   background-position: center;
-   background-size: cover;
-   background-repeat: no-repeat;
-   height: 100vh;
 }
 
 code {
