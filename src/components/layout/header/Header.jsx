@@ -33,7 +33,7 @@ const Header = () => {
    return (
       <HeaderStyled windowMenu={windowMenu} headerBackground={headerBackground}>
          <StyledFlag>
-            <Img src={gerb} alt="" />
+            <Img isScroll={headerBackground} src={gerb} alt="" />
          </StyledFlag>
          <MenuBurger onClick={() => setShowMenuBurger(!showMenuBurger)} />
          <MobileHeader isVisible={showMenuBurger} />
@@ -59,7 +59,7 @@ const Header = () => {
             ))}
          </List>
          <StyledFlag>
-            <Img src={flag} alt="" />
+            <Img isScroll={headerBackground} src={flag} alt="" />
          </StyledFlag>
          <WindowMenu
             onMouseMove={() => setWindowMenu(true)}
@@ -78,7 +78,7 @@ const Header = () => {
 export const HeaderStyled = styled.header`
    position: fixed;
    width: 100%;
-   height: 90px;
+   height: ${({ headerBackground }) => (headerBackground ? '60px' : '90px')};
    background-color: ${({ headerBackground, windowMenu }) =>
       windowMenu || headerBackground ? '#011835' : 'transparent'};
    display: flex;

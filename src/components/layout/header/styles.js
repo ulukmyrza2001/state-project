@@ -30,7 +30,7 @@ export const StyledFlag = styled.div`
 `
 export const Img = styled.img`
    border-radius: 50%;
-   width: 75px;
+   width: ${({ isScroll }) => (isScroll ? '50px' : '75px')};
    height: 80%;
    object-fit: cover;
    @media (max-width: 1200px) {
