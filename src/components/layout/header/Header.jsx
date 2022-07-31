@@ -2,11 +2,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { IoIosArrowDown } from 'react-icons/io'
-import flag from '../../assets/icons/Flag_of_Kyrgyzstan.svg'
-import gerb from '../../assets/icons/GERB.svg'
-import Button from '../UI/buttons/Button'
-import { scrollHeader } from '../../utils/helpers/general'
-import { NAVIGATIONS } from '../../utils/constants/category'
+import flag from '../../../assets/icons/Flag_of_Kyrgyzstan.svg'
+import gerb from '../../../assets/icons/GERB.svg'
+import Button from '../../UI/buttons/Button'
+import { scrollHeader } from '../../../utils/helpers/general'
+import { NAVIGATIONS } from '../../../utils/constants/category'
 import MobileHeader from './MobileHeader'
 import {
    Img,

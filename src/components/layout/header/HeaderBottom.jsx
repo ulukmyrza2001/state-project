@@ -2,9 +2,9 @@
 import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import { IoIosArrowDown } from 'react-icons/io'
-import WindowMenuImage from '../../assets/images/windowMenu.webp'
-import Button from '../UI/buttons/Button'
-import { NAVIGATIONS_BOTTOM } from '../../utils/constants/category'
+import WindowMenuImage from '../../../assets/images/windowMenu.webp'
+import Button from '../../UI/buttons/Button'
+import { NAVIGATIONS_BOTTOM } from '../../../utils/constants/category'
 import {
    InnerWindowMenu,
    List,

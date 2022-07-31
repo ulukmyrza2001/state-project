@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components'
 import { CgMenuGridR } from 'react-icons/cg'
-import WindowMenuImage from '../../assets/images/windowMenu.webp'
+import WindowMenuImage from '../../../assets/images/windowMenu.webp'
 
 export const MenuBurger = styled(CgMenuGridR)`
    font-size: 40px;

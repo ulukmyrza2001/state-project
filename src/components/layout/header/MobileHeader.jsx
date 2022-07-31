@@ -2,8 +2,8 @@ import React from 'react'
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material'
 import styled from '@emotion/styled'
 import { VscExport } from 'react-icons/vsc'
-import { NAVIGATIONS_MOBILE } from '../../utils/constants/category'
-import Button from '../UI/buttons/Button'
+import { NAVIGATIONS_MOBILE } from '../../../utils/constants/category'
+import Button from '../../UI/buttons/Button'
 
 const MobileHeader = ({ isVisible }) => {
    return (

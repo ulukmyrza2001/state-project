@@ -4,7 +4,7 @@ import { FaFacebookF } from 'react-icons/fa'
 import { BsTwitter } from 'react-icons/bs'
 import { GrYoutube } from 'react-icons/gr'
 import { IoIosArrowRoundForward } from 'react-icons/io'
-import { ReactComponent as GERB } from '../../assets/svg/GERB.svg'
+import { ReactComponent as GERB } from '../../../assets/svg/GERB.svg'
 
 const Data = [
    {
