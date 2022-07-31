@@ -1,13 +1,18 @@
-import React from 'react'
 import styled from 'styled-components'
-import Footer from './components/layout/Footer'
+import ContainerHeader from './components/layout/ContainerHeader'
 
-const App = () => {
+function App() {
    return (
-      <div>
-         <Footer />
+      <div className="App">
+         <ContainerHeader />
+         <Div />
       </div>
    )
 }
+const Div = styled.div`
+   width: 100%;
+   height: 1500px;
+   background-color: red;
+`
 
 export default App
