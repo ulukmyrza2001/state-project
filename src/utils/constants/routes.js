@@ -14,7 +14,7 @@ export const CLIENT_ROUTES = {
          label: 'apparat',
       },
       VILLAGE_COUNCIL: {
-         path: 'jetekchilik/aiyldyk-kenesh',
+         path: '/jetekchilik/aiyldyk-kenesh',
       },
    },
 }

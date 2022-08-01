@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { IoIosArrowDown } from 'react-icons/io'
+import { useLocation } from 'react-router-dom'
 import flag from '../../../assets/icons/Flag_of_Kyrgyzstan.svg'
 import gerb from '../../../assets/icons/GERB.svg'
 import Button from '../../UI/buttons/Button'
@@ -20,6 +21,7 @@ import {
 } from './styles'
 
 const Header = () => {
+   const { pathname } = useLocation()
    const [headerBackground, setHeaderBackground] = useState(false)
    const [windowMenu, setWindowMenu] = useState(false)
    const [showMenuBurger, setShowMenuBurger] = useState(false)
@@ -30,10 +32,12 @@ const Header = () => {
       else setHeaderBackground(false)
    })
 
+   const headerStyle = pathname !== '/' || windowMenu || headerBackground
+
    return (
-      <HeaderStyled windowMenu={windowMenu} headerBackground={headerBackground}>
+      <HeaderStyled headerStyle={headerStyle}>
          <StyledFlag>
-            <Img isScroll={headerBackground} src={gerb} alt="" />
+            <Img isScroll={headerStyle} src={gerb} alt="" />
          </StyledFlag>
          <MenuBurger onClick={() => setShowMenuBurger(!showMenuBurger)} />
          <MobileHeader isVisible={showMenuBurger} />
@@ -59,7 +63,7 @@ const Header = () => {
             ))}
          </List>
          <StyledFlag>
-            <Img isScroll={headerBackground} src={flag} alt="" />
+            <Img isScroll={headerStyle} src={flag} alt="" />
          </StyledFlag>
          <WindowMenu
             onMouseMove={() => setWindowMenu(true)}
@@ -78,9 +82,9 @@ const Header = () => {
 export const HeaderStyled = styled.header`
    position: fixed;
    width: 100%;
-   height: ${({ headerBackground }) => (headerBackground ? '60px' : '90px')};
-   background-color: ${({ headerBackground, windowMenu }) =>
-      windowMenu || headerBackground ? '#011835' : 'transparent'};
+   height: ${({ headerStyle }) => (headerStyle ? '60px' : '90px')};
+   background-color: ${({ headerStyle }) =>
+      headerStyle ? '#011835' : 'transparent'};
    display: flex;
    align-items: center;
    justify-content: center;
