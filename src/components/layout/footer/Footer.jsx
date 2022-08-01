@@ -6,26 +6,74 @@ import { GrYoutube } from 'react-icons/gr'
 import { IoIosArrowRoundForward } from 'react-icons/io'
 import { ReactComponent as GERB } from '../../../assets/svg/GERB.svg'
 
-const Data = [
+const BilimBeruuNav = [
    {
       id: 1,
-      title: 'Beybars',
+      title: 'Мектептер',
    },
    {
       id: 2,
-      title: 'Beybars',
+      title: 'Авто мектептер',
    },
    {
       id: 3,
-      title: 'Beybars',
+      title: 'Ийримдер',
    },
    {
       id: 4,
-      title: 'Beybars',
+      title: 'Олимпиадалар',
    },
    {
       id: 5,
-      title: 'Beybars',
+      title: 'Бала бакчалар',
+   },
+   {
+      id: 6,
+      title: 'Иш чаралар',
+   },
+   {
+      id: 7,
+      title: 'ОРТ',
+   },
+]
+const SalamattyktySaktooNav = [
+   {
+      id: 1,
+      title: 'Ооруканалары',
+   },
+   {
+      id: 2,
+      title: 'Фаптар',
+   },
+   {
+      id: 3,
+      title: 'Омс',
+   },
+   {
+      id: 4,
+      title: 'Дарыгердин кенеши',
+   },
+]
+const JashtarIshteriNav = [
+   {
+      id: 1,
+      title: 'Коммиттет жетекчиси',
+   },
+   {
+      id: 2,
+      title: 'Жигердуу жаштар',
+   },
+   {
+      id: 3,
+      title: 'Жаштар учун сунуштар',
+   },
+   {
+      id: 4,
+      title: 'Спорттук  иш чаралар',
+   },
+   {
+      id: 4,
+      title: 'Инициативалар',
    },
 ]
 
@@ -35,8 +83,8 @@ const Footer = () => {
          <WrapperFooter>
             <InnerFooter>
                <NavBlock>
-                  <h2>Ulukmyrza</h2>
-                  {Data.map((item) => (
+                  <h2>БИЛИМ БЕРУУ</h2>
+                  {BilimBeruuNav.map((item) => (
                      <ul key={item.id}>
                         <li>
                            <div>
@@ -48,8 +96,8 @@ const Footer = () => {
                   ))}
                </NavBlock>
                <NavBlock>
-                  <h2>Ulukmyrza</h2>
-                  {Data.map((item) => (
+                  <h2>САЛАМАТТЫКТЫ САКТОО</h2>
+                  {SalamattyktySaktooNav.map((item) => (
                      <ul key={item.id}>
                         <li>
                            <div>
@@ -61,8 +109,8 @@ const Footer = () => {
                   ))}
                </NavBlock>
                <NavBlock>
-                  <h2>Ulukmyrza</h2>
-                  {Data.map((item) => (
+                  <h2>Жаштар Иштери</h2>
+                  {JashtarIshteriNav.map((item) => (
                      <ul key={item.id}>
                         <li>
                            <div>
@@ -74,8 +122,8 @@ const Footer = () => {
                   ))}
                </NavBlock>
                <NavBlock>
-                  <h2>Ulukmyrza</h2>
-                  {Data.map((item) => (
+                  <h2>КАМЕРА</h2>
+                  {BilimBeruuNav.map((item) => (
                      <ul key={item.id}>
                         <li>
                            <div>
@@ -193,8 +241,6 @@ const NavBlock = styled.div`
          }
          :hover div {
             transform: translateX(4px);
-         }
-         :hover {
             color: #ff9500;
          }
          :hover a {
@@ -207,6 +253,7 @@ const NavBlock = styled.div`
             font-size: 14px;
             line-height: 19px;
             color: #ffffff;
+            transition: 0.4s;
          }
       }
    }
