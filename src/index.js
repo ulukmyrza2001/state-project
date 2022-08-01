@@ -9,10 +9,12 @@ import './index.css'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
    <React.StrictMode>
-      <BrowserRouter>
-         <Provider store={store}>
-            <App />
-         </Provider>
-      </BrowserRouter>
+      <React.Suspense fallback={<div>Loading</div>}>
+         <BrowserRouter>
+            <Provider store={store}>
+               <App />
+            </Provider>
+         </BrowserRouter>
+      </React.Suspense>
    </React.StrictMode>
 )
