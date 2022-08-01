@@ -23,22 +23,45 @@ const TemplateLeaderShipPages = ({ headerTitle, children, socials }) => {
          <GlobalStyle />
          <Header>
             <InnerHeader>
-               <Title>{headerTitle}</Title>
+               <TitleHeader>{headerTitle}</TitleHeader>
                <Flex gap="7px" align="center">
                   {socialsRender(socials)}
                </Flex>
             </InnerHeader>
          </Header>
-         <Flex margin="12px 0" wdith="100%" justify="center">
-            <ContainerContent>{children}</ContainerContent>
+         <Flex
+            margin="12px 0"
+            width="100%"
+            justify="center"
+            mobileJustify="center"
+         >
+            <Flex
+               mobileDirection="column"
+               maxWidth="1440px"
+               width="90%"
+               justify="space-between"
+               mobileAlign="center"
+            >
+               <h1>2323232</h1>
+               <ContainerContent>{children}</ContainerContent>
+            </Flex>
          </Flex>
       </Container>
    )
 }
+
+const TitleHeader = styled(Title)`
+   @media (max-width: 800px) {
+      font-size: 15px;
+   }
+`
 const Container = styled.div`
    padding-top: 60px;
    width: 100%;
    margin: 0 auto;
+   @media (max-width: 800px) {
+      width: 100%;
+   }
 `
 const Header = styled.div`
    width: 100%;
@@ -51,6 +74,13 @@ const InnerHeader = styled.div`
    margin: 0 auto;
    display: flex;
    justify-content: space-between;
+   @media (max-width: 800px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+   }
 `
 const GlobalStyle = createGlobalStyle`
     body{
@@ -75,6 +105,9 @@ const ContainerContent = styled.div`
    background: #ffffff;
    padding: 1rem;
    box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.1);
+   @media (max-width: 800px) {
+      max-width: 100%;
+   }
 `
 
 export default TemplateLeaderShipPages
