@@ -3,6 +3,7 @@ import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import { ImFacebook2 } from 'react-icons/im'
 import { BsWhatsapp, BsInstagram } from 'react-icons/bs'
+import { IoIosArrowForward } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import { Flex } from '../../styles/style-for-positions/style'
 import { Title } from '../../styles/typography/typography'
@@ -17,7 +18,13 @@ const socialsRender = (socials) => {
    ))
 }
 
-const TemplateLeaderShipPages = ({ headerTitle, children, socials }) => {
+const TemplateLeaderShipPages = ({
+   headerTitle,
+   children,
+   socials,
+   navigationTitle,
+   navigation,
+}) => {
    return (
       <Container>
          <GlobalStyle />
@@ -42,7 +49,19 @@ const TemplateLeaderShipPages = ({ headerTitle, children, socials }) => {
                justify="space-between"
                mobileAlign="center"
             >
-               <h1>2323232</h1>
+               <NavigationBlock>
+                  <NavigationTitle>{navigationTitle}</NavigationTitle>
+                  <InnerNavigationLi>
+                     {navigation.map((item, index) => (
+                        <li key={index}>
+                           {item.title}
+                           <div>
+                              <IoIosArrowForward />
+                           </div>
+                        </li>
+                     ))}
+                  </InnerNavigationLi>
+               </NavigationBlock>
                <ContainerContent>{children}</ContainerContent>
             </Flex>
          </Flex>
@@ -110,4 +129,49 @@ const ContainerContent = styled.div`
    }
 `
 
+const NavigationTitle = styled.div`
+   padding: 15px 20px;
+   background-color: #dddddd;
+   border-radius: 8px 8px 0 0;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 20px;
+`
+const NavigationBlock = styled.div`
+   width: 20%;
+   min-width: 240px;
+   border-radius: 10px;
+   background-color: #ffffff;
+   @media (max-width: 800px) {
+      width: 100%;
+   }
+`
+const InnerNavigationLi = styled.ul`
+   list-style: none;
+   li {
+      padding: 15px 20px;
+      border-bottom: 0 solid #f1f1f1;
+      border-top: 0.1px solid #f1f1f1;
+      cursor: pointer;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      :last-child {
+         border-radius: 0 0 8px 8px;
+      }
+      div {
+         display: flex;
+         transition: 0.5s;
+      }
+      :hover {
+         background-color: #dddddd;
+      }
+      :hover div {
+         transform: translateX(3px);
+      }
+   }
+`
 export default TemplateLeaderShipPages
