@@ -311,6 +311,7 @@ const UnderFooter = styled.div`
    height: 35px;
    display: flex;
    justify-content: center;
+   background-color: #fff;
 `
 const WrapperIcons = styled.ul`
    display: flex;

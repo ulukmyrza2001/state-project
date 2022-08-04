@@ -1,4 +1,5 @@
-import { getJwt } from '../utils/constants/general'
+/* eslint-disable import/prefer-default-export */
+import { getJwt } from '../utils/helpers/general'
 import { SERVER_BASE_URL } from '../utils/constants/general'
 
 export const baseFetch = async (options) => {
