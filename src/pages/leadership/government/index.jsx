@@ -20,7 +20,7 @@ const navigation = [
       nav: 'Beybars',
    },
 ]
-const Government = () => {
+const Government = ({ children }) => {
    return (
       <TemplateLeaderShipPages
          headerTitle="МАДЫ АЙЫЛ ОКМОТУ"
@@ -28,8 +28,7 @@ const Government = () => {
          navigation={navigation}
          navigationTitle="МАДЫ АЙЫЛ ОКМОТУ"
       >
-         <h1>HELLO</h1>
-         <Flex width="100%">sd</Flex>
+         <Flex width="100%">{children}</Flex>
       </TemplateLeaderShipPages>
    )
 }

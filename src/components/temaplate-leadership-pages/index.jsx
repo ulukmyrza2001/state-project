@@ -144,8 +144,11 @@ const NavigationBlock = styled.div`
    min-width: 240px;
    border-radius: 10px;
    background-color: #ffffff;
+   margin-right: 15px;
    @media (max-width: 800px) {
       width: 100%;
+      margin-bottom: 20px;
+      margin-right: 0;
    }
 `
 const InnerNavigationLi = styled.ul`
