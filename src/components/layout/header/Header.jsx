@@ -1,24 +1,23 @@
-/* eslint-disable no-return-assign */
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { IoIosArrowDown } from 'react-icons/io'
 import { useLocation } from 'react-router-dom'
 import flag from '../../../assets/icons/Flag_of_Kyrgyzstan.svg'
 import gerb from '../../../assets/icons/GERB.svg'
-import Button from '../../UI/buttons/Button'
 import { scrollHeader } from '../../../utils/helpers/general'
-import { NAVIGATIONS } from '../../../utils/constants/category'
+import {
+   NAVIGATIONS,
+   NAVIGATIONS_MOBILE,
+} from '../../../utils/constants/category'
 import MobileHeader from './MobileHeader'
 import {
    Img,
    InnerWindowMenu,
-   List,
    MenuBurger,
-   NavButton,
-   NavIconWrapper,
    StyledFlag,
    WindowMenu,
 } from './styles'
+import Navigations from './Navigations'
+import NavSectionItem from './NavSectionItem'
 
 const Header = () => {
    const { pathname } = useLocation()
@@ -32,7 +31,7 @@ const Header = () => {
       else setHeaderBackground(false)
    })
 
-   const headerStyle = pathname !== '/' || windowMenu || headerBackground
+   const headerStyle = pathname !== '/' || headerBackground
 
    return (
       <HeaderStyled headerStyle={headerStyle}>
@@ -40,28 +39,20 @@ const Header = () => {
             <Img isScroll={headerStyle} src={gerb} alt="" />
          </StyledFlag>
          <MenuBurger onClick={() => setShowMenuBurger(!showMenuBurger)} />
-         <MobileHeader isVisible={showMenuBurger} />
-         <List>
-            {NAVIGATIONS.map((item) => (
-               <NavButton
-                  key={item.id}
-                  id={item.id}
-                  onMouseMove={(e) => {
-                     setWindowMenu(true)
-                     setSections(
-                        NAVIGATIONS.find((el) => el.id === e.currentTarget.id)
-                     )
-                  }}
-                  onMouseOut={() => setWindowMenu(false)}
-               >
-                  {item.title}
-                  <span />
-                  <NavIconWrapper>
-                     <IoIosArrowDown fontSize={14} />
-                  </NavIconWrapper>
-               </NavButton>
-            ))}
-         </List>
+         <MobileHeader
+            isVisible={showMenuBurger}
+            navigations={NAVIGATIONS_MOBILE}
+         />
+         <Navigations
+            navigations={NAVIGATIONS}
+            onMouseOut={() => setWindowMenu(false)}
+            onMouseMove={(e) => {
+               setWindowMenu(true)
+               setSections(
+                  NAVIGATIONS.find((el) => el.id === e.currentTarget.id)
+               )
+            }}
+         />
          <StyledFlag>
             <Img isScroll={headerStyle} src={flag} alt="" />
          </StyledFlag>
@@ -71,9 +62,7 @@ const Header = () => {
             windowMenu={windowMenu}
          >
             <InnerWindowMenu>
-               {sections.innerList.map((el) => (
-                  <Button key={el.id}>{el.title}</Button>
-               ))}
+               <NavSectionItem sections={sections} />
             </InnerWindowMenu>
          </WindowMenu>
       </HeaderStyled>

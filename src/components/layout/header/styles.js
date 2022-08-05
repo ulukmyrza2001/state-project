@@ -92,6 +92,7 @@ export const WindowMenu = styled.div`
    background-position: center;
    background-size: cover;
    display: ${({ windowMenu }) => (windowMenu ? 'block' : 'none')};
+   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
 `
 export const InnerWindowMenu = styled.div`
    width: 100%;
@@ -109,6 +110,7 @@ export const List = styled.ul`
    height: 100%;
    align-items: center;
    background-color: #011835;
+   position: relative;
    @media (max-width: 800px) {
       display: none;
    }
