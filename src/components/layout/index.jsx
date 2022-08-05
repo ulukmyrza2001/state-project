@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Outlet } from 'react-router-dom'
 import ContainerHeader from './header/ContainerHeader'
 import Footer from './footer/Footer'
-import photoMady from '../../assets/images/mady.jpg'
 
 const LayoutClient = () => {
    return (

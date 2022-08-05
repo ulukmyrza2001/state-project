@@ -52,8 +52,8 @@ const TemplateLeaderShipPages = ({
                <NavigationBlock>
                   <NavigationTitle>{navigationTitle}</NavigationTitle>
                   <InnerNavigationLi>
-                     {navigation.map((item, index) => (
-                        <li key={index}>
+                     {navigation.map((item) => (
+                        <li key={item.id}>
                            {item.title}
                            <div>
                               <IoIosArrowForward />

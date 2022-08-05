@@ -1,18 +1,9 @@
-/* eslint-disable no-return-assign */
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { IoIosArrowDown } from 'react-icons/io'
-import WindowMenuImage from '../../../assets/images/windowMenu.webp'
-import Button from '../../UI/buttons/Button'
 import { NAVIGATIONS_BOTTOM } from '../../../utils/constants/category'
-import {
-   InnerWindowMenu,
-   List,
-   NavButton,
-   NavIconWrapper,
-   StyledFlag,
-   WindowMenu,
-} from './styles'
+import { InnerWindowMenu, StyledFlag, WindowMenu } from './styles'
+import Navigations from './Navigations'
+import NavSectionItem from './NavSectionItem'
 
 const HeaderBottom = () => {
    const [windowMenu, setWindowMenu] = useState(false)
@@ -25,41 +16,25 @@ const HeaderBottom = () => {
    return (
       <HeaderStyled windowMenu={windowMenu}>
          <StyledFlag />
-         <List>
-            {NAVIGATIONS_BOTTOM.map((item) => (
-               <NavButton
-                  key={item.id}
-                  id={item.id}
-                  onMouseMove={(e) => {
-                     visibleMenuHandler()
-                     setSections(
-                        NAVIGATIONS_BOTTOM.find(
-                           (el) => el.id === e.currentTarget.id
-                        )
-                     )
-                  }}
-                  onMouseOut={hideMenuHandler}
-               >
-                  {item.title}
-                  <span />
-                  <NavIconWrapper>
-                     <IoIosArrowDown fontSize={20} />
-                  </NavIconWrapper>
-               </NavButton>
-            ))}
-         </List>
+         <Navigations
+            navigations={NAVIGATIONS_BOTTOM}
+            onMouseOut={() => setWindowMenu(false)}
+            onMouseMove={(e) => {
+               setWindowMenu(true)
+               setSections(
+                  NAVIGATIONS_BOTTOM.find((el) => el.id === e.currentTarget.id)
+               )
+            }}
+         />
          <StyledFlag />
          <WindowMenu
             isBottom
             onMouseMove={visibleMenuHandler}
             onMouseOut={hideMenuHandler}
             windowMenu={windowMenu}
-            image={WindowMenuImage}
          >
             <InnerWindowMenu>
-               {sections.innerList.map((el) => (
-                  <Button key={el.id}>{el.title}</Button>
-               ))}
+               <NavSectionItem sections={sections} />
             </InnerWindowMenu>
          </WindowMenu>
       </HeaderStyled>

@@ -2,14 +2,13 @@ import React from 'react'
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material'
 import styled from '@emotion/styled'
 import { VscExport } from 'react-icons/vsc'
-import { NAVIGATIONS_MOBILE } from '../../../utils/constants/category'
 import Button from '../../UI/buttons/Button'
 
-const MobileHeader = ({ isVisible }) => {
+const MobileHeader = ({ isVisible, navigations }) => {
    return (
       <Menu isVisible={isVisible}>
-         {NAVIGATIONS_MOBILE.map((navigation) => (
-            <Accordion>
+         {navigations.map((navigation) => (
+            <Accordion key={navigation.id}>
                <AccordionSummary
                   id="panel1-header"
                   aria-controls="panel1-content"
@@ -17,10 +16,9 @@ const MobileHeader = ({ isVisible }) => {
                >
                   <h5>{navigation.title}</h5>
                </AccordionSummary>
-
                <AccordionDetails>
                   {navigation.innerList.map((detail) => (
-                     <Button size="11px" width="100%">
+                     <Button key={detail.id} size="11px" width="100%">
                         {detail.title}
                      </Button>
                   ))}
@@ -33,7 +31,7 @@ const MobileHeader = ({ isVisible }) => {
 
 const Menu = styled.div`
    position: absolute;
-   top: ${({ isVisible }) => (isVisible ? '100%' : '-1000%')};
+   top: ${({ isVisible }) => (isVisible ? '100%' : '-1500%')};
    width: 100%;
    padding: 1rem 0.3rem;
    background-color: #011835;

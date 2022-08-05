@@ -72,7 +72,7 @@ const JashtarIshteriNav = [
       title: 'Спорттук  иш чаралар',
    },
    {
-      id: 4,
+      id: 5,
       title: 'Инициативалар',
    },
 ]
