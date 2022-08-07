@@ -1,7 +1,7 @@
 import { Breadcrumbs } from '@mui/material'
 import styled from '@emotion/styled'
 import { Link } from 'react-router-dom'
-import { AiOutlineHome } from 'react-icons/ai'
+import { AiFillHome } from 'react-icons/ai'
 import { Title } from '../../../styles/typography/typography'
 
 const BreadCrumbs = ({ pathsArray }) => {
@@ -15,13 +15,13 @@ const BreadCrumbs = ({ pathsArray }) => {
       ) : (
          <LinkStyleControl to={crumb.path} key={crumb.path}>
             {index === 0 && (
-               <AiOutlineHome
-                  color="gray"
-                  style={{ margin: '0 0 2px 0' }}
+               <AiFillHome
+                  color="#011835"
+                  style={{ margin: '0 0 3px 0' }}
                   fontSize={16}
                />
             )}
-            {crumb.name}
+            {index !== 0 && crumb.name}
          </LinkStyleControl>
       )
    })

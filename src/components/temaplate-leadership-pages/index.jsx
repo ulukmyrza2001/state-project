@@ -32,7 +32,12 @@ const TemplateLeaderShipPages = ({
          <GlobalStyle />
          <Header>
             <InnerHeader>
-               <Flex direction="column">
+               <Flex
+                  direction="column"
+                  width="100%"
+                  mobileDirection="column"
+                  mobileAlign="center"
+               >
                   <TitleHeader>{headerTitle}</TitleHeader>
                   <BreadCrumbs pathsArray={breadCrumbsPaths} />
                </Flex>
@@ -78,6 +83,10 @@ const TitleHeader = styled(Title)`
    font-weight: bold;
    @media (max-width: 800px) {
       font-size: 15px;
+   }
+   @media (max-width: 500px) {
+      font-size: 13px;
+      margin: 5px 0;
    }
 `
 const Container = styled.div`
