@@ -20,6 +20,16 @@ const navigation = [
 ]
 
 const VillageCouncil = () => {
+   const pathsArray = [
+      {
+         path: '/',
+         name: 'Уй',
+      },
+      {
+         path: '/jetekchilik/aiyldyk-kenesh',
+         name: 'Айылдык кенеш',
+      },
+   ]
    return (
       <div>
          <TemplateLeaderShipPages
@@ -27,6 +37,7 @@ const VillageCouncil = () => {
             socials={['dfs', 'sdf', 'sd']}
             navigation={navigation}
             navigationTitle="МАДЫ АЙЫЛ ОКМОТУНУН АЙЫЛДЫК КЕНЕШИ"
+            breadCrumbsPaths={pathsArray}
          >
             <p>
                hello world Lorem ipsum dolor sit amet consectetur, adipisicing
