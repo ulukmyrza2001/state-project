@@ -7,6 +7,7 @@ import { IoIosArrowForward } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import { Flex } from '../../styles/style-for-positions/style'
 import { Title } from '../../styles/typography/typography'
+import BreadCrumbs from '../UI/breadcrumbs/BreadCrumbs'
 
 const SOCIAL_ICONS = [<ImFacebook2 />, <BsInstagram />, <BsWhatsapp />]
 
@@ -24,13 +25,17 @@ const TemplateLeaderShipPages = ({
    socials,
    navigationTitle,
    navigation,
+   breadCrumbsPaths,
 }) => {
    return (
       <Container>
          <GlobalStyle />
          <Header>
             <InnerHeader>
-               <TitleHeader>{headerTitle}</TitleHeader>
+               <Flex direction="column">
+                  <TitleHeader>{headerTitle}</TitleHeader>
+                  <BreadCrumbs pathsArray={breadCrumbsPaths} />
+               </Flex>
                <Flex gap="7px" align="center">
                   {socialsRender(socials)}
                </Flex>
@@ -70,6 +75,7 @@ const TemplateLeaderShipPages = ({
 }
 
 const TitleHeader = styled(Title)`
+   font-weight: bold;
    @media (max-width: 800px) {
       font-size: 15px;
    }
@@ -133,11 +139,9 @@ const NavigationTitle = styled.div`
    padding: 15px 20px;
    background-color: #dddddd;
    border-radius: 8px 8px 0 0;
-   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
    font-weight: 400;
    font-style: normal;
-   font-size: 20px;
+   font-size: 14px;
 `
 const NavigationBlock = styled.div`
    width: 20%;
