@@ -3,11 +3,12 @@ import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import { ImFacebook2 } from 'react-icons/im'
 import { BsWhatsapp, BsInstagram } from 'react-icons/bs'
-import { IoIosArrowForward } from 'react-icons/io'
-import { Link } from 'react-router-dom'
+import { Link, Outlet, useLocation } from 'react-router-dom'
 import { Flex } from '../../styles/style-for-positions/style'
 import { Title } from '../../styles/typography/typography'
 import BreadCrumbs from '../UI/breadcrumbs/BreadCrumbs'
+import SideBarNav from './SideBarNav'
+import { findOneCategory } from '../../utils/helpers/general'
 
 const SOCIAL_ICONS = [<ImFacebook2 />, <BsInstagram />, <BsWhatsapp />]
 
@@ -19,14 +20,19 @@ const socialsRender = (socials) => {
    ))
 }
 
-const TemplateLeaderShipPages = ({
-   headerTitle,
-   children,
-   socials,
-   navigationTitle,
-   navigation,
-   breadCrumbsPaths,
-}) => {
+const TemplateLeaderShipPages = ({ socials = ['sdf', 'df', 'df'] }) => {
+   const { pathname, state } = useLocation()
+
+   const pathsArray = [
+      {
+         path: '/',
+         name: 'Уй',
+      },
+      {
+         path: '/jetekchilik/aiyldyk-kenesh',
+         name: state.title,
+      },
+   ]
    return (
       <Container>
          <GlobalStyle />
@@ -38,8 +44,10 @@ const TemplateLeaderShipPages = ({
                   mobileDirection="column"
                   mobileAlign="center"
                >
-                  <TitleHeader>{headerTitle}</TitleHeader>
-                  <BreadCrumbs pathsArray={breadCrumbsPaths} />
+                  <TitleHeader>{`Мады айыл өкмөтү / ${
+                     findOneCategory(pathname).title
+                  }`}</TitleHeader>
+                  <BreadCrumbs pathsArray={pathsArray} />
                </Flex>
                <Flex gap="7px" align="center">
                   {socialsRender(socials)}
@@ -58,21 +66,17 @@ const TemplateLeaderShipPages = ({
                width="90%"
                justify="space-between"
                mobileAlign="center"
+               align="start"
             >
                <NavigationBlock>
-                  <NavigationTitle>{navigationTitle}</NavigationTitle>
+                  <NavigationTitle>Навигация</NavigationTitle>
                   <InnerNavigationLi>
-                     {navigation.map((item) => (
-                        <li key={item.id}>
-                           {item.title}
-                           <div>
-                              <IoIosArrowForward />
-                           </div>
-                        </li>
-                     ))}
+                     <SideBarNav />
                   </InnerNavigationLi>
                </NavigationBlock>
-               <ContainerContent>{children}</ContainerContent>
+               <ContainerContent>
+                  <Outlet />
+               </ContainerContent>
             </Flex>
          </Flex>
       </Container>
@@ -135,7 +139,7 @@ const Social = styled(Link)`
    }
 `
 const ContainerContent = styled.div`
-   max-width: 70%;
+   max-width: 78%;
    background: #ffffff;
    padding: 1rem;
    box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.1);

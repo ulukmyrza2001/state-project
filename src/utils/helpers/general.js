@@ -1,4 +1,5 @@
 import store from '../../store'
+import { CATEGORYES } from '../constants/categoryes'
 
 export const getJwt = () => {
    return store.getState().auth.token
@@ -27,4 +28,17 @@ export const scrollHeader = () => {
       return true
    }
    return false
+}
+
+export const findOneCategory = (pathname) => {
+   let oneCategory = null
+   CATEGORYES.forEach((category) =>
+      category.innerList.forEach((item) => {
+         if (item.path === pathname) {
+            oneCategory = category
+         }
+         return category
+      })
+   )
+   return oneCategory
 }

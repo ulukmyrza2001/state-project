@@ -1,12 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Button from '../../UI/buttons/Button'
 
 const NavSectionItem = ({ sections }) => {
+   const navigate = useNavigate()
    return sections?.innerList?.map((el) => (
-      <Link to={el.path || '/'} key={el.id}>
-         <Button>{el.title}</Button>
-      </Link>
+      <Button onClick={() => navigate(`${el.path}`, { state: el })}>
+         {el.title}
+      </Button>
    ))
 }
 

@@ -1,34 +1,14 @@
 import React from 'react'
-import TemplateLeaderShipPages from '../../../components/temaplate-leadership-pages'
 import { Flex } from '../../../styles/style-for-positions/style'
 
-const navigation = [
-   {
-      id: 1,
-      title: 'Beyabrs',
-      nav: 'Beybars',
-   },
-   {
-      id: 2,
-      title: 'Beyabrs',
-      nav: 'Beybars',
-   },
-   {
-      id: 3,
-      title: 'Beyabrs',
-      nav: 'Beybars',
-   },
-]
-const Government = ({ children }) => {
+const Government = () => {
    return (
-      <TemplateLeaderShipPages
-         headerTitle="МАДЫ АЙЫЛ ОКМОТУ"
-         socials={['dfs', 'df', 'dfj']}
-         navigation={navigation}
-         navigationTitle="МАДЫ АЙЫЛ ОКМОТУ"
-      >
-         <Flex width="100%">{children}</Flex>
-      </TemplateLeaderShipPages>
+      <Flex width="100%">
+         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus,
+         labore ad ea praesentium debitis inventore nulla laudantium reiciendis
+         unde. Quod ullam vel dicta praesentium nostrum sit itaque impedit velit
+         id!
+      </Flex>
    )
 }
 
