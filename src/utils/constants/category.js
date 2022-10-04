@@ -262,14 +262,17 @@ export const NAVIGATIONS_MOBILE = [
          {
             id: Math.random().toString(),
             title: 'Окмот',
+            path: GOVERNMENT.path,
          },
          {
             id: Math.random().toString(),
             title: 'Аппарат',
+            path: GOVERNMENT_APPARATUS.path,
          },
          {
             id: Math.random().toString(),
             title: 'Айылдык кенеш',
+            path: VILLAGE_COUNCIL.path,
          },
       ],
    },

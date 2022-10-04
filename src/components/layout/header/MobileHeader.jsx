@@ -2,9 +2,11 @@ import React from 'react'
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material'
 import styled from '@emotion/styled'
 import { VscExport } from 'react-icons/vsc'
+import { useNavigate } from 'react-router-dom'
 import Button from '../../UI/buttons/Button'
 
 const MobileHeader = ({ isVisible, navigations }) => {
+   const navigate = useNavigate()
    return (
       <Menu isVisible={isVisible}>
          {navigations.map((navigation) => (
@@ -18,7 +20,14 @@ const MobileHeader = ({ isVisible, navigations }) => {
                </AccordionSummary>
                <AccordionDetails>
                   {navigation.innerList.map((detail) => (
-                     <Button key={detail.id} size="11px" width="100%">
+                     <Button
+                        onClick={() =>
+                           navigate(`${detail.path}`, { state: detail })
+                        }
+                        key={detail.id}
+                        size="11px"
+                        width="100%"
+                     >
                         {detail.title}
                      </Button>
                   ))}
