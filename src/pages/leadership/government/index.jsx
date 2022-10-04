@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { clientGetData } from '../../../store/client-slice'
@@ -20,7 +20,7 @@ const Government = () => {
          mobileGap="20px"
       >
          {government.map((item) => (
-            <>
+            <Fragment key={item.id}>
                <h2>{item.positions}</h2>
                <Flex
                   key={item.id}
@@ -74,7 +74,7 @@ const Government = () => {
                      </h4>
                   </WrapperImage>
                </Flex>
-            </>
+            </Fragment>
          ))}
       </Flex>
    )
