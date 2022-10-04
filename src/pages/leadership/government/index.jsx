@@ -11,7 +11,6 @@ const Government = () => {
    useEffect(() => {
       dispatch(clientGetData('leadership'))
    }, [])
-
    return (
       <Flex
          width="100%"
@@ -71,7 +70,7 @@ const Government = () => {
                   <WrapperImage>
                      <img src={item.fileInformation.photo} alt="" />
                      <h4>
-                        {item.firstName} {item.lastName}
+                        {item.firstName} {item.lastName} {item.patronymic}
                      </h4>
                   </WrapperImage>
                </Flex>

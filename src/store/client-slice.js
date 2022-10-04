@@ -12,7 +12,6 @@ export const clientGetData = createAsyncThunk(
          })
          return { result, category }
       } catch (error) {
-         console.log({ title: 'Error', message: error.message })
          return rejectWithValue(error.message)
       }
    }
