@@ -76,7 +76,7 @@ const TemplateLeaderShipPages = ({ socials = ['sdf', 'df', 'df'] }) => {
    )
 }
 const WrapperContent = styled(Flex)`
-   max-width: 1440px;
+   max-width: 1380px;
    justify-content: space-between;
    align-items: flex-start;
    @media (max-width: 800px) {
@@ -142,25 +142,25 @@ const Social = styled(Link)`
    }
 `
 const ContainerContent = styled.div`
-   max-width: 78%;
+   width: 88%;
    background: #ffffff;
    padding: 1rem;
    box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.1);
    @media (max-width: 800px) {
-      max-width: 100%;
+      width: 100%;
    }
 `
 
 const NavigationTitle = styled.div`
    padding: 15px 20px;
-   background-color: #dddddd;
+   background-color: #dddd;
    border-radius: 8px 8px 0 0;
    font-weight: 400;
    font-style: normal;
    font-size: 14px;
 `
 const NavigationBlock = styled.div`
-   width: 20%;
+   width: 10%;
    min-width: 240px;
    border-radius: 10px;
    background-color: #ffffff;
