@@ -1,19 +1,12 @@
 /* eslint-disable import/prefer-default-export */
-import { getJwt } from '../utils/helpers/general'
 import { SERVER_BASE_URL } from '../utils/constants/general'
 
 export const baseFetch = async (options) => {
-   const token = getJwt()
    try {
       const { path, body, method, params } = options
       const requestOptions = {
          method: method || 'GET',
-         headers: token
-            ? {
-                 'Content-Type': 'application/json',
-                 Authorization: `Bearer ${token}`,
-              }
-            : { 'Content-Type': 'application/json' },
+         headers: { 'Content-Type': 'application/json' },
       }
       if (method !== 'GET') {
          requestOptions.body = JSON.stringify(body || {})

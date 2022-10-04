@@ -55,17 +55,16 @@ const Icon = styled(AiOutlineCaretRight)`
 const InnerList = styled.div`
    width: 100%;
    padding: ${({ isvisibleinner }) => (isvisibleinner ? '0.4rem' : '0rem')};
-   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+   box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.2);
    height: ${({ isvisibleinner }) => (isvisibleinner ? 'fit-content' : '0px')};
-   color: ${({ isvisibleinner }) =>
-      isvisibleinner ? '#7d97b8' : 'transparent'};
-   background-color: #0e1117;
+   color: ${({ isvisibleinner }) => (isvisibleinner ? 'black' : 'transparent')};
+   background-color: #dddddd;
    margin-bottom: ${({ isvisibleinner }) => (isvisibleinner ? '3px' : '0px')};
    pointer-events: ${({ isvisibleinner }) => (isvisibleinner ? '' : 'none')};
    font-size: 13px;
    cursor: pointer;
    :hover {
-      background-color: #26292c;
+      background-color: #949494;
    }
    :active {
       opacity: 0.5;
@@ -78,13 +77,14 @@ const Container = styled.div`
    overflow: scroll;
    padding: 0.2rem;
    margin: 0 auto;
-   background-color: #161b22;
+   background-color: #dddddd;
+   overflow: hidden;
 `
 const List = styled.div`
    width: 100%;
    padding: 0.5rem;
-   background-color: #21262c;
-   color: #7d97b8;
+   background-color: #dddddd;
+   color: black;
    display: flex;
    align-items: center;
    justify-content: space-between;
@@ -93,7 +93,8 @@ const List = styled.div`
    font-size: 13px;
    cursor: pointer;
    :hover {
-      background-color: #2e343b;
+      background-color: #949494;
+      padding-right: 5px;
    }
    :active {
       opacity: 0.5;
