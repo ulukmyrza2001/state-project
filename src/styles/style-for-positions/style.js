@@ -25,6 +25,8 @@ export const Flex = styled.div`
       flex-direction: ${(props) => props.mobileDirection || 'row'};
       justify-content: ${(props) => props.mobileJustify || 'start'};
       align-items: ${(props) => props.mobileAlign || 'stretch'};
+      flex-wrap: ${(props) => props.mobileWrap || 'nowrap'};
+      gap: ${(props) => props.mobileGap || '0px'};
    }
 `
 export const Centered = styled.div`
