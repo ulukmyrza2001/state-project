@@ -60,14 +60,7 @@ const TemplateLeaderShipPages = ({ socials = ['sdf', 'df', 'df'] }) => {
             justify="center"
             mobileJustify="center"
          >
-            <Flex
-               mobileDirection="column"
-               maxWidth="1440px"
-               width="90%"
-               justify="space-between"
-               mobileAlign="center"
-               align="start"
-            >
+            <WrapperContent>
                <NavigationBlock>
                   <NavigationTitle>Навигация</NavigationTitle>
                   <InnerNavigationLi>
@@ -77,11 +70,21 @@ const TemplateLeaderShipPages = ({ socials = ['sdf', 'df', 'df'] }) => {
                <ContainerContent>
                   <Outlet />
                </ContainerContent>
-            </Flex>
+            </WrapperContent>
          </Flex>
       </Container>
    )
 }
+const WrapperContent = styled(Flex)`
+   max-width: 1440px;
+   justify-content: space-between;
+   align-items: flex-start;
+   @media (max-width: 800px) {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+   }
+`
 
 const TitleHeader = styled(Title)`
    font-weight: bold;
@@ -163,9 +166,7 @@ const NavigationBlock = styled.div`
    background-color: #ffffff;
    margin-right: 15px;
    @media (max-width: 800px) {
-      width: 100%;
-      margin-bottom: 20px;
-      margin-right: 0;
+      display: none;
    }
 `
 const InnerNavigationLi = styled.ul`

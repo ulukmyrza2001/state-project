@@ -22,17 +22,17 @@ export const CATEGORYES = [
       innerList: [
          {
             id: uuid(),
-            title: 'Okmot',
+            title: 'Окмот',
             path: LEADERSHIP.GOVERNMENT.path,
          },
          {
             id: uuid(),
-            title: 'Okmot apparaty',
+            title: 'Окмот аппараты',
             path: LEADERSHIP.GOVERNMENT_APPARATUS.path,
          },
          {
             id: uuid(),
-            title: 'Aiyldyk kenesh',
+            title: 'Айылдык кенеш',
             path: LEADERSHIP.VILLAGE_COUNCIL.path,
          },
       ],

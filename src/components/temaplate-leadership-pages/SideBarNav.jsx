@@ -6,13 +6,18 @@ import { CATEGORYES } from '../../utils/constants/categoryes'
 
 const SideBarNav = () => {
    const navigate = useNavigate()
-   const [toggle, setToggle] = useState(false)
    const [listId, setlistId] = useState(null)
-   const isVisibleInner = (id) => listId === id && toggle
+   const isVisibleInner = (id) => listId === id
 
    const toggleInnerMenu = (id) => {
-      setToggle(!toggle)
-      setlistId(id)
+      switch (id) {
+         case listId:
+            setlistId(null)
+            break
+         default:
+            setlistId(id)
+            break
+      }
    }
 
    return (
@@ -73,12 +78,12 @@ const InnerList = styled.div`
 const Container = styled.div`
    max-width: 1000px;
    width: 100%;
-   max-height: 60vh;
-   overflow: scroll;
    padding: 0.2rem;
    margin: 0 auto;
    background-color: #dddddd;
-   overflow: hidden;
+   @media (max-width: 800px) {
+      display: none;
+   }
 `
 const List = styled.div`
    width: 100%;
