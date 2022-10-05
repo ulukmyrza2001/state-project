@@ -18,10 +18,12 @@ export const clientGetData = createAsyncThunk(
 )
 
 const initialState = {
-   isLoading: null,
+   isLoading: false,
    government: [],
    governmentApparatus: [],
    villageCouncil: [],
+   data: [],
+   oneData: null,
 }
 
 const clientSlice = createSlice({
@@ -41,7 +43,7 @@ const clientSlice = createSlice({
             )
             state.villageCouncil = result.filter((item) => item.type === '3')
          } else {
-            state.datas = result
+            state.data = result
          }
       },
       [clientGetData.rejected]: (state) => {

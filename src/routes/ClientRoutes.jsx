@@ -3,6 +3,7 @@ import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import ClientLayout from '../components/layout'
 import TemplateLeaderShipPages from '../components/temaplate-leadership-pages'
+import Schools from '../pages/education/schools'
 import MainPage from '../pages/main'
 import { CLIENT_ROUTES } from '../utils/constants/routes'
 
@@ -15,22 +16,26 @@ const VillageCouncil = React.lazy(() =>
 )
 
 const ClientRoutes = () => {
-   const { MAIN, LEADERSHIP } = CLIENT_ROUTES
-   const { GOVERNMENT, GOVERNMENT_APPARATUS, VILLAGE_COUNCIL } = LEADERSHIP
+   const { MAIN, LEADERSHIP, education } = CLIENT_ROUTES
+
    return (
       <Routes>
          <Route element={<ClientLayout />} path={MAIN.path}>
             <Route element={<MainPage />} path={MAIN.path} />
             <Route element={<TemplateLeaderShipPages />}>
-               <Route element={<Government />} path={GOVERNMENT.path} />
+               <Route
+                  element={<Government />}
+                  path={LEADERSHIP.GOVERNMENT.path}
+               />
                <Route
                   element={<GovernmentApparatus />}
-                  path={GOVERNMENT_APPARATUS.path}
+                  path={LEADERSHIP.GOVERNMENT_APPARATUS.path}
                />
                <Route
                   element={<VillageCouncil />}
-                  path={VILLAGE_COUNCIL.path}
+                  path={LEADERSHIP.VILLAGE_COUNCIL.path}
                />
+               <Route path={education.schools.path} element={<Schools />} />
             </Route>
          </Route>
       </Routes>
