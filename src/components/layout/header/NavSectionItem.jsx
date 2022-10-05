@@ -5,7 +5,7 @@ import Button from '../../UI/buttons/Button'
 const NavSectionItem = ({ sections }) => {
    const navigate = useNavigate()
    return sections?.innerList?.map((el) => (
-      <Button onClick={() => navigate(`${el.path}`, { state: el })}>
+      <Button key={el.id} onClick={() => navigate(`${el.path}`, { state: el })}>
          {el.title}
       </Button>
    ))

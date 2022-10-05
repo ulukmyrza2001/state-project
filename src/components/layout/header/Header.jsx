@@ -1,60 +1,67 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useLocation } from 'react-router-dom'
-import flag from '../../../assets/icons/Flag_of_Kyrgyzstan.svg'
 import gerb from '../../../assets/icons/GERB.svg'
+import madyLogo from '../../../assets/icons/logoMady.png'
 import { scrollHeader } from '../../../utils/helpers/general'
-import {
-   NAVIGATIONS,
-   NAVIGATIONS_MOBILE,
-} from '../../../utils/constants/category'
+import { NAVIGATIONS } from '../../../utils/constants/category'
 import MobileHeader from './MobileHeader'
 import {
    Img,
    InnerWindowMenu,
+   Logo,
    MenuBurger,
    StyledFlag,
    WindowMenu,
 } from './styles'
 import Navigations from './Navigations'
 import NavSectionItem from './NavSectionItem'
+import { CATEGORYES } from '../../../utils/constants/categoryes'
 
 const Header = () => {
    const { pathname } = useLocation()
-   const [headerBackground, setHeaderBackground] = useState(false)
+   const [isScroll, setIsScroll] = useState(false)
    const [windowMenu, setWindowMenu] = useState(false)
    const [showMenuBurger, setShowMenuBurger] = useState(false)
    const [sections, setSections] = useState({ innerList: [] })
 
    window.addEventListener('scroll', () => {
-      if (scrollHeader()) setHeaderBackground(true)
-      else setHeaderBackground(false)
+      if (scrollHeader()) setIsScroll(true)
+      else setIsScroll(false)
    })
 
-   const headerStyle = pathname !== '/' || headerBackground
+   const mouseMoveHandler = (e) => {
+      setWindowMenu(true)
+      setSections(NAVIGATIONS.find((el) => el.id === e.currentTarget.id))
+   }
+
+   const mouseOutHandler = () => setWindowMenu(false)
+
+   const headerHeight = pathname !== '/' || isScroll
+
+   const headerBackground = windowMenu || pathname !== '/' || isScroll
 
    return (
-      <HeaderStyled headerStyle={headerStyle}>
-         <StyledFlag>
-            <Img isScroll={headerStyle} src={gerb} alt="" />
-         </StyledFlag>
-         <MenuBurger onClick={() => setShowMenuBurger(!showMenuBurger)} />
+      <HeaderStyled
+         headerBackground={headerBackground}
+         headerHeight={headerHeight}
+      >
          <MobileHeader
             isVisible={showMenuBurger}
-            navigations={NAVIGATIONS_MOBILE}
-         />
-         <Navigations
-            navigations={NAVIGATIONS}
-            onMouseOut={() => setWindowMenu(false)}
-            onMouseMove={(e) => {
-               setWindowMenu(true)
-               setSections(
-                  NAVIGATIONS.find((el) => el.id === e.currentTarget.id)
-               )
-            }}
+            navigations={CATEGORYES}
+            setShowMenuBurger={setShowMenuBurger}
          />
          <StyledFlag>
-            <Img isScroll={headerStyle} src={flag} alt="" />
+            <Logo isScroll={headerHeight} src={madyLogo} />
+         </StyledFlag>
+         <MenuBurger onClick={() => setShowMenuBurger(!showMenuBurger)} />
+         <Navigations
+            navigations={NAVIGATIONS}
+            onMouseOut={mouseOutHandler}
+            onMouseMove={mouseMoveHandler}
+         />
+         <StyledFlag className="gerb">
+            <Img isScroll={headerHeight} src={gerb} alt="" />
          </StyledFlag>
          <WindowMenu
             onMouseMove={() => setWindowMenu(true)}
@@ -71,9 +78,9 @@ const Header = () => {
 export const HeaderStyled = styled.header`
    position: fixed;
    width: 100%;
-   height: ${({ headerStyle }) => (headerStyle ? '60px' : '90px')};
-   background-color: ${({ headerStyle }) =>
-      headerStyle ? '#011835' : 'transparent'};
+   height: ${({ headerHeight }) => (headerHeight ? '60px' : '90px')};
+   background-color: ${({ headerBackground }) =>
+      headerBackground ? '#011835' : 'transparent'};
    display: flex;
    align-items: center;
    justify-content: center;
@@ -84,6 +91,9 @@ export const HeaderStyled = styled.header`
    @media (max-width: 800px) {
       background-color: #011835;
       justify-content: space-between;
+      .gerb {
+         display: none;
+      }
    }
 `
 

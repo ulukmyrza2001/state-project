@@ -1,9 +1,10 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components'
-import { CgMenuGridR } from 'react-icons/cg'
+import { CgMenuRightAlt } from 'react-icons/cg'
 import WindowMenuImage from '../../../assets/images/windowMenu.webp'
 
-export const MenuBurger = styled(CgMenuGridR)`
+export const MenuBurger = styled(CgMenuRightAlt)`
+   width: 80px;
    font-size: 40px;
    color: white;
    cursor: pointer;
@@ -26,6 +27,15 @@ export const StyledFlag = styled.div`
    align-items: center;
    @media (max-width: 800px) {
       max-width: 90px;
+   }
+`
+export const Logo = styled.img`
+   width: ${({ isScroll }) => (isScroll ? '80px' : '115px')};
+   height: 80%;
+   object-fit: cover;
+   margin-bottom: 10px;
+   @media (max-width: 1200px) {
+      width: 80px;
    }
 `
 export const Img = styled.img`

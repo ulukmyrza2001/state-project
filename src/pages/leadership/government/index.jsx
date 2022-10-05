@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { Fragment, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { clientGetData } from '../../../store/client-slice'
@@ -7,78 +7,75 @@ import { Flex } from '../../../styles/style-for-positions/style'
 const Government = () => {
    const { government } = useSelector((state) => state.client)
    const dispatch = useDispatch()
+   const textRef = useRef()
 
    useEffect(() => {
       dispatch(clientGetData('leadership'))
    }, [])
-   return (
-      <Flex
-         width="100%"
-         direction="column"
-         mobileDirection="column"
-         mobileAlign="center"
-         mobileGap="20px"
-      >
-         {government.map((item) => (
-            <>
-               <h2>{item.positions}</h2>
-               <Flex
-                  key={item.id}
-                  mobileJustify="center"
-                  mobileWrap="wrap"
-                  mobileGap="20px"
-                  mobileDirection="column-reverse"
-                  mobileAlign="center"
-                  gap="20px"
-               >
-                  <Flex
-                     mobileDirection="column"
-                     direction="column"
-                     justify="space-between"
-                     mobileGap="20px"
-                     gap="10px 0"
-                  >
-                     <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Quidem accusamus, accusantium odit iusto
-                        voluptatem ab dolor iste placeat similique assumenda
-                        illum corporis porro eveniet. Explicabo distinctio sint
-                        amet corporis magni. Lorem ipsum dolor sit amet
-                        consectetur, adipisicing elit. Quidem accusamus,
-                        accusantium odit iusto voluptatem ab dolor iste placeat
-                        similique assumenda illum corporis porro eveniet.
-                        Explicabo distinctio sint amet corporis magni. Lorem
-                        ipsum dolor sit amet consectetur, adipisicing elit.
-                        Quidem accusamus, accusantium odit iusto voluptatem ab
-                        dolor iste placeat similique assumenda illum corporis
-                        porro eveniet. Explicabo distinctio sint amet corporis
-                        magni. Lorem ipsum dolor sit amet consectetur,
-                        adipisicing elit. Quidem accusamus, accusantium odit
-                        iusto voluptatem ab dolor iste placeat similique
-                        assumenda illum corporis porro eveniet. Explicabo
-                        distinctio sint amet corporis magni.
-                     </p>
-                     <div>
-                        <p>
-                           <b>Байланыш телефону:</b> {item.phoneNumber} <br />
-                        </p>
-                        <p>
-                           <b>Электрондук почтасы:</b> {item.email}
-                        </p>
-                     </div>
-                  </Flex>
-                  <WrapperImage>
-                     <img src={item.fileInformation.photo} alt="" />
-                     <h4>
-                        {item.firstName} {item.lastName} {item.patronymic}
-                     </h4>
-                  </WrapperImage>
-               </Flex>
-            </>
-         ))}
-      </Flex>
-   )
+
+   useEffect(() => {
+      if (government.length > 0) textRef.current.innerHTML = government[0].text
+   }, [government])
+
+   return government.map((item) => (
+      <Container key={item.id}>
+         <WrapperLeftContent>
+            <Flex width="100%" align="center" direction="column">
+               <h3>Кызматкер жонундо маалымат</h3>
+               <Text ref={textRef} />
+            </Flex>
+            <div>
+               <p>
+                  <b>Позициясы:</b> {item.positions} <br />
+               </p>
+               <p>
+                  <b>Байланыш телефону:</b>{' '}
+                  <A href={`tel:${item.phoneNumber}`}>{item.phoneNumber}</A>{' '}
+                  <br />
+               </p>
+               <p>
+                  <b>Электрондук почтасы:</b>{' '}
+                  <A target="_blank" href={`mailto:${item.email}`}>
+                     {item.email}
+                  </A>
+               </p>
+            </div>
+         </WrapperLeftContent>
+         <WrapperImage>
+            <img src={item.fileInformation.photo} alt="" />
+            <h4>
+               {item.firstName} {item.lastName} {item.patronymic}
+            </h4>
+         </WrapperImage>
+      </Container>
+   ))
 }
+const Container = styled(Flex)`
+   gap: 20px;
+   @media (max-width: 800px) {
+      justify-content: center;
+      align-items: center;
+      flex-direction: column-reverse;
+      flex-wrap: wrap;
+   }
+`
+const Wrapper = styled(Flex)``
+const WrapperLeftContent = styled(Flex)`
+   flex-direction: column;
+   justify-content: space-between;
+   gap: 10px 0;
+   @media (max-width: 800px) {
+      gap: 20px;
+   }
+`
+const Text = styled.p`
+   @media (max-width: 800px) {
+      text-align: center;
+   }
+`
+const A = styled.a`
+   color: black;
+`
 
 const WrapperImage = styled.div`
    img {

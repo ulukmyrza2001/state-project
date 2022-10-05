@@ -38,54 +38,37 @@ const TemplateLeaderShipPages = ({ socials = ['sdf', 'df', 'df'] }) => {
          <GlobalStyle />
          <Header>
             <InnerHeader>
-               <Flex
-                  direction="column"
-                  width="100%"
-                  mobileDirection="column"
-                  mobileAlign="center"
-               >
+               <HeaderLeft>
                   <TitleHeader>{`Мады айыл өкмөтү / ${
                      findOneCategory(pathname).title
                   }`}</TitleHeader>
                   <BreadCrumbs pathsArray={pathsArray} />
-               </Flex>
+               </HeaderLeft>
                <Flex gap="7px" align="center">
                   {socialsRender(socials)}
                </Flex>
             </InnerHeader>
          </Header>
-         <Flex
-            margin="12px 0"
-            width="100%"
-            justify="center"
-            mobileJustify="center"
-         >
+         <HeaderRight>
             <WrapperContent>
                <NavigationBlock>
                   <NavigationTitle>Навигация</NavigationTitle>
-                  <InnerNavigationLi>
-                     <SideBarNav />
-                  </InnerNavigationLi>
+                  <SideBarNav />
                </NavigationBlock>
                <ContainerContent>
                   <Outlet />
                </ContainerContent>
             </WrapperContent>
-         </Flex>
+         </HeaderRight>
       </Container>
    )
 }
-const WrapperContent = styled(Flex)`
-   max-width: 1440px;
-   justify-content: space-between;
-   align-items: flex-start;
-   @media (max-width: 800px) {
-      width: 100%;
-      flex-direction: column;
-      align-items: center;
-   }
-`
 
+const Container = styled.div`
+   padding-top: 60px;
+   width: 100%;
+   margin: 0 auto;
+`
 const TitleHeader = styled(Title)`
    font-weight: bold;
    @media (max-width: 800px) {
@@ -94,14 +77,6 @@ const TitleHeader = styled(Title)`
    @media (max-width: 500px) {
       font-size: 13px;
       margin: 5px 0;
-   }
-`
-const Container = styled.div`
-   padding-top: 60px;
-   width: 100%;
-   margin: 0 auto;
-   @media (max-width: 800px) {
-      width: 100%;
    }
 `
 const Header = styled.div`
@@ -123,6 +98,18 @@ const InnerHeader = styled.div`
       gap: 10px;
    }
 `
+const HeaderLeft = styled(Flex)`
+   width: 100%;
+   flex-direction: column;
+   @media (max-width: 800px) {
+      align-items: center;
+   }
+`
+const HeaderRight = styled(Flex)`
+   margin: 12px 0;
+   width: 100%;
+   justify-content: center;
+`
 const GlobalStyle = createGlobalStyle`
     body{
         background: #f1f1f1;
@@ -141,26 +128,37 @@ const Social = styled(Link)`
       color: #536577;
    }
 `
+const WrapperContent = styled(Flex)`
+   max-width: 1380px;
+   justify-content: space-between;
+   align-items: flex-start;
+   @media (max-width: 800px) {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+   }
+`
 const ContainerContent = styled.div`
-   max-width: 78%;
+   width: 88%;
    background: #ffffff;
    padding: 1rem;
    box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.1);
    @media (max-width: 800px) {
-      max-width: 100%;
+      width: 100%;
    }
 `
 
 const NavigationTitle = styled.div`
    padding: 15px 20px;
-   background-color: #dddddd;
+   background-color: #dddd;
    border-radius: 8px 8px 0 0;
    font-weight: 400;
    font-style: normal;
    font-size: 14px;
 `
+
 const NavigationBlock = styled.div`
-   width: 20%;
+   width: 10%;
    min-width: 240px;
    border-radius: 10px;
    background-color: #ffffff;
@@ -169,30 +167,5 @@ const NavigationBlock = styled.div`
       display: none;
    }
 `
-const InnerNavigationLi = styled.ul`
-   list-style: none;
-   li {
-      padding: 15px 20px;
-      border-bottom: 0 solid #f1f1f1;
-      border-top: 0.1px solid #f1f1f1;
-      cursor: pointer;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      :last-child {
-         border-radius: 0 0 8px 8px;
-      }
-      div {
-         display: flex;
-         transition: 0.5s;
-      }
-      :hover {
-         background-color: #dddddd;
-      }
-      :hover div {
-         transform: translateX(3px);
-      }
-   }
-`
+
 export default TemplateLeaderShipPages
