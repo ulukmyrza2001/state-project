@@ -12,8 +12,6 @@ const GovernmentApparatus = () => {
       dispatch(clientGetData('leadership'))
    }, [])
 
-   console.log(governmentApparatus)
-
    return governmentApparatus.map((item) => (
       <Flex
          key={item.id}
@@ -24,7 +22,6 @@ const GovernmentApparatus = () => {
          mobileGap="10px 0"
          margin="10px 0"
       >
-         <h3>{item.positions}</h3>
          <Flex
             gap="20px"
             mobileDirection="column"
@@ -46,30 +43,13 @@ const GovernmentApparatus = () => {
                   gap="10px"
                   mobileDirection="column"
                   mobileAlign="center"
+                  justify="center"
                >
+                  <h3>{item.positions}</h3>
+
                   <h4>
                      {item.firstName} {item.lastName} {item.patronymic}
                   </h4>
-                  <p>
-                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                     Vel animi ea, ipsam natus perferendis fugiat minus. Amet
-                     blanditiis deserunt, temporibus corrupti cum ipsum id, iure
-                     animi velit corporis qui voluptatibus.Lorem ipsum dolor sit
-                     amet consectetur, adipisicing elit. Vel animi ea, ipsam
-                     natus perferendis fugiat minus. Amet blanditiis deserunt,
-                     temporibus corrupti cum ipsum id, iure animi velit corporis
-                     qui voluptatibus.Vel animi ea, ipsam natus perferendis
-                     fugiat minus. Amet blanditiis deserunt, temporibus corrupti
-                     cum ipsum id, iure animi velit corporis qui voluptatibus.
-                  </p>
-               </Flex>
-               <Flex direction="column" mobileDirection="column">
-                  <p>
-                     <b>Байланыш телефону:</b> {item.phoneNumber} <br />
-                  </p>
-                  <p>
-                     <b>Электрондук почтасы:</b> {item.email}
-                  </p>
                </Flex>
             </Flex>
          </Flex>
