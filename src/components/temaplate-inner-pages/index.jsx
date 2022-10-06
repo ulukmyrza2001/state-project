@@ -23,8 +23,6 @@ const TempleteInnerPage = ({
    children,
    pathsArray,
 }) => {
-   const { pathname, state } = useLocation()
-
    return (
       <Container>
          <GlobalStyle />
@@ -67,7 +65,6 @@ const InnerHeader = styled.div`
    @media (max-width: 800px) {
       flex-direction: column;
       justify-content: center;
-      align-items: center;
       text-align: center;
       gap: 10px;
    }
@@ -77,6 +74,7 @@ const HeaderLeft = styled(Flex)`
    flex-direction: column;
    @media (max-width: 800px) {
       align-items: center;
+      overflow: hidden;
    }
 `
 const Social = styled(Link)`
@@ -99,7 +97,11 @@ const ContainerContent = styled.div`
    background: #ffffff;
    padding: 1rem;
    box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.1);
-   @media (max-width: 800px) {
+   @media (max-width: 1100px) {
+      min-width: 99%;
+      max-width: 99%;
+   }
+   @media (max-width: 600px) {
       min-width: 100%;
       max-width: 100%;
    }

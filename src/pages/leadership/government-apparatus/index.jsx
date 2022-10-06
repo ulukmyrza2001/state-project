@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { clientGetData } from '../../../store/client-slice'
-
 import Card from '../../../components/UI/template-card'
 
 const GovernmentApparatus = () => {

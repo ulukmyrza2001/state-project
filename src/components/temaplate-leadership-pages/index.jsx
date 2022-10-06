@@ -23,11 +23,9 @@ const socialsRender = (socials) => {
 const TemplateLeaderShipPages = ({ socials = ['sdf', 'df', 'df'] }) => {
    const { pathname, state } = useLocation()
 
-   useEffect(() => {
-      localstorage.save('link', state)
-   }, [state])
-
    const breadCrumbLinks = localstorage.get('link')
+
+   const title = state ? state?.title : breadCrumbLinks?.title
 
    const pathsArray = [
       {
@@ -35,8 +33,8 @@ const TemplateLeaderShipPages = ({ socials = ['sdf', 'df', 'df'] }) => {
          name: 'Уй',
       },
       {
-         path: breadCrumbLinks?.path,
-         name: breadCrumbLinks?.title,
+         path: '!#',
+         name: title,
       },
    ]
    return (
@@ -136,6 +134,7 @@ const Social = styled(Link)`
 `
 const WrapperContent = styled(Flex)`
    max-width: 1380px;
+   width: 100%;
    justify-content: space-between;
    align-items: flex-start;
    @media (max-width: 800px) {

@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import ClientLayout from '../components/layout'
 import TemplateLeaderShipPages from '../components/temaplate-leadership-pages'
 import Schools from '../pages/education/schools'
-import InnerPage from '../pages/leadership/innerPage'
+import InnerPage from '../pages/leadership/inner-page'
 import MainPage from '../pages/main'
 import { CLIENT_ROUTES } from '../utils/constants/routes'
 
@@ -60,10 +60,10 @@ const ClientRoutes = () => {
                path={LEADERSHIP.INNER_PAGE_GOVERNMENT_APPARATUS.path}
                element={<InnerPage />}
             />
-            {/* <Route
+            <Route
                path={LEADERSHIP.INNER_PAGE_VILLAGE_COUNCIL.path}
                element={<InnerPage />}
-            /> */}
+            />
          </Route>
       </Routes>
    )
