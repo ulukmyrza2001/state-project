@@ -13,6 +13,7 @@ const GovernmentApparatus = () => {
 
    return governmentApparatus.map((item) => (
       <Card
+         key={item.id}
          title={item.positions}
          subTitle={`${item.firstName} ${item.lastName} ${item.patronymic}`}
          item={item}

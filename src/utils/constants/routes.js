@@ -25,32 +25,53 @@ export const CLIENT_ROUTES = {
    },
    education: {
       schools: {
-         path: '/admin/bilim-beruu/mektepter',
+         path: '/bilim-beruu/mektepter',
          label: 'Schools',
       },
       drivingSchool: {
-         path: '/admin/bilim-beruu/avto-mektepter',
+         path: '/bilim-beruu/avto-mektepter',
          label: 'Driving-schools',
       },
       iyrymder: {
-         path: '/admin/bilim-beruu/iyrymder',
+         path: '/bilim-beruu/iyrymder',
          label: '',
       },
       olympiads: {
-         path: '/admin/bilim-beruu/olimpiadalar',
+         path: '/bilim-beruu/olimpiadalar',
          label: 'Olympiads',
       },
       kindergartens: {
-         path: '/admin/bilim-beruu/bala-bakchalar',
+         path: '/bilim-beruu/bala-bakchalar',
          label: 'Kindergartens',
       },
       аctivities: {
-         path: '/admin/bilim-beruu/ish-charalar',
+         path: '/bilim-beruu/ish-charalar',
          label: 'Activities',
       },
       GRT: {
-         path: '/admin/bilim-beruu/ORT',
+         path: '/bilim-beruu/ORT',
          label: 'GeneralRepublicanTesting',
+      },
+      innerPageSchools: {
+         path: '/bilim-beruu/mektepter/:id',
+      },
+      innerPageDrivingSchools: {
+         path: '/bilim-beruu/avto-mektepter/:id',
+      },
+      innerPageCircles: {
+         path: '/bilim-beruu/iyrymder/:id',
+      },
+      innerPageActivities: {
+         path: '/bilim-beruu/ish-charalar/:id',
+      },
+      innerPageOlympiads: {
+         path: '/bilim-beruu/olimpiadalar/:id',
+      },
+      innerPageGRT: {
+         path: '/bilim-beruu/ORT/:id',
+      },
+      innerPageKindergartens: {
+         path: '/bilim-beruu/bala-bakchalar/:id',
       },
    },
    healthCare: {

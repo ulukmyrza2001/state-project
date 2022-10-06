@@ -1,24 +1,24 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Card from '../../../components/UI/template-card'
 import { clientGetData } from '../../../store/client-slice'
 
-const Schools = () => {
+const Circles = () => {
    const { data } = useSelector((state) => state.client)
    const dispatch = useDispatch()
 
    useEffect(() => {
-      dispatch(clientGetData('educationSC'))
+      dispatch(clientGetData('educationCircles'))
    }, [])
 
    return data.map((item) => (
       <Card
          key={item.id}
-         title={item.schoolName}
+         title={item.courseName}
          subTitle={item.address}
          item={item}
       />
    ))
 }
 
-export default Schools
+export default Circles

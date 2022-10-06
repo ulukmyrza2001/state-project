@@ -149,12 +149,12 @@ const WrapperContent = styled(Flex)`
    }
 `
 const ContainerContent = styled.div`
-   min-width: 82%;
    max-width: 82%;
    width: 100%;
    background: #ffffff;
    padding: 1rem;
    box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.1);
+   margin-bottom: 20px;
    @media (max-width: 800px) {
       min-width: 100%;
       max-width: 100%;

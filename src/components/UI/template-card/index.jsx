@@ -11,52 +11,71 @@ const Card = ({ item, title, subTitle }) => {
    return (
       <Wrapper>
          <Container gap="20px">
-            <WrapperImage>
-               <img src={item?.fileInformation?.photo} alt="" />
-            </WrapperImage>
+            {item?.fileInformation?.photo && (
+               <WrapperImage>
+                  <img src={item?.fileInformation?.photo} alt="" />
+               </WrapperImage>
+            )}
             <Flex
                direction="column"
                gap="10px"
                justify="center"
                align="flex-start"
+               width="100%"
             >
                <WrapperTitle>
                   <h3>{title}</h3>
-                  <h4>{subTitle}</h4>
+                  <SubTitle>{subTitle}</SubTitle>
                </WrapperTitle>
             </Flex>
             <LinkStyle
                onClick={() => localstorage.save('link', state || localLink)}
                to={`${item?.id}`}
             >
-               Кененирээк маалымыт <IconRight />{' '}
+               Толук маалымат алуу <IconRight />{' '}
             </LinkStyle>
          </Container>
       </Wrapper>
    )
 }
+const SubTitle = styled.h4`
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 3;
+   -webkit-box-orient: vertical;
+   ul,
+   ol {
+      margin-left: 25px;
+   }
+`
 const WrapperTitle = styled(Flex)`
    flex-direction: column;
+   max-width: 70%;
    gap: 10px;
    justify-content: center;
+   overflow: hidden;
    @media (max-width: 660px) {
       align-items: center;
+      max-width: 100%;
+      min-width: 100%;
+      width: 100%;
    }
 `
 const Container = styled(Flex)`
+   min-width: 100%;
    @media (max-width: 660px) {
       flex-direction: column;
       align-items: center;
+      max-width: 100%;
    }
 `
 const IconRight = styled(AiOutlineArrowRight)``
 const Wrapper = styled(Flex)`
-   max-width: 1100px;
    position: relative;
    display: flex;
    flex-direction: column;
    justify-content: center;
-   margin: 0 0 10px 0;
+   margin-bottom: 10px;
    box-shadow: 0px 2px 0px 0px rgba(34, 60, 80, 0.2);
    p {
       font-size: 13px;
@@ -73,7 +92,6 @@ const LinkStyle = styled(Link)`
    align-items: center;
    gap: 5px;
    color: black;
-   text-decoration: none;
    :hover ${IconRight} {
       transform: translateX(5px);
    }
@@ -86,14 +104,13 @@ const LinkStyle = styled(Link)`
 `
 
 const WrapperImage = styled.div`
-   display: flex;
    img {
-      width: 200px;
+      width: 220px;
       height: 220px;
       object-fit: cover;
    }
    @media (max-width: 660px) {
-      width: 100%;
+      min-width: 100%;
       img {
          width: 100%;
          object-position: center;

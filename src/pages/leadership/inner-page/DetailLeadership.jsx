@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useLayoutEffect, useRef } from 'react'
 import {
    A,
    Container,
@@ -6,17 +6,25 @@ import {
    WrapperImage,
    WrapperLeftContent,
    WrapperText,
-} from '../../styles/detail-styles'
+} from '../../../styles/detail-styles'
+import { Flex } from '../../../styles/style-for-positions/style'
 
-const DetailLeadership = forwardRef(({ oneData }, ref) => {
+const DetailLeadership = ({ oneData }) => {
+   const textRef = useRef()
+
+   useLayoutEffect(() => {
+      if (oneData) {
+         textRef.current.innerHTML = oneData.text
+      }
+   }, [oneData])
    return (
       <Container key={oneData?.id}>
          <WrapperLeftContent>
             <WrapperText width="90%" align="center" direction="column">
                <h3>Кызматкер жонундо маалымат</h3>
-               <Text ref={ref} />
+               <Text ref={textRef} />
             </WrapperText>
-            <div>
+            <Flex direction="column" margin="20px 0 0 0" gap="6px">
                <p>
                   <b>Позициясы:</b> {oneData?.positions} <br />
                </p>
@@ -33,7 +41,7 @@ const DetailLeadership = forwardRef(({ oneData }, ref) => {
                      {oneData?.email}
                   </A>
                </p>
-            </div>
+            </Flex>
          </WrapperLeftContent>
          <WrapperImage>
             <h2>
@@ -43,6 +51,6 @@ const DetailLeadership = forwardRef(({ oneData }, ref) => {
          </WrapperImage>
       </Container>
    )
-})
+}
 
 export default DetailLeadership

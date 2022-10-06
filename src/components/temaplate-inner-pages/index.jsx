@@ -97,6 +97,7 @@ const ContainerContent = styled.div`
    background: #ffffff;
    padding: 1rem;
    box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.1);
+   margin-bottom: 20px;
    @media (max-width: 1100px) {
       min-width: 99%;
       max-width: 99%;

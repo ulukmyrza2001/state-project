@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import DetailCircles from './DetailCircles'
+import TempleteInnerPage from '../../../components/temaplate-inner-pages'
 import { getOneData } from '../../../store/client-slice'
 import { localstorage } from '../../../utils/helpers/general'
-import TempleteInnerPage from '../../../components/temaplate-inner-pages'
-import DetailLeadership from './DetailLeadership'
 
 const InnerPage = () => {
    const { oneData, isLoading } = useSelector((state) => state.client)
@@ -14,7 +14,7 @@ const InnerPage = () => {
    const dispatch = useDispatch()
 
    useEffect(() => {
-      dispatch(getOneData({ category: 'leadership', id }))
+      dispatch(getOneData({ category: 'educationCircles', id }))
    }, [])
 
    const pathsArray = [
@@ -28,13 +28,13 @@ const InnerPage = () => {
       },
       {
          path: '/jetekchilik/apparat',
-         name: `${oneData?.firstName} ${oneData?.lastName}`,
+         name: `${oneData?.courseName}`,
       },
    ]
    return (
       <TempleteInnerPage pathsArray={pathsArray}>
          {isLoading && <div>loading</div>}
-         {!isLoading && <DetailLeadership oneData={oneData} />}
+         {!isLoading && <DetailCircles oneData={oneData} />}
       </TempleteInnerPage>
    )
 }
