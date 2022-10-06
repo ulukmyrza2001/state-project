@@ -1,7 +1,6 @@
 import { CLIENT_ROUTES } from './routes'
 
-const { LEADERSHIP } = CLIENT_ROUTES
-const { GOVERNMENT, GOVERNMENT_APPARATUS, VILLAGE_COUNCIL } = LEADERSHIP
+const { LEADERSHIP, education } = CLIENT_ROUTES
 
 export const NAVIGATIONS = [
    {
@@ -11,17 +10,17 @@ export const NAVIGATIONS = [
          {
             id: Math.random().toString(),
             title: 'Окмот',
-            path: GOVERNMENT.path,
+            path: LEADERSHIP.GOVERNMENT.path,
          },
          {
             id: Math.random().toString(),
             title: 'Аппарат',
-            path: GOVERNMENT_APPARATUS.path,
+            path: LEADERSHIP.GOVERNMENT_APPARATUS.path,
          },
          {
             id: Math.random().toString(),
             title: 'Айылдык кенеш',
-            path: VILLAGE_COUNCIL.path,
+            path: LEADERSHIP.VILLAGE_COUNCIL.path,
          },
       ],
    },
@@ -32,30 +31,37 @@ export const NAVIGATIONS = [
          {
             id: Math.random().toString(),
             title: 'Мектептер',
+            path: education.schools.path,
          },
          {
             id: Math.random().toString(),
             title: 'Авто мектептер',
+            path: education.drivingSchool.path,
          },
          {
             id: Math.random().toString(),
             title: 'Ийримдер',
+            path: education.iyrymder.path,
          },
          {
             id: Math.random().toString(),
             title: 'Олимпиадалар',
+            path: education.olympiads.path,
          },
          {
             id: Math.random().toString(),
             title: 'Бала бакчалар',
+            path: education.kindergartens.path,
          },
          {
             id: Math.random().toString(),
             title: 'Иш чаралар',
+            path: education.аctivities.path,
          },
          {
             id: Math.random().toString(),
             title: 'ОРТ',
+            path: education.GRT.path,
          },
       ],
    },
@@ -262,17 +268,17 @@ export const NAVIGATIONS_MOBILE = [
          {
             id: Math.random().toString(),
             title: 'Окмот',
-            path: GOVERNMENT.path,
+            path: LEADERSHIP.GOVERNMENT.path,
          },
          {
             id: Math.random().toString(),
             title: 'Аппарат',
-            path: GOVERNMENT_APPARATUS.path,
+            path: LEADERSHIP.GOVERNMENT_APPARATUS.path,
          },
          {
             id: Math.random().toString(),
             title: 'Айылдык кенеш',
-            path: VILLAGE_COUNCIL.path,
+            path: LEADERSHIP.VILLAGE_COUNCIL.path,
          },
       ],
    },

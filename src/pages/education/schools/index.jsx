@@ -1,40 +1,37 @@
 import styled from '@emotion/styled'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { clientGetData } from '../../../store/client-slice'
+import { Flex } from '../../../styles/style-for-positions/style'
 
 const Schools = () => {
-   const { government } = useSelector((state) => state.client)
+   const { data } = useSelector((state) => state.client)
    const dispatch = useDispatch()
    const textRef = useRef()
 
    useEffect(() => {
-      dispatch(clientGetData('leadership'))
+      dispatch(clientGetData('educationSC'))
    }, [])
 
    useEffect(() => {
-      if (government.length > 0) textRef.current.innerHTML = government[0].text
-   }, [government])
+      if (data.length > 0) textRef.current.innerHTML = data[0].text
+   }, [data])
 
-   return government.map((item) => (
+   return data.map((item) => (
       <Container key={item.id}>
          <WrapperLeftContent>
             <Flex width="100%" align="center" direction="column">
-               <h3>Кызматкер жонундо маалымат</h3>
+               <h3>Мектеп жонундо маалымат</h3>
                <Text ref={textRef} />
             </Flex>
             <div>
                <p>
-                  <b>Позициясы:</b> {item.positions} <br />
+                  <b>Мектептин аталышы:</b> {item.schoolName} <br />
                </p>
                <p>
                   <b>Байланыш телефону:</b>{' '}
                   <A href={`tel:${item.phoneNumber}`}>{item.phoneNumber}</A>{' '}
                   <br />
-               </p>
-               <p>
-                  <b>Электрондук почтасы:</b>{' '}
-                  <A target="_blank" href={`mailto:${item.email}`}>
-                     {item.email}
-                  </A>
                </p>
             </div>
          </WrapperLeftContent>
