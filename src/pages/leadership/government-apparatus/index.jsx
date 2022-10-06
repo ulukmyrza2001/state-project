@@ -33,7 +33,7 @@ const GovernmentApparatus = () => {
                      {item.firstName} {item.lastName} {item.patronymic}
                   </h4>
                </Flex>
-               <LinkStyle to={item.id}>
+               <LinkStyle to={`${item.id}`}>
                   Кененирээк маалымыт <IconRight />{' '}
                </LinkStyle>
             </Flex>
