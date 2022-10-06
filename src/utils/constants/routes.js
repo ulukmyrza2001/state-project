@@ -16,6 +16,12 @@ export const CLIENT_ROUTES = {
       VILLAGE_COUNCIL: {
          path: '/jetekchilik/aiyldyk-kenesh',
       },
+      INNER_PAGE_GOVERNMENT_APPARATUS: {
+         path: '/jetekchilik/apparat/:id',
+      },
+      INNER_PAGE_VILLAGE_COUNCIL: {
+         path: '/jetekchilik/aiyldyk-kenesh/:id',
+      },
    },
    education: {
       schools: {
