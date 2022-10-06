@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import { ImFacebook2 } from 'react-icons/im'
 import { BsWhatsapp, BsInstagram } from 'react-icons/bs'
@@ -8,7 +8,7 @@ import { Flex } from '../../styles/style-for-positions/style'
 import { Title } from '../../styles/typography/typography'
 import BreadCrumbs from '../UI/breadcrumbs/BreadCrumbs'
 import SideBarNav from './SideBarNav'
-import { findOneCategory } from '../../utils/helpers/general'
+import { findOneCategory, localstorage } from '../../utils/helpers/general'
 
 const SOCIAL_ICONS = [<ImFacebook2 />, <BsInstagram />, <BsWhatsapp />]
 
@@ -23,14 +23,20 @@ const socialsRender = (socials) => {
 const TemplateLeaderShipPages = ({ socials = ['sdf', 'df', 'df'] }) => {
    const { pathname, state } = useLocation()
 
+   useEffect(() => {
+      localstorage.save('link', state)
+   }, [state])
+
+   const breadCrumbLinks = localstorage.get('link')
+
    const pathsArray = [
       {
          path: '/',
          name: 'Уй',
       },
       {
-         path: state.path,
-         name: state.title,
+         path: breadCrumbLinks?.path,
+         name: breadCrumbLinks?.title,
       },
    ]
    return (
