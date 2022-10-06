@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import gerb from '../../../assets/icons/GERB.svg'
 import madyLogo from '../../../assets/icons/logoMady.png'
 import { scrollHeader } from '../../../utils/helpers/general'
@@ -52,7 +52,13 @@ const Header = () => {
             setShowMenuBurger={setShowMenuBurger}
          />
          <StyledFlag>
-            <Logo isScroll={headerHeight} src={madyLogo} />
+            <Link to="/">
+               <Logo
+                  isScroll={headerHeight}
+                  src={madyLogo}
+                  style={{ cursor: 'pointer' }}
+               />
+            </Link>
          </StyledFlag>
          <MenuBurger onClick={() => setShowMenuBurger(!showMenuBurger)} />
          <Navigations

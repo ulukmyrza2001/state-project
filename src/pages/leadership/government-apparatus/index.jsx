@@ -12,77 +12,61 @@ const GovernmentApparatus = () => {
       dispatch(clientGetData('leadership'))
    }, [])
 
-   return (
-      <Flex
-         width="100%"
-         direction="column"
-         mobileDirection="column"
-         mobileAlign="center"
-         mobileGap="20px"
-      >
-         {governmentApparatus.map((item) => (
-            <>
-               <h2>{item.positions}</h2>
+   return governmentApparatus.map((item) => (
+      <Wrapper key={item.id}>
+         <Flex
+            gap="20px"
+            mobileDirection="column"
+            mobileAlign="center"
+            mobileGap="10px 0"
+         >
+            <WrapperImage>
+               <img src={item.fileInformation.photo} alt="" />
+            </WrapperImage>
+            <Flex
+               direction="column"
+               gap="10px"
+               justify="center"
+               mobileDirection="column"
+               mobileGap="10px 0"
+               align="flex-start"
+            >
                <Flex
-                  key={item.id}
-                  mobileJustify="center"
-                  mobileWrap="wrap"
-                  mobileGap="20px"
-                  mobileDirection="column-reverse"
+                  direction="column"
+                  gap="10px"
+                  mobileDirection="column"
                   mobileAlign="center"
-                  gap="20px"
+                  justify="center"
                >
-                  <Flex
-                     mobileDirection="column"
-                     direction="column"
-                     justify="space-between"
-                     mobileGap="20px"
-                     gap="10px 0"
-                  >
-                     <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Quidem accusamus, accusantium odit iusto
-                        voluptatem ab dolor iste placeat similique assumenda
-                        illum corporis porro eveniet. Explicabo distinctio sint
-                        amet corporis magni. Lorem ipsum dolor sit amet
-                        consectetur, adipisicing elit. Quidem accusamus,
-                        accusantium odit iusto voluptatem ab dolor iste placeat
-                        similique assumenda illum corporis porro eveniet.
-                        Explicabo distinctio sint amet corporis magni. Lorem
-                        ipsum dolor sit amet consectetur, adipisicing elit.
-                        Quidem accusamus, accusantium odit iusto voluptatem ab
-                        dolor iste placeat similique assumenda illum corporis
-                        porro eveniet. Explicabo distinctio sint amet corporis
-                        magni. Lorem ipsum dolor sit amet consectetur,
-                        adipisicing elit. Quidem accusamus, accusantium odit
-                        iusto voluptatem ab dolor iste placeat similique
-                        assumenda illum corporis porro eveniet. Explicabo
-                        distinctio sint amet corporis magni.
-                     </p>
-                     <div>
-                        <p>
-                           <b>Байланыш телефону:</b> {item.phoneNumber} <br />
-                        </p>
-                        <p>
-                           <b>Электрондук почтасы:</b> {item.email}
-                        </p>
-                     </div>
-                  </Flex>
-                  <WrapperImage>
-                     <img src={item.fileInformation.photo} alt="" />
-                     <h4>
-                        {item.firstName} {item.lastName}
-                     </h4>
-                  </WrapperImage>
+                  <h3>{item.positions}</h3>
+
+                  <h4>
+                     {item.firstName} {item.lastName} {item.patronymic}
+                  </h4>
                </Flex>
-            </>
-         ))}
-      </Flex>
-   )
+               <p>Иштеген убактысы: 20.20.2020 </p>
+            </Flex>
+         </Flex>
+      </Wrapper>
+   ))
 }
+const Wrapper = styled(Flex)`
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin: 0 0 10px 0;
+   box-shadow: 0px 2px 0px 0px rgba(34, 60, 80, 0.2);
+   p {
+      font-size: 13px;
+   }
+`
 const WrapperImage = styled.div`
+   display: flex;
    img {
-      width: 250px;
+      width: 200px;
+      height: 220px;
+      object-fit: cover;
    }
 `
 export default GovernmentApparatus
