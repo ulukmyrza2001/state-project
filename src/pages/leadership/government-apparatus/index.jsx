@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { AiOutlineArrowRight } from 'react-icons/ai'
 import { clientGetData } from '../../../store/client-slice'
 import { Flex } from '../../../styles/style-for-positions/style'
 
@@ -14,12 +16,7 @@ const GovernmentApparatus = () => {
 
    return governmentApparatus.map((item) => (
       <Wrapper key={item.id}>
-         <Flex
-            gap="20px"
-            mobileDirection="column"
-            mobileAlign="center"
-            mobileGap="10px 0"
-         >
+         <Flex gap="20px">
             <WrapperImage>
                <img src={item.fileInformation.photo} alt="" />
             </WrapperImage>
@@ -27,31 +24,28 @@ const GovernmentApparatus = () => {
                direction="column"
                gap="10px"
                justify="center"
-               mobileDirection="column"
-               mobileGap="10px 0"
                align="flex-start"
             >
-               <Flex
-                  direction="column"
-                  gap="10px"
-                  mobileDirection="column"
-                  mobileAlign="center"
-                  justify="center"
-               >
+               <Flex direction="column" gap="10px" justify="center">
                   <h3>{item.positions}</h3>
 
                   <h4>
                      {item.firstName} {item.lastName} {item.patronymic}
                   </h4>
                </Flex>
-               <p>Иштеген убактысы: 20.20.2020 </p>
+               <LinkStyle to={item.id}>
+                  Кененирээк маалымыт <IconRight />{' '}
+               </LinkStyle>
             </Flex>
          </Flex>
       </Wrapper>
    ))
 }
+
+const IconRight = styled(AiOutlineArrowRight)``
 const Wrapper = styled(Flex)`
    width: 100%;
+   position: relative;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -61,6 +55,20 @@ const Wrapper = styled(Flex)`
       font-size: 13px;
    }
 `
+const LinkStyle = styled(Link)`
+   position: absolute;
+   bottom: 10px;
+   right: 10px;
+   display: flex;
+   align-items: center;
+   gap: 5px;
+   color: black;
+   text-decoration: none;
+   :hover ${IconRight} {
+      transform: translateX(5px);
+   }
+`
+
 const WrapperImage = styled.div`
    display: flex;
    img {
