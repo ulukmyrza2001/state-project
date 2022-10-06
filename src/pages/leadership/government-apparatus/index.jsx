@@ -13,15 +13,7 @@ const GovernmentApparatus = () => {
    }, [])
 
    return governmentApparatus.map((item) => (
-      <Flex
-         key={item.id}
-         width="100%"
-         direction="column"
-         gap="10px"
-         mobileDirection="column"
-         mobileGap="10px 0"
-         margin="10px 0"
-      >
+      <Wrapper key={item.id}>
          <Flex
             gap="20px"
             mobileDirection="column"
@@ -34,9 +26,10 @@ const GovernmentApparatus = () => {
             <Flex
                direction="column"
                gap="10px"
-               justify="space-between"
+               justify="center"
                mobileDirection="column"
                mobileGap="10px 0"
+               align="flex-start"
             >
                <Flex
                   direction="column"
@@ -51,14 +44,29 @@ const GovernmentApparatus = () => {
                      {item.firstName} {item.lastName} {item.patronymic}
                   </h4>
                </Flex>
+               <p>Иштеген убактысы: 20.20.2020 </p>
             </Flex>
          </Flex>
-      </Flex>
+      </Wrapper>
    ))
 }
+const Wrapper = styled(Flex)`
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin: 0 0 10px 0;
+   box-shadow: 0px 2px 0px 0px rgba(34, 60, 80, 0.2);
+   p {
+      font-size: 13px;
+   }
+`
 const WrapperImage = styled.div`
+   display: flex;
    img {
       width: 200px;
+      height: 220px;
+      object-fit: cover;
    }
 `
 export default GovernmentApparatus
