@@ -3,6 +3,7 @@ import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import ClientLayout from '../components/layout'
 import TemplateLeaderShipPages from '../components/temaplate-leadership-pages'
+import Schools from '../pages/education/schools'
 import MainPage from '../pages/main'
 import { CLIENT_ROUTES } from '../utils/constants/routes'
 
@@ -23,30 +24,36 @@ const DoctorAdvice = React.lazy(() =>
 )
 
 const ClientRoutes = () => {
-   const { MAIN, LEADERSHIP, healthCare } = CLIENT_ROUTES
-   const { GOVERNMENT, GOVERNMENT_APPARATUS, VILLAGE_COUNCIL } = LEADERSHIP
-   const { hospitals, paramedicPoint, OMS, doctorAdvice } = healthCare
-
-   console.log(healthCare)
+   const { MAIN, LEADERSHIP, education, healthCare } = CLIENT_ROUTES
 
    return (
       <Routes>
          <Route element={<ClientLayout />} path={MAIN.path}>
             <Route element={<MainPage />} path={MAIN.path} />
             <Route element={<TemplateLeaderShipPages />}>
-               <Route element={<Government />} path={GOVERNMENT.path} />
+               <Route
+                  element={<Government />}
+                  path={LEADERSHIP.GOVERNMENT.path}
+               />
                <Route
                   element={<GovernmentApparatus />}
-                  path={GOVERNMENT_APPARATUS.path}
+                  path={LEADERSHIP.GOVERNMENT_APPARATUS.path}
                />
                <Route
                   element={<VillageCouncil />}
-                  path={VILLAGE_COUNCIL.path}
+                  path={LEADERSHIP.VILLAGE_COUNCIL.path}
                />
-               <Route element={<Hospital />} path={hospitals.path} />
-               <Route element={<FAPS />} path={paramedicPoint.path} />
-               <Route element={<OMs />} path={OMS.path} />
-               <Route element={<DoctorAdvice />} path={doctorAdvice.path} />
+               <Route element={<Hospital />} path={healthCare.hospitals.path} />
+               <Route
+                  element={<FAPS />}
+                  path={healthCare.paramedicPoint.path}
+               />
+               <Route element={<OMs />} path={healthCare.OMS.path} />
+               <Route
+                  element={<DoctorAdvice />}
+                  path={healthCare.doctorAdvice.path}
+               />
+               <Route path={education.schools.path} element={<Schools />} />
             </Route>
          </Route>
       </Routes>

@@ -29,7 +29,7 @@ const TemplateLeaderShipPages = ({ socials = ['sdf', 'df', 'df'] }) => {
          name: 'Уй',
       },
       {
-         path: '/jetekchilik/aiyldyk-kenesh',
+         path: state.path,
          name: state.title,
       },
    ]
@@ -141,6 +141,7 @@ const WrapperContent = styled(Flex)`
 const ContainerContent = styled.div`
    min-width: 82%;
    max-width: 82%;
+   width: 100%;
    background: #ffffff;
    padding: 1rem;
    box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.1);
@@ -149,7 +150,6 @@ const ContainerContent = styled.div`
       max-width: 100%;
    }
 `
-
 const NavigationTitle = styled.div`
    padding: 15px 20px;
    background-color: #dddd;
@@ -158,7 +158,6 @@ const NavigationTitle = styled.div`
    font-style: normal;
    font-size: 14px;
 `
-
 const NavigationBlock = styled.div`
    width: 10%;
    min-width: 240px;
