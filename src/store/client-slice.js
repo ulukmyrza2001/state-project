@@ -16,6 +16,20 @@ export const clientGetData = createAsyncThunk(
       }
    }
 )
+export const getOneData = createAsyncThunk(
+   'getOneData/client',
+   async ({ id, category }, { rejectWithValue }) => {
+      try {
+         const result = await baseFetch({
+            path: `${API_ROUTES_GET[category].path}`,
+            method: 'GET',
+         })
+         return { result, id }
+      } catch (error) {
+         return rejectWithValue(error.message)
+      }
+   }
+)
 
 const initialState = {
    isLoading: false,
@@ -29,7 +43,11 @@ const initialState = {
 const clientSlice = createSlice({
    name: 'client',
    initialState,
-   reducers: {},
+   reducers: {
+      clearOneData(state) {
+         state.oneData = null
+      },
+   },
    extraReducers: {
       [clientGetData.pending]: (state) => {
          state.isLoading = true
@@ -47,6 +65,16 @@ const clientSlice = createSlice({
          }
       },
       [clientGetData.rejected]: (state) => {
+         state.isLoading = false
+      },
+      [getOneData.pending]: (state) => {
+         state.isLoading = true
+      },
+      [getOneData.fulfilled]: (state, { payload }) => {
+         state.isLoading = false
+         state.oneData = payload.result.find((item) => +item.id === +payload.id)
+      },
+      [getOneData.rejected]: (state) => {
          state.isLoading = false
       },
    },
