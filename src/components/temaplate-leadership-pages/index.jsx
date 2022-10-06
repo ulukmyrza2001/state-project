@@ -1,26 +1,31 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
-import { ImFacebook2 } from 'react-icons/im'
-import { BsWhatsapp, BsInstagram } from 'react-icons/bs'
-import { Link, Outlet, useLocation } from 'react-router-dom'
+import { BsWhatsapp, BsInstagram, BsLinkedin } from 'react-icons/bs'
+import { Outlet, useLocation } from 'react-router-dom'
 import { Flex } from '../../styles/style-for-positions/style'
 import { Title } from '../../styles/typography/typography'
 import BreadCrumbs from '../UI/breadcrumbs/BreadCrumbs'
 import SideBarNav from './SideBarNav'
 import { findOneCategory, localstorage } from '../../utils/helpers/general'
 
-const SOCIAL_ICONS = [<ImFacebook2 />, <BsInstagram />, <BsWhatsapp />]
+const SOCIAL_ICONS = [<BsLinkedin />, <BsInstagram />, <BsWhatsapp />]
 
 const socialsRender = (socials) => {
    return SOCIAL_ICONS.map((icon, i) => (
-      <Social key={i} to={socials[i]}>
+      <Social key={i} href={socials[i]} target="_blank">
          {icon}
       </Social>
    ))
 }
 
-const TemplateLeaderShipPages = ({ socials = ['sdf', 'df', 'df'] }) => {
+const TemplateLeaderShipPages = ({
+   socials = [
+      'https://www.linkedin.com/in/ulukmyrza-zhanybekov-54905b23a/',
+      'https://www.instagram.com/erkulow',
+      'https://api.whatsapp.com/send/?phone=996554785515&text&type=phone_number&app_absent=0',
+   ],
+}) => {
    const { pathname, state } = useLocation()
 
    const breadCrumbLinks = localstorage.get('link')
@@ -119,7 +124,7 @@ const GlobalStyle = createGlobalStyle`
         background: #f1f1f1;
     }
 `
-const Social = styled(Link)`
+const Social = styled.a`
    padding: 0.5rem;
    display: flex;
    align-items: center;
