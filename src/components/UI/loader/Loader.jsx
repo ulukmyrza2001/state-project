@@ -27,7 +27,7 @@ const LoaderStyled = styled.div`
       align-items: center;
       width: var(--clock-width);
       height: var(--clock-width);
-      border: 3px solid #dd8a08;
+      border: 3px solid #011835;
       border-radius: 50%;
       &::before,
       &::after {
@@ -35,7 +35,7 @@ const LoaderStyled = styled.div`
          content: '';
          top: calc(var(--clock-radius) * 0.25);
          width: var(--clock-thickness);
-         background: #dd8a08;
+         background: #011835;
          border-radius: 10px;
          transform-origin: center calc(100% - calc(var(--clock-thickness) / 2));
          animation: spin infinite linear;
