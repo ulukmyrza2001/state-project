@@ -12,8 +12,9 @@ const LoadingPage = ({ height = '220px' }) => {
                   <H2 />
                   <WrapperText width="50%" direction="column" gap="20px">
                      <H3 />
-                     <H3 width="60%" height="28px" />
+                     <H3 width="60%" height="10px" />
                   </WrapperText>
+                  <Bot />
                </P>
             </Card>
          ))}
@@ -41,15 +42,6 @@ const H2 = styled.h2`
       width: 220px;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.2);
-      animation: skeleton-anim 1s 0.5s infinite alternate;
-      @keyframes skeleton-anim {
-         0% {
-            opacity: 0.3;
-         }
-         100% {
-            opacity: 0.8;
-         }
-      }
       @media (max-width: 660px) {
          width: 100%;
       }
@@ -58,39 +50,40 @@ const H2 = styled.h2`
 const H3 = styled.h2`
    :empty {
       width: ${(props) => props.width || '100%'};
-      height: ${(props) => props.height || '35px'};
+      height: ${(props) => props.height || '12px'};
       background-color: rgba(0, 0, 0, 0.2);
-      animation: skeleton-anim 1s 0.5s infinite alternate;
-      @keyframes skeleton-anim {
-         0% {
-            opacity: 0.3;
-         }
-         100% {
-            opacity: 0.8;
-         }
-      }
       @media (max-width: 660px) {
          width: 100%;
       }
    }
 `
+const Bot = styled.h2`
+   :empty {
+      width: 200px;
+      height: ${(props) => props.height || '10px'};
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background-color: rgba(0, 0, 0, 0.2);
+      @media (max-width: 660px) {
+         text-align: end;
+         position: static;
+         justify-self: end;
+         margin: 10px;
+      }
+   }
+`
 const P = styled.p`
+   position: relative;
    display: flex;
    align-items: center;
    gap: 20px;
    width: 100%;
    height: 100%;
    padding: 0.1rem;
-   background-color: rgba(0, 0, 0, 0.2);
-   animation: skeleton-anim 1s infinite alternate;
-   @keyframes skeleton-anim {
-      0% {
-         opacity: 0.3;
-      }
-      100% {
-         opacity: 0.8;
-      }
-   }
    @media (max-width: 660px) {
       margin-bottom: 40px;
       flex-direction: column;

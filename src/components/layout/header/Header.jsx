@@ -31,7 +31,7 @@ const Header = () => {
    })
 
    const mouseMoveHandler = (e) => {
-      setWindowMenu(true)
+      setWindowMenu(e.currentTarget.id)
       setSections(NAVIGATIONS.find((el) => el.id === e.currentTarget.id))
    }
 
@@ -62,6 +62,10 @@ const Header = () => {
          </StyledFlag>
          <MenuBurger onClick={() => setShowMenuBurger(!showMenuBurger)} />
          <Navigations
+            sections={sections}
+            windowMenu={windowMenu}
+            setWindowMenu={setWindowMenu}
+            headerBackground={headerBackground}
             navigations={NAVIGATIONS}
             onMouseOut={mouseOutHandler}
             onMouseMove={mouseMoveHandler}
@@ -69,15 +73,6 @@ const Header = () => {
          <StyledFlag className="gerb">
             <Img isScroll={headerHeight} src={gerb} alt="" />
          </StyledFlag>
-         <WindowMenu
-            onMouseMove={() => setWindowMenu(true)}
-            onMouseOut={() => setWindowMenu(false)}
-            windowMenu={windowMenu}
-         >
-            <InnerWindowMenu>
-               <NavSectionItem sections={sections} />
-            </InnerWindowMenu>
-         </WindowMenu>
       </HeaderStyled>
    )
 }
@@ -85,8 +80,12 @@ export const HeaderStyled = styled.header`
    position: fixed;
    width: 100%;
    height: ${({ headerHeight }) => (headerHeight ? '60px' : '90px')};
-   background-color: ${({ headerBackground }) =>
-      headerBackground ? '#011835' : 'transparent'};
+   background: ${({ headerBackground }) =>
+      !headerBackground
+         ? 'transparent'
+         : ' linear-gradient(-45deg, #1b1374, #011835)'};
+   background-size: 400% 400%;
+   animation: gradientBG 15s ease infinite;
    display: flex;
    align-items: center;
    justify-content: center;

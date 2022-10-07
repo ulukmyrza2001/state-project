@@ -26,7 +26,12 @@ const LoadingInnerPage = () => {
                <H3 />
                <H3 />
             </WrapperText>
-            <Flex direction="column" margin="20px 0 0 0" gap="6px" width="100%">
+            <Flex
+               direction="column"
+               margin="20px 0 0 0"
+               gap="20px"
+               width="100%"
+            >
                <H3 width="60%" />
                <H3 width="60%" />
                <H3 width="60%" />
@@ -39,15 +44,6 @@ const LoadingInnerPage = () => {
       </Container>
    )
 }
-// const WrapperText = styled(Flex)`
-//    @media (max-width: 660px) {
-//       width: 80%;
-//    }
-// `
-const FlexCard = styled(Flex)`
-   gap: ${({ width }) => (width ? '13px' : '15px')};
-   flex-wrap: wrap;
-`
 
 const Container = styled(Flex)`
    gap: 20px;
@@ -81,7 +77,7 @@ const H2 = styled.h2`
 const H3 = styled.h2`
    :empty {
       width: ${(props) => props.width || '100%'};
-      height: ${(props) => props.height || '20px'};
+      height: ${(props) => props.height || '10px'};
       background-color: rgba(0, 0, 0, 0.2);
       animation: skeleton-anim 1s 0.5s infinite alternate;
       @keyframes skeleton-anim {

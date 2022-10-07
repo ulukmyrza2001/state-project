@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import madyPhoto from '../../assets/images/mady.jpg'
+import madyPhoto from '../../assets/images/photo.jpg'
 
 const MainPage = () => {
    return (

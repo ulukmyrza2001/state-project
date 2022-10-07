@@ -1,7 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components'
 import { CgMenuRightAlt } from 'react-icons/cg'
-import WindowMenuImage from '../../../assets/images/windowMenu.webp'
 
 export const MenuBurger = styled(CgMenuRightAlt)`
    width: 80px;
@@ -53,15 +52,14 @@ export const NavIconWrapper = styled.div`
    margin-top: 2px;
 `
 export const NavButton = styled.li`
-   font-size: 12px;
-   background-color: #011835;
-   color: white;
-   text-transform: uppercase;
-   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-   height: 100%;
    display: flex;
    align-items: center;
-   padding: 0 1rem;
+   gap: 3px;
+   font-size: 11px;
+   position: relative;
+   color: white;
+   height: 100%;
+   padding: 0 0.4rem;
    cursor: pointer;
    span {
       display: flex;
@@ -69,7 +67,7 @@ export const NavButton = styled.li`
       ::before {
          content: '|';
          color: #ffffff44;
-         margin: 0 5px 3px 5px;
+         margin: 0 3px 3px 3px;
          @media (max-width: 1200px) {
             margin: 0 7px 3px 7px;
          }
@@ -86,41 +84,58 @@ export const NavButton = styled.li`
       transform: rotate(180deg);
    }
    @media (max-width: 1200px) {
-      font-size: 10px;
+      font-size: 8px;
       line-height: 15px;
       text-align: center;
    }
 `
-
 export const WindowMenu = styled.div`
-   width: 100%;
-   height: 400px;
+   width: max-content;
+   padding: ${({ windowMenu }) => (windowMenu ? '0.4rem' : '0rem')};
+   height: ${({ windowMenu }) => (windowMenu ? 'fit-content' : '0px')};
+   pointer-events: ${({ windowMenu }) => (windowMenu ? '' : 'none')};
    position: absolute;
-   bottom: ${({ isBottom }) => (isBottom ? '' : '-400px')};
-   top: ${({ isBottom }) => (isBottom ? '-400px' : '')};
-   background: url(${WindowMenuImage});
-   background-position: center;
-   background-size: cover;
-   display: ${({ windowMenu }) => (windowMenu ? 'block' : 'none')};
+   bottom: ${({ isBottom }) => (isBottom ? '100%' : '0')};
+   top: ${({ isBottom }) => (isBottom ? '' : '100%')};
+   left: 0;
+   background-color: white;
    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+   transition: all 0.1;
 `
 export const InnerWindowMenu = styled.div`
    width: 100%;
    height: 100%;
-   padding: 3rem;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   flex-wrap: wrap;
-   gap: 10px;
 `
 export const List = styled.ul`
    display: flex;
    list-style: none;
    height: 100%;
    align-items: center;
-   background-color: #011835;
-   position: relative;
+   box-shadow: 2px 2px 40px rgba(0, 0, 0, 0.6);
+   box-shadow: ${({ headerBackground }) =>
+      headerBackground ? 'none' : '  2px 2px 40px rgba(0, 0, 0, 0.6)'};
+   border-bottom-left-radius: ${({ isBottom }) => (isBottom ? '0' : '10px')};
+   border-bottom-right-radius: ${({ isBottom }) => (isBottom ? '0' : '10px')};
+   border-top-left-radius: ${({ isBottom }) => (!isBottom ? '0' : '10px')};
+   border-top-right-radius: ${({ isBottom }) => (!isBottom ? '0' : '10px')};
+   background: ${({ headerBackground }) =>
+      headerBackground
+         ? 'transparent'
+         : ' linear-gradient(-45deg, #1b1374, #011835)'};
+   animation: gradientBG 15s ease infinite;
+
+   @keyframes gradientBG {
+      0% {
+         background-position: 0% 50%;
+      }
+      50% {
+         background-position: 100% 50%;
+      }
+      100% {
+         background-position: 0% 50%;
+      }
+   }
+
    @media (max-width: 800px) {
       display: none;
    }
