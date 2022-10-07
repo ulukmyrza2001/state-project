@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import TempleteInnerPage from '../../../components/temaplate-inner-pages'
+import LoadingInnerPage from '../../../components/UI/loader/LoadingInnerPage'
 import { getOneData } from '../../../store/client-slice'
 import { localstorage } from '../../../utils/helpers/general'
 import DetailGRT from './DetailGRT'
@@ -33,7 +34,7 @@ const InnerPage = () => {
    ]
    return (
       <TempleteInnerPage pathsArray={pathsArray}>
-         {isLoading && <div>loading</div>}
+         {isLoading && <LoadingInnerPage />}
          {!isLoading && <DetailGRT oneData={oneData} />}
       </TempleteInnerPage>
    )

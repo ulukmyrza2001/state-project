@@ -5,6 +5,7 @@ import DetailDrivingSchools from './DetailDrivingSchools'
 import TempleteInnerPage from '../../../components/temaplate-inner-pages'
 import { getOneData } from '../../../store/client-slice'
 import { localstorage } from '../../../utils/helpers/general'
+import LoadingInnerPage from '../../../components/UI/loader/LoadingInnerPage'
 
 const InnerPage = () => {
    const { oneData, isLoading } = useSelector((state) => state.client)
@@ -33,7 +34,7 @@ const InnerPage = () => {
    ]
    return (
       <TempleteInnerPage pathsArray={pathsArray}>
-         {isLoading && <div>loading</div>}
+         {isLoading && <LoadingInnerPage />}
          {!isLoading && <DetailDrivingSchools oneData={oneData} />}
       </TempleteInnerPage>
    )

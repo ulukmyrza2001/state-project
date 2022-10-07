@@ -12,7 +12,7 @@ import { Flex } from '../../../styles/style-for-positions/style'
 
 const DetailSchools = ({ oneData }) => {
    return (
-      <Container key={oneData?.id}>
+      <Container>
          <WrapperLeftContent>
             <WrapperText
                gap="20px"
