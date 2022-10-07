@@ -4,7 +4,7 @@ import React from 'react'
 import { ImFacebook2 } from 'react-icons/im'
 import { BsWhatsapp, BsInstagram } from 'react-icons/bs'
 import styled, { createGlobalStyle } from 'styled-components'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Flex } from '../../styles/style-for-positions/style'
 import BreadCrumbs from '../UI/breadcrumbs/BreadCrumbs'
 

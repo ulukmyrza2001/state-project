@@ -5,11 +5,12 @@ import { BrowserRouter } from 'react-router-dom'
 import store from './store'
 import App from './App'
 import './index.css'
+import { Centered } from './styles/style-for-positions/style'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
    // <React.StrictMode>
-   <React.Suspense fallback={<div>Loading</div>}>
+   <React.Suspense fallback={<Centered />}>
       <BrowserRouter>
          <Provider store={store}>
             <App />
