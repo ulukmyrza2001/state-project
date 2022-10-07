@@ -1,10 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {
-   WrapperImage,
-   WrapperLeftContent,
-   WrapperText,
-} from '../../../styles/detail-styles'
+import { WrapperLeftContent, WrapperText } from '../../../styles/detail-styles'
 import { Flex } from '../../../styles/style-for-positions/style'
 
 const LoadingInnerPage = () => {
@@ -93,19 +89,25 @@ const H3 = styled.h2`
       }
    }
 `
+export const WrapperImage = styled.div`
+   text-align: center;
+   p {
+      width: 500px;
+      height: 450px;
+      margin-top: 10px;
+      @media (max-width: 900px) {
+         width: 100%;
+         height: 450px;
+      }
+   }
+   @media (max-width: 900px) {
+      width: 100%;
+   }
+`
 const P = styled.p`
    width: 100%;
    height: 50%;
    background-color: rgba(0, 0, 0, 0.2);
-   animation: skeleton-anim 1s infinite alternate;
-   @keyframes skeleton-anim {
-      0% {
-         opacity: 0.3;
-      }
-      100% {
-         opacity: 0.8;
-      }
-   }
    @media (max-width: 660px) {
       height: 350px;
    }
