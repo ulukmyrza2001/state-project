@@ -20,7 +20,7 @@ export const API_ROUTES_GET = {
    educationEvents: {
       path: 'agriculture/acEvent/moeEvent',
    },
-   educationKinger: {
+   educationKinder: {
       path: 'agriculture/acEvent/kindergartens',
    },
    educationGRT: {

@@ -43,7 +43,20 @@ const Olympiads = React.lazy(() => import('../pages/education/olympiads'))
 const InnerPageOlympiads = React.lazy(() =>
    import('../pages/education/inner-page-olympiads')
 )
-
+const Kindergartens = React.lazy(() =>
+   import('../pages/education/kindergartens')
+)
+const InnerPageKindergartens = React.lazy(() =>
+   import('../pages/education/inner-page-kindergartens')
+)
+const GRT = React.lazy(() => import('../pages/education/GRT'))
+const InnerPageGRT = React.lazy(() =>
+   import('../pages/education/inner-page-grt')
+)
+const Events = React.lazy(() => import('../pages/education/events'))
+const InnerPageEvents = React.lazy(() =>
+   import('../pages/education/inner-page-events')
+)
 const ClientRoutes = () => {
    const { MAIN, LEADERSHIP, education, healthCare } = CLIENT_ROUTES
 
@@ -83,6 +96,12 @@ const ClientRoutes = () => {
                />
                <Route path={education.iyrymder.path} element={<Circles />} />
                <Route path={education.olympiads.path} element={<Olympiads />} />
+               <Route
+                  path={education.kindergartens.path}
+                  element={<Kindergartens />}
+               />
+               <Route path={education.GRT.path} element={<GRT />} />
+               <Route path={education.аctivities.path} element={<Events />} />
             </Route>
             {/* ============================ */}
             <Route
@@ -113,6 +132,18 @@ const ClientRoutes = () => {
             <Route
                path={education.innerPageOlympiads.path}
                element={<InnerPageOlympiads />}
+            />
+            <Route
+               path={education.innerPageKindergartens.path}
+               element={<InnerPageKindergartens />}
+            />
+            <Route
+               path={education.innerPageGRT.path}
+               element={<InnerPageGRT />}
+            />
+            <Route
+               path={education.innerPageActivities.path}
+               element={<InnerPageEvents />}
             />
          </Route>
       </Routes>
