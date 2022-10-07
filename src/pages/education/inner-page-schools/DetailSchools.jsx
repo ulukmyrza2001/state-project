@@ -1,5 +1,5 @@
-import React, { forwardRef, useEffect, useLayoutEffect, useRef } from 'react'
-import { useSelector } from 'react-redux'
+import React from 'react'
+import parse from 'html-react-parser'
 import {
    A,
    Container,
@@ -10,14 +10,7 @@ import {
 } from '../../../styles/detail-styles'
 import { Flex } from '../../../styles/style-for-positions/style'
 
-const DetailSchools = () => {
-   const textRef = useRef()
-   const { oneData } = useSelector((state) => state.client)
-   useEffect(() => {
-      if (oneData) {
-         textRef.current.innerHTML = oneData?.text
-      }
-   }, [oneData])
+const DetailSchools = ({ oneData }) => {
    return (
       <Container key={oneData?.id}>
          <WrapperLeftContent>
@@ -28,7 +21,7 @@ const DetailSchools = () => {
                direction="column"
             >
                <h3>Мектеп жонундо маалымат</h3>
-               <Text ref={textRef} />
+               <Text>{parse(String(oneData?.text))}</Text>
             </WrapperText>
             <Flex direction="column" margin="20px 0 0 0" gap="6px">
                <p>

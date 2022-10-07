@@ -1,4 +1,5 @@
-import React, { useLayoutEffect, useRef } from 'react'
+import React from 'react'
+import parse from 'html-react-parser'
 import {
    A,
    Container,
@@ -10,13 +11,6 @@ import {
 import { Flex } from '../../../styles/style-for-positions/style'
 
 const DetailOlympiads = ({ oneData }) => {
-   const textRef = useRef()
-
-   useLayoutEffect(() => {
-      if (oneData) {
-         textRef.current.innerHTML = oneData.text
-      }
-   }, [oneData])
    return (
       <Container key={oneData?.id}>
          <WrapperLeftContent>
@@ -38,7 +32,7 @@ const DetailOlympiads = ({ oneData }) => {
                      <b>Олимпиаданын аталышы:</b> {oneData?.title}
                   </p>
                </Flex>
-               <Text ref={textRef} />
+               <Text>{parse(String(oneData?.text))}</Text>
             </WrapperText>
          </WrapperLeftContent>
          {oneData?.fileInformation?.photo && (

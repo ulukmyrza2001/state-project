@@ -1,5 +1,6 @@
-import React, { Fragment, useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import parse from 'html-react-parser'
 import styled from 'styled-components'
 import { clientGetData } from '../../../store/client-slice'
 import { Flex } from '../../../styles/style-for-positions/style'
@@ -7,22 +8,17 @@ import { Flex } from '../../../styles/style-for-positions/style'
 const Government = () => {
    const { government } = useSelector((state) => state.client)
    const dispatch = useDispatch()
-   const textRef = useRef()
 
    useEffect(() => {
       dispatch(clientGetData('leadership'))
    }, [])
-
-   useEffect(() => {
-      if (government.length > 0) textRef.current.innerHTML = government[0].text
-   }, [government])
 
    return government.map((item) => (
       <Container key={item.id}>
          <WrapperLeftContent>
             <Flex width="100%" align="center" direction="column">
                <h3>Кызматкер жонундо маалымат</h3>
-               <Text ref={textRef} />
+               <Text>{parse(String(item?.text))}</Text>
             </Flex>
             <div>
                <p>

@@ -1,4 +1,5 @@
 import React, { forwardRef, useLayoutEffect, useRef } from 'react'
+import parse from 'html-react-parser'
 import {
    A,
    Container,
@@ -10,19 +11,12 @@ import {
 import { Flex } from '../../../styles/style-for-positions/style'
 
 const DetailLeadership = ({ oneData }) => {
-   const textRef = useRef()
-
-   useLayoutEffect(() => {
-      if (oneData) {
-         textRef.current.innerHTML = oneData.text
-      }
-   }, [oneData])
    return (
       <Container key={oneData?.id}>
          <WrapperLeftContent>
             <WrapperText width="90%" align="center" direction="column">
                <h3>Кызматкер жонундо маалымат</h3>
-               <Text ref={textRef} />
+               <Text>{parse(String(oneData?.text))}</Text>
             </WrapperText>
             <Flex direction="column" margin="20px 0 0 0" gap="6px">
                <p>
