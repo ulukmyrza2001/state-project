@@ -18,6 +18,11 @@ const MainStyled = styled.div`
    background-size: cover;
    background-attachment: fixed;
    background-color: black;
+   background: linear-gradient(
+      90deg,
+      rgba(23, 15, 42, 0.85) 0%,
+      rgba(23, 15, 42, 0.3) 100%
+   );
 `
 // const VideoBackground = styled.video`
 //    position: fixed;
