@@ -44,7 +44,7 @@ const Effect = styled.div`
    z-index: 1;
    width: 100%;
    height: 100vh;
-   background: rgba(23, 15, 42, 0.6);
+   background: #011835c5;
    display: flex;
    justify-content: center;
    align-items: center;

@@ -28,6 +28,7 @@ const Header = () => {
       <HeaderStyled
          headerBackground={headerBackground}
          headerHeight={headerHeight}
+         isVisible={showMenuBurger}
       >
          <MobileHeader
             isVisible={showMenuBurger}
@@ -62,7 +63,7 @@ export const HeaderStyled = styled.header`
    background: ${({ headerBackground }) =>
       !headerBackground
          ? 'transparent'
-         : ' linear-gradient(-45deg, #1b1374, #011835)'};
+         : 'linear-gradient(-45deg, #1b1374, #011835)'};
    background-size: 400% 400%;
    animation: gradientBG 15s ease infinite;
    display: flex;
@@ -72,7 +73,8 @@ export const HeaderStyled = styled.header`
       height: 66px;
    }
    @media (max-width: 800px) {
-      background-color: #011835;
+      background-color: ${({ isVisible }) =>
+         isVisible ? '#011835' : 'transparent'};
       justify-content: space-between;
       .gerb {
          display: none;

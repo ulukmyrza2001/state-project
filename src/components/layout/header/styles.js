@@ -32,7 +32,11 @@ export const Logo = styled.img`
    object-fit: cover;
    margin-bottom: 10px;
    @media (max-width: 1200px) {
-      width: 80px;
+      width: 90px;
+   }
+   @media (max-width: 800px) {
+      margin-right: 30px;
+      margin-top: 5px;
    }
 `
 export const Img = styled.img`
