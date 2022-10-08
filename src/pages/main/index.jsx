@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import videoMady from '../../assets/video/mady.MP4'
 
 const MainPage = () => {
@@ -12,24 +12,30 @@ const MainPage = () => {
             loop
             type="video/mp4"
          />
-         <Effect />
+         <Effect>
+            <Text>
+               Эл журттун ажырагыс бүтүндүгү жана бир жакадан баш, бир жеңден
+               кол чыгарган ички биримдиги.
+            </Text>
+         </Effect>
       </MainStyled>
    )
 }
+const Text = styled.h1`
+   color: white;
+   font-size: 50px;
+   max-width: 70%;
+   text-align: center;
+   @media screen and (max-width: 800px) {
+      max-width: 90%;
+      font-size: 30px;
+      margin-top: 200px;
+   }
+`
 const MainStyled = styled.div`
    width: 100%;
    height: 100vh;
    position: relative;
-   /* background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-attachment: fixed;
-   background-color: black;
-   background: linear-gradient(
-      90deg,
-      rgba(23, 15, 42, 0.85) 0%,
-      rgba(23, 15, 42, 0.3) 100%
-   );  */
 `
 const Effect = styled.div`
    position: absolute;
@@ -38,7 +44,13 @@ const Effect = styled.div`
    z-index: 1;
    width: 100%;
    height: 100vh;
-   background: rgba(23, 15, 42, 0.5);
+   background: rgba(23, 15, 42, 0.6);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   @media screen and (max-width: 800px) {
+      align-items: flex-start;
+   }
 `
 const VideoBackground = styled.video`
    position: absolute;
