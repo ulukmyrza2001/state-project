@@ -20,9 +20,9 @@ export const NAVIGATIONS = [
       icon: <MdOutlineManageAccounts fontSize={20} />,
       innerList: [
          {
-            id: Math.random().toString(),
-            title: 'Өкмөт',
-            path: GOVERNMENT.path,
+            id: uuid(),
+            title: 'Окмот',
+            path: LEADERSHIP.GOVERNMENT.path,
          },
          {
             id: uuid(),
@@ -30,15 +30,17 @@ export const NAVIGATIONS = [
             path: LEADERSHIP.GOVERNMENT_APPARATUS.path,
          },
          {
-            id: Math.random().toString(),
-            title: 'Айылдык кеңеш',
-            path: VILLAGE_COUNCIL.path,
+            id: uuid(),
+            title: 'Айылдык кенеш',
+            path: LEADERSHIP.VILLAGE_COUNCIL.path,
          },
       ],
    },
    {
-      id: Math.random().toString(),
+      id: uuid(),
       title: 'Билим берүү',
+      label: 'Мады айыл окмотунун жетекчилиги',
+      icon: <IoIosSchool fontSize={20} />,
       innerList: [
          {
             id: uuid(),
@@ -66,12 +68,14 @@ export const NAVIGATIONS = [
             path: education.kindergartens.path,
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Иш-чаралар',
+            path: education.аctivities.path,
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'ЖРТ (ОРТ)',
+            path: education.GRT.path,
          },
       ],
    },
@@ -96,8 +100,9 @@ export const NAVIGATIONS = [
             path: healthCare.OMS.path,
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Дарыгердин кеңеши',
+            path: healthCare.doctorAdvice.path,
          },
       ],
    },
@@ -107,23 +112,23 @@ export const NAVIGATIONS = [
       icon: <FaPeopleCarry fontSize={20} />,
       innerList: [
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Комитет жетекчиси',
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Жигердүү жаштар',
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Жаштар үчүн сунуштар',
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Спорттук иш-чаралар',
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Демилгелер',
          },
       ],
@@ -158,11 +163,11 @@ export const NAVIGATIONS = [
             title: 'Намаз',
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Адеп-ахлак',
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Диний иш-чаралар',
          },
       ],
@@ -173,15 +178,15 @@ export const NAVIGATIONS = [
       icon: <GiCow fontSize={20} />,
       innerList: [
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Мал чарба комитети',
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Жайыт комитети',
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Үрөөн чарбасы',
          },
          {
@@ -189,11 +194,11 @@ export const NAVIGATIONS = [
             title: 'Мыйзамдар',
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Кеңештер',
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Иш-чаралар',
          },
       ],
@@ -206,7 +211,7 @@ export const NAVIGATIONS_BOTTOM = [
       icon: <AiFillBank fontSize={20} />,
       innerList: [
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Маданият үйлөрү',
          },
          {
@@ -218,7 +223,7 @@ export const NAVIGATIONS_BOTTOM = [
             title: 'Маданият кызматкерлери',
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Маданий иш-чаралар',
          },
          {
@@ -228,11 +233,12 @@ export const NAVIGATIONS_BOTTOM = [
       ],
    },
    {
-      id: Math.random().toString(),
+      id: uuid(),
       title: 'ӨКМ',
+      icon: <TbFiretruck fontSize={20} />,
       innerList: [
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'ӨКМ',
          },
       ],
@@ -260,11 +266,12 @@ export const NAVIGATIONS_BOTTOM = [
       ],
    },
    {
-      id: Math.random().toString(),
+      id: uuid(),
       title: 'Жаңылыктар жана кулактандыруулар',
+      icon: <GiNewspaper fontSize={20} />,
       innerList: [
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Жаңылыктар жана кулактандыруу',
          },
       ],
@@ -288,7 +295,8 @@ export const NAVIGATIONS_MOBILE = [
       innerList: [
          {
             id: Math.random().toString(),
-            title: 'Өкмөт',
+            title: 'Окмот',
+            path: LEADERSHIP.GOVERNMENT.path,
          },
          {
             id: Math.random().toString(),
@@ -297,13 +305,14 @@ export const NAVIGATIONS_MOBILE = [
          },
          {
             id: Math.random().toString(),
-            title: 'Айылдык кеңеш',
+            title: 'Айылдык кенеш',
+            path: LEADERSHIP.VILLAGE_COUNCIL.path,
          },
       ],
    },
    {
       id: Math.random().toString(),
-      title: 'Билим берүү',
+      title: 'Билим беруу',
       innerList: [
          {
             id: Math.random().toString(),
@@ -327,11 +336,11 @@ export const NAVIGATIONS_MOBILE = [
          },
          {
             id: Math.random().toString(),
-            title: 'Иш-чаралар',
+            title: 'Иш чаралар',
          },
          {
             id: Math.random().toString(),
-            title: 'ЖРТ (ОРТ)',
+            title: 'ОРТ',
          },
       ],
    },
@@ -353,7 +362,7 @@ export const NAVIGATIONS_MOBILE = [
          },
          {
             id: Math.random().toString(),
-            title: 'Дарыгердин кеңеши',
+            title: 'Дарыгердин кенеши',
          },
       ],
    },
@@ -363,23 +372,23 @@ export const NAVIGATIONS_MOBILE = [
       innerList: [
          {
             id: Math.random().toString(),
-            title: 'Комитет жетекчиси',
+            title: 'Коммиттет жетекчиси',
          },
          {
             id: Math.random().toString(),
-            title: 'Жигердүү жаштар',
+            title: 'Жигердуу жаштар',
          },
          {
             id: Math.random().toString(),
-            title: 'Жаштар үчүн сунуштар',
+            title: 'Жаштар учун сунуштар',
          },
          {
             id: Math.random().toString(),
-            title: 'Спорттук иш-чаралар',
+            title: 'Спорттук иш чаралар',
          },
          {
             id: Math.random().toString(),
-            title: 'Демилгелер',
+            title: 'Инициативалар',
          },
       ],
    },
@@ -413,11 +422,11 @@ export const NAVIGATIONS_MOBILE = [
          },
          {
             id: Math.random().toString(),
-            title: 'Адеп-ахлак',
+            title: 'Адеп ахлак',
          },
          {
             id: Math.random().toString(),
-            title: 'Диний иш-чаралар',
+            title: 'Диний иш чаралар',
          },
       ],
    },
@@ -427,15 +436,15 @@ export const NAVIGATIONS_MOBILE = [
       innerList: [
          {
             id: Math.random().toString(),
-            title: 'Мал чарба комитети',
+            title: 'Мал чарба коммиттети',
          },
          {
             id: Math.random().toString(),
-            title: 'Жайыт комитети',
+            title: 'Жайыт коммиттети',
          },
          {
             id: Math.random().toString(),
-            title: 'Үрөөн чарбасы',
+            title: 'Уроон чарбасы',
          },
          {
             id: Math.random().toString(),
@@ -443,11 +452,11 @@ export const NAVIGATIONS_MOBILE = [
          },
          {
             id: Math.random().toString(),
-            title: 'Кеңештер',
+            title: 'Кенештер',
          },
          {
             id: Math.random().toString(),
-            title: 'Иш-чаралар',
+            title: 'Иш чаралар',
          },
       ],
    },
@@ -457,7 +466,7 @@ export const NAVIGATIONS_MOBILE = [
       innerList: [
          {
             id: Math.random().toString(),
-            title: 'Маданият үйлөрү',
+            title: 'Маданият уйлору',
          },
          {
             id: Math.random().toString(),
@@ -469,7 +478,7 @@ export const NAVIGATIONS_MOBILE = [
          },
          {
             id: Math.random().toString(),
-            title: 'Маданий иш-чаралар',
+            title: 'Маданий иш чаралар',
          },
          {
             id: Math.random().toString(),
@@ -479,11 +488,11 @@ export const NAVIGATIONS_MOBILE = [
    },
    {
       id: Math.random().toString(),
-      title: 'ӨКМ',
+      title: 'МЧС',
       innerList: [
          {
             id: Math.random().toString(),
-            title: 'ӨКМ',
+            title: 'МЧС',
          },
       ],
    },
@@ -509,11 +518,11 @@ export const NAVIGATIONS_MOBILE = [
    },
    {
       id: Math.random().toString(),
-      title: 'Жаңылыктар жана кулактандыруулар',
+      title: 'Жанылыктар жана кулактандыруулар',
       innerList: [
          {
             id: Math.random().toString(),
-            title: 'Жаңылыктар жана кулактандыруу',
+            title: 'Жанылыктар жана кулактандыруу',
          },
       ],
    },
