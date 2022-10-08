@@ -1,52 +1,27 @@
-import React from 'react'
-import TemplateLeaderShipPages from '../../../components/temaplate-leadership-pages'
-
-const navigation = [
-   {
-      id: 1,
-      title: 'Beyabrs',
-      nav: 'Beybars',
-   },
-   {
-      id: 2,
-      title: 'Beyabrs',
-      nav: 'Beybars',
-   },
-   {
-      id: 3,
-      title: 'Beyabrs',
-      nav: 'Beybars',
-   },
-]
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import LoadingPage from '../../../components/UI/loader/LoadingPage'
+import Card from '../../../components/UI/template-card'
+import { clientGetData } from '../../../store/client-slice'
 
 const VillageCouncil = () => {
-   const pathsArray = [
-      {
-         path: '/',
-         name: 'Уй',
-      },
-      {
-         path: '/jetekchilik/aiyldyk-kenesh',
-         name: 'Айылдык кенеш',
-      },
-   ]
+   const { villageCouncil, isLoading } = useSelector((state) => state.client)
+   const dispatch = useDispatch()
+
+   useEffect(() => {
+      dispatch(clientGetData('leadership'))
+   }, [])
+
    return (
-      <div>
-         <TemplateLeaderShipPages
-            headerTitle="МАДЫ АЙЫЛ ОКМОТУНУН АЙЫЛДЫК КЕНЕШИ"
-            socials={['dfs', 'sdf', 'sd']}
-            navigation={navigation}
-            navigationTitle="МАДЫ АЙЫЛ ОКМОТУНУН АЙЫЛДЫК КЕНЕШИ"
-            breadCrumbsPaths={pathsArray}
-         >
-            <p>
-               hello world Lorem ipsum dolor sit amet consectetur, adipisicing
-               elit. A ducimus consequatur ex tenetur rerum, dicta quibusdam,
-               rem, fugiat modi odio consequuntur veritatis fuga ut aspernatur
-               vel explicabo possimus hic? Voluptate?{' '}
-            </p>
-         </TemplateLeaderShipPages>
-      </div>
+      (isLoading && <LoadingPage />) ||
+      villageCouncil.map((item) => (
+         <Card
+            key={item.id}
+            title={item.positions}
+            subTitle={`${item.firstName} ${item.lastName} ${item.patronymic}`}
+            item={item}
+         />
+      ))
    )
 }
 

@@ -1,89 +1,84 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { useLocation } from 'react-router-dom'
-import flag from '../../../assets/icons/Flag_of_Kyrgyzstan.svg'
+import { Link, useLocation } from 'react-router-dom'
 import gerb from '../../../assets/icons/GERB.svg'
+import madyLogo from '../../../assets/icons/logoMady.png'
 import { scrollHeader } from '../../../utils/helpers/general'
-import {
-   NAVIGATIONS,
-   NAVIGATIONS_MOBILE,
-} from '../../../utils/constants/category'
+import { NAVIGATIONS } from '../../../utils/constants/category'
 import MobileHeader from './MobileHeader'
-import {
-   Img,
-   InnerWindowMenu,
-   MenuBurger,
-   StyledFlag,
-   WindowMenu,
-} from './styles'
+import { Img, Logo, MenuBurger, StyledFlag } from './styles'
 import Navigations from './Navigations'
-import NavSectionItem from './NavSectionItem'
+import { CATEGORYES } from '../../../utils/constants/categoryes'
 
 const Header = () => {
    const { pathname } = useLocation()
-   const [headerBackground, setHeaderBackground] = useState(false)
-   const [windowMenu, setWindowMenu] = useState(false)
+   const [isScroll, setIsScroll] = useState(false)
    const [showMenuBurger, setShowMenuBurger] = useState(false)
-   const [sections, setSections] = useState({ innerList: [] })
 
    window.addEventListener('scroll', () => {
-      if (scrollHeader()) setHeaderBackground(true)
-      else setHeaderBackground(false)
+      if (scrollHeader()) setIsScroll(true)
+      else setIsScroll(false)
    })
 
-   const headerStyle = pathname !== '/' || headerBackground
+   const headerHeight = pathname !== '/' || isScroll
+
+   const headerBackground = pathname !== '/' || isScroll
 
    return (
-      <HeaderStyled headerStyle={headerStyle}>
-         <StyledFlag>
-            <Img isScroll={headerStyle} src={gerb} alt="" />
-         </StyledFlag>
-         <MenuBurger onClick={() => setShowMenuBurger(!showMenuBurger)} />
+      <HeaderStyled
+         headerBackground={headerBackground}
+         headerHeight={headerHeight}
+         isVisible={showMenuBurger}
+      >
          <MobileHeader
             isVisible={showMenuBurger}
-            navigations={NAVIGATIONS_MOBILE}
-         />
-         <Navigations
-            navigations={NAVIGATIONS}
-            onMouseOut={() => setWindowMenu(false)}
-            onMouseMove={(e) => {
-               setWindowMenu(true)
-               setSections(
-                  NAVIGATIONS.find((el) => el.id === e.currentTarget.id)
-               )
-            }}
+            navigations={CATEGORYES}
+            setShowMenuBurger={setShowMenuBurger}
          />
          <StyledFlag>
-            <Img isScroll={headerStyle} src={flag} alt="" />
+            <Link to="/">
+               <Logo
+                  isScroll={headerHeight}
+                  src={madyLogo}
+                  style={{ cursor: 'pointer' }}
+               />
+            </Link>
          </StyledFlag>
-         <WindowMenu
-            onMouseMove={() => setWindowMenu(true)}
-            onMouseOut={() => setWindowMenu(false)}
-            windowMenu={windowMenu}
-         >
-            <InnerWindowMenu>
-               <NavSectionItem sections={sections} />
-            </InnerWindowMenu>
-         </WindowMenu>
+         <MenuBurger onClick={() => setShowMenuBurger(!showMenuBurger)} />
+         <Navigations
+            headerBackground={headerBackground}
+            navigations={NAVIGATIONS}
+         />
+         <StyledFlag className="gerb">
+            <Img isScroll={headerHeight} src={gerb} alt="" />
+         </StyledFlag>
       </HeaderStyled>
    )
 }
 export const HeaderStyled = styled.header`
    position: fixed;
+   z-index: 10;
    width: 100%;
-   height: ${({ headerStyle }) => (headerStyle ? '60px' : '90px')};
-   background-color: ${({ headerStyle }) =>
-      headerStyle ? '#011835' : 'transparent'};
+   height: ${({ headerHeight }) => (headerHeight ? '60px' : '90px')};
+   background: ${({ headerBackground }) =>
+      !headerBackground
+         ? 'transparent'
+         : 'linear-gradient(-45deg, #1b1374, #011835)'};
+   background-size: 400% 400%;
+   animation: gradientBG 15s ease infinite;
    display: flex;
    align-items: center;
    justify-content: center;
-   z-index: 1;
    @media (max-width: 1200px) {
       height: 66px;
    }
    @media (max-width: 800px) {
-      background-color: #011835;
+      background-color: ${({ isVisible }) =>
+         isVisible ? '#011835' : 'transparent'};
       justify-content: space-between;
+      .gerb {
+         display: none;
+      }
    }
 `
 

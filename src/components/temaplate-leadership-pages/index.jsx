@@ -1,84 +1,83 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
-import { ImFacebook2 } from 'react-icons/im'
-import { BsWhatsapp, BsInstagram } from 'react-icons/bs'
-import { IoIosArrowForward } from 'react-icons/io'
-import { Link } from 'react-router-dom'
+import { BsWhatsapp, BsInstagram, BsLinkedin } from 'react-icons/bs'
+import { Outlet, useLocation } from 'react-router-dom'
 import { Flex } from '../../styles/style-for-positions/style'
 import { Title } from '../../styles/typography/typography'
 import BreadCrumbs from '../UI/breadcrumbs/BreadCrumbs'
+import SideBarNav from './SideBarNav'
+import { findOneCategory, localstorage } from '../../utils/helpers/general'
 
-const SOCIAL_ICONS = [<ImFacebook2 />, <BsInstagram />, <BsWhatsapp />]
+const SOCIAL_ICONS = [<BsLinkedin />, <BsInstagram />, <BsWhatsapp />]
 
 const socialsRender = (socials) => {
    return SOCIAL_ICONS.map((icon, i) => (
-      <Social key={i} to={socials[i]}>
+      <Social key={i} href={socials[i]} target="_blank">
          {icon}
       </Social>
    ))
 }
 
 const TemplateLeaderShipPages = ({
-   headerTitle,
-   children,
-   socials,
-   navigationTitle,
-   navigation,
-   breadCrumbsPaths,
+   socials = [
+      'https://www.linkedin.com/in/ulukmyrza-zhanybekov-54905b23a/',
+      'https://www.instagram.com/erkulow',
+      'https://api.whatsapp.com/send/?phone=996554785515&text&type=phone_number&app_absent=0',
+   ],
 }) => {
+   const { pathname, state } = useLocation()
+
+   const breadCrumbLinks = localstorage.get('link')
+
+   const title = state ? state?.title : breadCrumbLinks?.title
+
+   const pathsArray = [
+      {
+         path: '/',
+         name: 'Уй',
+      },
+      {
+         path: '!#',
+         name: title,
+      },
+   ]
    return (
       <Container>
          <GlobalStyle />
          <Header>
             <InnerHeader>
-               <Flex
-                  direction="column"
-                  width="100%"
-                  mobileDirection="column"
-                  mobileAlign="center"
-               >
-                  <TitleHeader>{headerTitle}</TitleHeader>
-                  <BreadCrumbs pathsArray={breadCrumbsPaths} />
-               </Flex>
+               <HeaderLeft>
+                  <TitleHeader>{`Мады айыл өкмөтү / ${
+                     findOneCategory(pathname).title
+                  }`}</TitleHeader>
+                  <BreadCrumbs pathsArray={pathsArray} />
+               </HeaderLeft>
                <Flex gap="7px" align="center">
                   {socialsRender(socials)}
                </Flex>
             </InnerHeader>
          </Header>
-         <Flex
-            margin="12px 0"
-            width="100%"
-            justify="center"
-            mobileJustify="center"
-         >
-            <Flex
-               mobileDirection="column"
-               maxWidth="1440px"
-               width="90%"
-               justify="space-between"
-               mobileAlign="center"
-            >
+         <HeaderRight>
+            <WrapperContent>
                <NavigationBlock>
-                  <NavigationTitle>{navigationTitle}</NavigationTitle>
-                  <InnerNavigationLi>
-                     {navigation.map((item) => (
-                        <li key={item.id}>
-                           {item.title}
-                           <div>
-                              <IoIosArrowForward />
-                           </div>
-                        </li>
-                     ))}
-                  </InnerNavigationLi>
+                  <NavigationTitle>Навигация</NavigationTitle>
+                  <SideBarNav />
                </NavigationBlock>
-               <ContainerContent>{children}</ContainerContent>
-            </Flex>
-         </Flex>
+               <ContainerContent>
+                  <Outlet />
+               </ContainerContent>
+            </WrapperContent>
+         </HeaderRight>
       </Container>
    )
 }
 
+const Container = styled.div`
+   padding-top: 60px;
+   width: 100%;
+   margin: 0 auto;
+`
 const TitleHeader = styled(Title)`
    font-weight: bold;
    @media (max-width: 800px) {
@@ -87,14 +86,6 @@ const TitleHeader = styled(Title)`
    @media (max-width: 500px) {
       font-size: 13px;
       margin: 5px 0;
-   }
-`
-const Container = styled.div`
-   padding-top: 60px;
-   width: 100%;
-   margin: 0 auto;
-   @media (max-width: 800px) {
-      width: 100%;
    }
 `
 const Header = styled.div`
@@ -116,12 +107,24 @@ const InnerHeader = styled.div`
       gap: 10px;
    }
 `
+const HeaderLeft = styled(Flex)`
+   width: 100%;
+   flex-direction: column;
+   @media (max-width: 800px) {
+      align-items: center;
+   }
+`
+const HeaderRight = styled(Flex)`
+   margin: 12px 0;
+   width: 100%;
+   justify-content: center;
+`
 const GlobalStyle = createGlobalStyle`
     body{
         background: #f1f1f1;
     }
 `
-const Social = styled(Link)`
+const Social = styled.a`
    padding: 0.5rem;
    display: flex;
    align-items: center;
@@ -134,60 +137,46 @@ const Social = styled(Link)`
       color: #536577;
    }
 `
+const WrapperContent = styled(Flex)`
+   max-width: 1380px;
+   width: 100%;
+   justify-content: space-between;
+   align-items: flex-start;
+   @media (max-width: 800px) {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+   }
+`
 const ContainerContent = styled.div`
-   max-width: 70%;
+   max-width: 82%;
+   width: 100%;
    background: #ffffff;
    padding: 1rem;
    box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.1);
+   margin-bottom: 20px;
    @media (max-width: 800px) {
+      min-width: 100%;
       max-width: 100%;
    }
 `
-
 const NavigationTitle = styled.div`
    padding: 15px 20px;
-   background-color: #dddddd;
+   background-color: #dddd;
    border-radius: 8px 8px 0 0;
    font-weight: 400;
    font-style: normal;
    font-size: 14px;
 `
 const NavigationBlock = styled.div`
-   width: 20%;
+   width: 10%;
    min-width: 240px;
    border-radius: 10px;
    background-color: #ffffff;
    margin-right: 15px;
    @media (max-width: 800px) {
-      width: 100%;
-      margin-bottom: 20px;
-      margin-right: 0;
+      display: none;
    }
 `
-const InnerNavigationLi = styled.ul`
-   list-style: none;
-   li {
-      padding: 15px 20px;
-      border-bottom: 0 solid #f1f1f1;
-      border-top: 0.1px solid #f1f1f1;
-      cursor: pointer;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      :last-child {
-         border-radius: 0 0 8px 8px;
-      }
-      div {
-         display: flex;
-         transition: 0.5s;
-      }
-      :hover {
-         background-color: #dddddd;
-      }
-      :hover div {
-         transform: translateX(3px);
-      }
-   }
-`
+
 export default TemplateLeaderShipPages

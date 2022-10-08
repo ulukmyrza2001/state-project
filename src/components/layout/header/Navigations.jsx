@@ -1,42 +1,23 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { IoIosArrowDown } from 'react-icons/io'
-import { RiMenuUnfoldFill } from 'react-icons/ri'
-import { useLocation } from 'react-router-dom'
-import { NAVIGATIONS_BOTTOM } from '../../../utils/constants/category'
-import MobileHeader from './MobileHeader'
-import { List, NavButton, NavIconWrapper } from './styles'
+import NavSectionItem from './NavSectionItem'
+import { List, NavButton, NavIconWrapper, WindowMenu } from './styles'
 
-const Navigations = ({ navigations, onMouseOut, onMouseMove }) => {
-   const { pathname } = useLocation()
-   const [otherNavigation, setOtherNavitgation] = useState(false)
-
-   const toggleOtherNavigation = () => setOtherNavitgation(!otherNavigation)
-
+const Navigations = ({ navigations, isBottom, headerBackground }) => {
    return (
-      <List>
+      <List headerBackground={headerBackground} isBottom={isBottom}>
          {navigations.map((item) => (
-            <NavButton
-               key={item.id}
-               id={item.id}
-               onMouseOut={onMouseOut}
-               onMouseMove={onMouseMove}
-            >
-               {item.title}
+            <NavButton key={item.id} id={item.id}>
+               <WindowMenu isBottom={isBottom}>
+                  <NavSectionItem sections={item.innerList} />
+               </WindowMenu>
+               {item.icon} {item.title}
                <span />
                <NavIconWrapper>
                   <IoIosArrowDown fontSize={14} />
                </NavIconWrapper>
             </NavButton>
          ))}
-         {pathname !== '/' && (
-            <NavButton onClick={toggleOtherNavigation}>
-               <RiMenuUnfoldFill />
-            </NavButton>
-         )}
-         <MobileHeader
-            isVisible={otherNavigation}
-            navigations={NAVIGATIONS_BOTTOM}
-         />
       </List>
    )
 }

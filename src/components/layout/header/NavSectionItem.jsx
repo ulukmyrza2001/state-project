@@ -1,12 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import Button from '../../UI/buttons/Button'
+import { useNavigate } from 'react-router-dom'
+import { BsArrowRight } from 'react-icons/bs'
+import { Li } from './styles'
 
 const NavSectionItem = ({ sections }) => {
-   return sections?.innerList?.map((el) => (
-      <Link to={el.path || '/'} key={el.id}>
-         <Button>{el.title}</Button>
-      </Link>
+   const navigate = useNavigate()
+   return sections?.map((el) => (
+      <Li key={el.id} onClick={() => navigate(`${el.path}`, { state: el })}>
+         {el.title}
+         <BsArrowRight />
+      </Li>
    ))
 }
 

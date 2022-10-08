@@ -1,23 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Roboto+Condensed&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
 * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-   transition: all 0.2s;
+   transition: all 0.1s;
    border: none;
    outline: none;
-   font-family: 'Nunito', sans-serif;
+   font-family: 'PT Sans Narrow', sans-serif;
 }
 body {
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
-   background: url(./assets/images/mady.jpg);
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-attachment: fixed;
+   background: white;
 }
 
 code {

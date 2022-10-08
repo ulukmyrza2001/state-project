@@ -16,7 +16,7 @@ const LayoutClient = () => {
    )
 }
 const Main = styled.div`
-   min-height: ${`${window.innerHeight}px`};
+   min-height: 100vh;
    width: 100%;
 `
 

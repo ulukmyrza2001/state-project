@@ -35,30 +35,36 @@ const StyledCrumbs = styled(Breadcrumbs)`
    display: flex;
    align-items: center;
    text-align: center;
-   font-size: 14px;
+   font-size: 11px;
+   @media (max-width: 400px) {
+      font-size: 12px;
+   }
 `
 const LinkStyleControl = styled(Link)`
-   letter-spacing: 0.02em;
    font-size: 13px;
    color: #a4a4a4;
    text-decoration: none;
    display: flex;
    align-items: center;
    justify-content: center;
-   gap: 3px;
    font-weight: 200;
    :hover {
       color: gray;
    }
+   @media (max-width: 400px) {
+      font-size: 12px;
+   }
 `
 const LastPathStyle = styled(Title)`
    text-transform: lowercase;
-   letter-spacing: 0.02em;
    font-size: 13px;
    color: gray;
    font-weight: 200;
    ::first-letter {
       text-transform: uppercase;
+   }
+   @media (max-width: 400px) {
+      font-size: 12px;
    }
 `
 export default BreadCrumbs
