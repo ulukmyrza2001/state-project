@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import styled from 'styled-components'
 import { CgMenuRightAlt } from 'react-icons/cg'
 
@@ -16,7 +15,6 @@ export const MenuBurger = styled(CgMenuRightAlt)`
       display: block;
    }
 `
-
 export const StyledFlag = styled.div`
    max-width: 150px;
    width: 100%;
@@ -24,8 +22,8 @@ export const StyledFlag = styled.div`
    display: flex;
    justify-content: center;
    align-items: center;
-   @media (max-width: 800px) {
-      max-width: 90px;
+   @media (max-width: 860px) {
+      max-width: 110px;
    }
 `
 export const Logo = styled.img`
@@ -50,6 +48,29 @@ export const NavIconWrapper = styled.div`
    display: flex;
    align-items: center;
    margin-top: 2px;
+`
+export const Li = styled.li`
+   width: 100%;
+   font-size: 16px;
+   letter-spacing: 0.4px;
+   text-transform: capitalize;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   opacity: 0;
+   gap: 5px;
+   padding: 0.5em;
+   color: black;
+   padding: 0rem;
+   height: 0;
+   pointer-events: none;
+   background-color: white;
+   :hover {
+      color: #53538f;
+      svg {
+         transform: translateX(4px);
+      }
+   }
 `
 export const NavButton = styled.li`
    display: flex;
@@ -83,17 +104,21 @@ export const NavButton = styled.li`
    :hover ${NavIconWrapper} {
       transform: rotate(180deg);
    }
+   :hover ${Li} {
+      color: black;
+      padding: 0.4rem 1rem;
+      height: max-content;
+      pointer-events: painted;
+      opacity: 1;
+   }
    @media (max-width: 1200px) {
       font-size: 8px;
       line-height: 15px;
       text-align: center;
    }
 `
-export const WindowMenu = styled.div`
+export const WindowMenu = styled.ul`
    width: max-content;
-   padding: ${({ windowMenu }) => (windowMenu ? '0.4rem' : '0rem')};
-   height: ${({ windowMenu }) => (windowMenu ? 'fit-content' : '0px')};
-   pointer-events: ${({ windowMenu }) => (windowMenu ? '' : 'none')};
    position: absolute;
    bottom: ${({ isBottom }) => (isBottom ? '100%' : '0')};
    top: ${({ isBottom }) => (isBottom ? '' : '100%')};
@@ -102,18 +127,13 @@ export const WindowMenu = styled.div`
    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
    transition: all 0.1;
 `
-export const InnerWindowMenu = styled.div`
-   width: 100%;
-   height: 100%;
-`
 export const List = styled.ul`
    display: flex;
    list-style: none;
    height: 100%;
    align-items: center;
-   box-shadow: 2px 2px 40px rgba(0, 0, 0, 0.6);
    box-shadow: ${({ headerBackground }) =>
-      headerBackground ? 'none' : '  2px 2px 40px rgba(0, 0, 0, 0.6)'};
+      headerBackground ? 'none' : '2px 2px 40px rgba(0, 0, 0, 0.6)'};
    border-bottom-left-radius: ${({ isBottom }) => (isBottom ? '0' : '10px')};
    border-bottom-right-radius: ${({ isBottom }) => (isBottom ? '0' : '10px')};
    border-top-left-radius: ${({ isBottom }) => (!isBottom ? '0' : '10px')};
@@ -123,7 +143,6 @@ export const List = styled.ul`
          ? 'transparent'
          : ' linear-gradient(-45deg, #1b1374, #011835)'};
    animation: gradientBG 15s ease infinite;
-
    @keyframes gradientBG {
       0% {
          background-position: 0% 50%;

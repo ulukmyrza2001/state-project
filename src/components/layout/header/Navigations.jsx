@@ -3,35 +3,13 @@ import { IoIosArrowDown } from 'react-icons/io'
 import NavSectionItem from './NavSectionItem'
 import { List, NavButton, NavIconWrapper, WindowMenu } from './styles'
 
-const Navigations = ({
-   navigations,
-   onMouseOut,
-   onMouseMove,
-   isBottom,
-   headerBackground,
-   windowMenu,
-   setWindowMenu,
-   sections,
-}) => {
+const Navigations = ({ navigations, isBottom, headerBackground }) => {
    return (
       <List headerBackground={headerBackground} isBottom={isBottom}>
          {navigations.map((item) => (
-            <NavButton
-               key={item.id}
-               id={item.id}
-               onMouseOut={onMouseOut}
-               onMouseMove={onMouseMove}
-            >
-               <WindowMenu
-                  onMouseMove={() => setWindowMenu(true)}
-                  onMouseOut={() => setWindowMenu(false)}
-                  windowMenu={item.id === windowMenu}
-                  isBottom={isBottom}
-               >
-                  <NavSectionItem
-                     windowMenu={item.id === windowMenu}
-                     sections={sections}
-                  />
+            <NavButton key={item.id} id={item.id}>
+               <WindowMenu isBottom={isBottom}>
+                  <NavSectionItem sections={item.innerList} />
                </WindowMenu>
                {item.icon} {item.title}
                <span />

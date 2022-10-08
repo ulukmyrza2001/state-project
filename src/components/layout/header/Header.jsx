@@ -6,40 +6,23 @@ import madyLogo from '../../../assets/icons/logoMady.png'
 import { scrollHeader } from '../../../utils/helpers/general'
 import { NAVIGATIONS } from '../../../utils/constants/category'
 import MobileHeader from './MobileHeader'
-import {
-   Img,
-   InnerWindowMenu,
-   Logo,
-   MenuBurger,
-   StyledFlag,
-   WindowMenu,
-} from './styles'
+import { Img, Logo, MenuBurger, StyledFlag } from './styles'
 import Navigations from './Navigations'
-import NavSectionItem from './NavSectionItem'
 import { CATEGORYES } from '../../../utils/constants/categoryes'
 
 const Header = () => {
    const { pathname } = useLocation()
    const [isScroll, setIsScroll] = useState(false)
-   const [windowMenu, setWindowMenu] = useState(false)
    const [showMenuBurger, setShowMenuBurger] = useState(false)
-   const [sections, setSections] = useState({ innerList: [] })
 
    window.addEventListener('scroll', () => {
       if (scrollHeader()) setIsScroll(true)
       else setIsScroll(false)
    })
 
-   const mouseMoveHandler = (e) => {
-      setWindowMenu(e.currentTarget.id)
-      setSections(NAVIGATIONS.find((el) => el.id === e.currentTarget.id))
-   }
-
-   const mouseOutHandler = () => setWindowMenu(false)
-
    const headerHeight = pathname !== '/' || isScroll
 
-   const headerBackground = windowMenu || pathname !== '/' || isScroll
+   const headerBackground = pathname !== '/' || isScroll
 
    return (
       <HeaderStyled
@@ -62,13 +45,8 @@ const Header = () => {
          </StyledFlag>
          <MenuBurger onClick={() => setShowMenuBurger(!showMenuBurger)} />
          <Navigations
-            sections={sections}
-            windowMenu={windowMenu}
-            setWindowMenu={setWindowMenu}
             headerBackground={headerBackground}
             navigations={NAVIGATIONS}
-            onMouseOut={mouseOutHandler}
-            onMouseMove={mouseMoveHandler}
          />
          <StyledFlag className="gerb">
             <Img isScroll={headerHeight} src={gerb} alt="" />
