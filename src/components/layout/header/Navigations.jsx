@@ -7,7 +7,6 @@ const Navigations = ({
    navigations,
    onMouseOut,
    onMouseMove,
-   isbottom,
    isBottom,
    headerBackground,
    windowMenu,
@@ -15,7 +14,7 @@ const Navigations = ({
    sections,
 }) => {
    return (
-      <List headerBackground={headerBackground} isBottom={isbottom}>
+      <List headerBackground={headerBackground} isBottom={isBottom}>
          {navigations.map((item) => (
             <NavButton
                key={item.id}

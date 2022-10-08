@@ -78,6 +78,7 @@ const Header = () => {
 }
 export const HeaderStyled = styled.header`
    position: fixed;
+   z-index: 10;
    width: 100%;
    height: ${({ headerHeight }) => (headerHeight ? '60px' : '90px')};
    background: ${({ headerBackground }) =>
@@ -89,7 +90,6 @@ export const HeaderStyled = styled.header`
    display: flex;
    align-items: center;
    justify-content: center;
-   z-index: 1;
    @media (max-width: 1200px) {
       height: 66px;
    }

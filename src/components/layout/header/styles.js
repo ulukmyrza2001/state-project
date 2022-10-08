@@ -55,7 +55,7 @@ export const NavButton = styled.li`
    display: flex;
    align-items: center;
    gap: 3px;
-   font-size: 11px;
+   font-size: 14px;
    position: relative;
    color: white;
    height: 100%;

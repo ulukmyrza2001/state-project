@@ -24,7 +24,7 @@ const Card = ({ item, title, subTitle }) => {
                width="100%"
             >
                <WrapperTitle>
-                  <h3>{title}</h3>
+                  <h3 style={{ color: '#4d4e58' }}>{title}</h3>
                   <SubTitle>{subTitle}</SubTitle>
                </WrapperTitle>
             </Flex>
@@ -43,6 +43,7 @@ const SubTitle = styled.h4`
    display: -webkit-box;
    -webkit-line-clamp: 3;
    -webkit-box-orient: vertical;
+   color: #484c67;
    ul,
    ol {
       margin-left: 25px;

@@ -33,6 +33,7 @@ const HeaderBottom = () => {
 
 const HeaderStyled = styled.header`
    position: absolute;
+   z-index: 10;
    bottom: 0;
    width: 100%;
    height: 70px;
