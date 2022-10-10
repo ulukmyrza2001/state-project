@@ -38,6 +38,24 @@ const InnerOmsPage = React.lazy(() =>
 const InnerDoctorsAdvice = React.lazy(() =>
    import('../pages/healthcare/innerDoctorsAdvice')
 )
+
+// YOUTH AFFAIRS PAGES
+const HeadOfCommittee = React.lazy(() =>
+   import('../pages/youth-affairs/head-of-committee')
+)
+const ActiveYouth = React.lazy(() =>
+   import('../pages/youth-affairs/active-youth')
+)
+const Initiatives = React.lazy(() =>
+   import('../pages/youth-affairs/initiatives')
+)
+const OffersForYouth = React.lazy(() =>
+   import('../pages/youth-affairs/offers-for-youth')
+)
+const SportActivities = React.lazy(() =>
+   import('../pages/youth-affairs/sport-activities')
+)
+
 // SCHOOLS
 const Schools = React.lazy(() => import('../pages/education/schools'))
 const InnerPageSchools = React.lazy(() =>
@@ -73,8 +91,14 @@ const InnerPageEvents = React.lazy(() =>
 )
 
 const ClientRoutes = () => {
-   const { MAIN, LEADERSHIP, education, healthCare, religiousAffairs } =
-      CLIENT_ROUTES
+   const {
+      MAIN,
+      LEADERSHIP,
+      education,
+      healthCare,
+      religiousAffairs,
+      youthAffairs,
+   } = CLIENT_ROUTES
 
    return (
       <Routes>
@@ -89,7 +113,6 @@ const ClientRoutes = () => {
                   element={<GovernmentApparatus />}
                   path={LEADERSHIP.GOVERNMENT_APPARATUS.path}
                />
-
                <Route
                   element={<VillageCouncil />}
                   path={LEADERSHIP.VILLAGE_COUNCIL.path}
@@ -104,7 +127,6 @@ const ClientRoutes = () => {
                   element={<DoctorAdvice />}
                   path={healthCare.doctorAdvice.path}
                />
-
                <Route path={education.schools.path} element={<Schools />} />
                <Route
                   path={education.drivingSchool.path}
@@ -116,6 +138,28 @@ const ClientRoutes = () => {
                   path={education.kindergartens.path}
                   element={<Kindergartens />}
                />
+               {/* YOUTH AFFAIRS PAGES */}
+               <Route
+                  path={youthAffairs.headOfCommittee.path}
+                  element={<HeadOfCommittee />}
+               />
+               <Route
+                  path={youthAffairs.activeYouth.path}
+                  element={<ActiveYouth />}
+               />
+               <Route
+                  path={youthAffairs.initiativies.path}
+                  element={<Initiatives />}
+               />
+               <Route
+                  path={youthAffairs.offersForYouth.path}
+                  element={<OffersForYouth />}
+               />
+               <Route
+                  path={youthAffairs.sportActivities.path}
+                  element={<SportActivities />}
+               />
+               {/* ------------------ */}
                <Route path={education.GRT.path} element={<GRT />} />
                <Route path={education.аctivities.path} element={<Events />} />
                {/* --------- */}
@@ -183,6 +227,7 @@ const ClientRoutes = () => {
                path={healthCare.innerPageDoctorAdvice.path}
                element={<InnerDoctorsAdvice />}
             />
+            {/* // YOUTH AFFAIRS PAGES */}
          </Route>
       </Routes>
    )

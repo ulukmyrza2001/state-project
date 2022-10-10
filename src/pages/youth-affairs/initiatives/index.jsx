@@ -4,12 +4,12 @@ import LoadingPage from '../../../components/UI/loader/LoadingPage'
 import Card from '../../../components/UI/template-card'
 import { clientGetData } from '../../../store/client-slice'
 
-const HeadOfCommittee = () => {
+const Initaitives = () => {
    const { data, isLoading } = useSelector((state) => state.client)
    const dispatch = useDispatch()
 
    useEffect(() => {
-      dispatch(clientGetData('youthAffairsHC'))
+      dispatch(clientGetData('youthInitiatives'))
    }, [])
 
    return (
@@ -25,4 +25,4 @@ const HeadOfCommittee = () => {
    )
 }
 
-export default HeadOfCommittee
+export default Initaitives
