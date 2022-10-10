@@ -141,22 +141,27 @@ export const NAVIGATIONS = [
          {
             id: uuid(),
             title: 'Мечиттер',
+            path: religiousAffairs.mosques.path,
          },
          {
             id: uuid(),
             title: 'Медреселер',
+            path: religiousAffairs.madrasas.path,
          },
          {
             id: uuid(),
             title: 'Ажылык',
+            path: religiousAffairs.pilgrimage.path,
          },
          {
             id: uuid(),
             title: 'Айт',
+            path: religiousAffairs.ait.path,
          },
          {
             id: uuid(),
             title: 'Рамазан',
+            path: religiousAffairs.ramadan.path,
          },
          {
             id: uuid(),
@@ -166,10 +171,12 @@ export const NAVIGATIONS = [
          {
             id: uuid(),
             title: 'Адеп-ахлак',
+            path: religiousAffairs.morality.path,
          },
          {
             id: uuid(),
             title: 'Диний иш-чаралар',
+            path: religiousAffairs.religiousActivities.path,
          },
       ],
    },

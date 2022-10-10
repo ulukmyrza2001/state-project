@@ -76,41 +76,41 @@ export const CLIENT_ROUTES = {
    },
    healthCare: {
       hospitals: {
-         path: '/admin/salamattykty-saktoo/oorukanalar',
+         path: '/salamattykty-saktoo/oorukanalar',
          label: 'Hospitals',
       },
       paramedicPoint: {
-         path: '/admin/salamattykty-saktoo/PHAP',
+         path: '/salamattykty-saktoo/PHAP',
          label: 'Paramedic Point',
       },
       OMS: {
-         path: '/admin/salamattykty-saktoo/OMS',
+         path: '/salamattykty-saktoo/OMS',
          label: 'OMS',
       },
       doctorAdvice: {
-         path: '/admin/salamattykty-saktoo/darygerdin-keneshi',
+         path: '/salamattykty-saktoo/darygerdin-keneshi',
          label: 'Doctor Advice',
       },
    },
    religiousAffairs: {
       mosques: {
-         path: '/admin/din-ishteri/mechitter',
+         path: '/din-ishteri/mechitter',
          label: 'Mosques',
       },
       madrasas: {
-         path: '/admin/din-ishteri/medreseler',
+         path: '/din-ishteri/medreseler',
          label: 'Madrasa',
       },
       pilgrimage: {
-         path: '/admin/din-ishteri/azhylyk',
+         path: '/din-ishteri/azhylyk',
          label: 'Pilgrimage',
       },
       ait: {
-         path: '/admin/din-ishteri/ait',
+         path: '/din-ishteri/ait',
          label: 'Ait',
       },
       ramadan: {
-         path: '/admin/din-ishteri/ramazan',
+         path: '/din-ishteri/ramazan',
          label: 'Ramadan',
       },
       prayer: {
@@ -118,105 +118,108 @@ export const CLIENT_ROUTES = {
          label: 'Namaz',
       },
       morality: {
-         path: '/admin/din-ishteri/adep-ahlak',
+         path: '/din-ishteri/adep-ahlak',
          label: 'Morality',
       },
       religiousActivities: {
-         path: '/admin/din-ishteri/din-ishteri',
+         path: '/din-ishteri/din-ishteri',
          label: 'Religious Activities',
+      },
+      innerPageAit: {
+         path: '/din-ishteri/ait/:id',
       },
    },
    youthAffairs: {
       headOfCommittee: {
-         path: '/admin/jashtar-ishteri/komitet-jetekchisi',
+         path: '/jashtar-ishteri/komitet-jetekchisi',
          label: 'Head of the Committee',
       },
       sportActivities: {
-         path: '/admin/jashtar-ishteri/sport-ishteri',
+         path: '/jashtar-ishteri/sport-ishteri',
          label: 'Sport Activities',
       },
       activeYouth: {
-         path: '/admin/jashtar-ishteri/jigerduu-jashtar',
+         path: '/jashtar-ishteri/jigerduu-jashtar',
          label: 'Active youth',
       },
       initiativies: {
-         path: '/admin/jashtar-ishteri/demilgeler',
+         path: '/jashtar-ishteri/demilgeler',
          label: 'Initiativies',
       },
       offersForYouth: {
-         path: '/admin/jashtar-ishteri/jashtarga-sunushtar',
+         path: '/jashtar-ishteri/jashtarga-sunushtar',
          label: 'Offers For Youth',
       },
    },
    agriculture: {
       animalUsbandry: {
-         path: '/admin/aiyl-charba/mal-charba-comiteti',
+         path: '/aiyl-charba/mal-charba-comiteti',
          label: 'Animal Usbandry Committee',
       },
       pastureCommittee: {
-         path: '/admin/aiyl-charba/jaiyt-comiteti',
+         path: '/aiyl-charba/jaiyt-comiteti',
          label: 'Pasture Committee',
       },
       seedsFarm: {
-         path: '/admin/aiyl-charba/uroon',
+         path: '/aiyl-charba/uroon',
          label: 'Seeds Farm',
       },
       laws: {
-         path: '/admin/aiyl-charba/myizamdar',
+         path: '/aiyl-charba/myizamdar',
          label: 'Laws',
       },
       agroActivities: {
-         path: '/admin/jashtar-ishteri/agro-ish-charalar',
+         path: '/jashtar-ishteri/agro-ish-charalar',
          label: 'Agro Activities',
       },
       agroAdvices: {
-         path: '/admin/jashtar-ishteri/keneshter',
+         path: '/jashtar-ishteri/keneshter',
          label: 'Agro Advices',
       },
    },
    culture: {
       cultureHouses: {
-         path: '/admin/madanyat/madanyat-uiloru',
+         path: '/madanyat/madanyat-uiloru',
          label: 'Culture Houses',
       },
       museums: {
-         path: '/admin/madanyat/mezeyler',
+         path: '/madanyat/mezeyler',
          label: 'Museums',
       },
       culturalWorkers: {
-         path: '/admin/madanyat/madanyat-kyzmatkerleri',
+         path: '/madanyat/madanyat-kyzmatkerleri',
          label: 'Cultural Workers',
       },
       culturalActivities: {
-         path: '/admin/madanyat/madanyat-ish-charalar',
+         path: '/madanyat/madanyat-ish-charalar',
          label: 'Cultural Activities',
       },
       culturalCompetitions: {
-         path: '/admin/jashtar-ishteri/madanyat-synaktar',
+         path: '/jashtar-ishteri/madanyat-synaktar',
          label: 'Cultural Competitions',
       },
    },
    okm: {
       okm: {
-         path: '/admin/OKM/okm',
+         path: '/OKM/okm',
          label: 'OKM',
       },
    },
    cleanliness: {
       cleanline: {
-         path: '/admin/tazalyk/tazalyk',
+         path: '/tazalyk/tazalyk',
          label: 'Cleanliness',
       },
    },
    celebrities: {
       celebrities: {
-         path: '/admin/ataktuular/ataktuular',
+         path: '/ataktuular/ataktuular',
          label: 'Сelebrities',
       },
    },
    newsAndAnnouncements: {
       newsAndAnnouncements: {
-         path: '/admin/Janylyktar-jana-kulaktandyruular/janylyktar-jana-kulaktandyruular',
+         path: '/Janylyktar-jana-kulaktandyruular/janylyktar-jana-kulaktandyruular',
          label: 'News and Announcements',
       },
    },

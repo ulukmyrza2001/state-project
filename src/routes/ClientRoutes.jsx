@@ -4,7 +4,6 @@ import { Routes, Route } from 'react-router-dom'
 import ClientLayout from '../components/layout'
 import TemplateLeaderShipPages from '../components/temaplate-leadership-pages'
 import MainPage from '../pages/main'
-import Prayer from '../pages/religions/prayer'
 import { CLIENT_ROUTES } from '../utils/constants/routes'
 
 // LEADERSHIP
@@ -58,6 +57,13 @@ const Events = React.lazy(() => import('../pages/education/events'))
 const InnerPageEvents = React.lazy(() =>
    import('../pages/education/inner-page-events')
 )
+// RELIGIOUS
+const Prayer = React.lazy(() => import('../pages/religious/prayer'))
+
+const Ait = React.lazy(() => import('../pages/religious/ait'))
+const InnerPageAit = React.lazy(() =>
+   import('../pages/religious/inner-page-ait')
+)
 const ClientRoutes = () => {
    const { MAIN, LEADERSHIP, education, healthCare, religiousAffairs } =
       CLIENT_ROUTES
@@ -109,6 +115,7 @@ const ClientRoutes = () => {
                   path={religiousAffairs.prayer.path}
                   element={<Prayer />}
                />
+               <Route path={religiousAffairs.ait.path} element={<Ait />} />
             </Route>
             {/* ============================ */}
             <Route
@@ -151,6 +158,11 @@ const ClientRoutes = () => {
             <Route
                path={education.innerPageActivities.path}
                element={<InnerPageEvents />}
+            />
+            {/* -------------- */}
+            <Route
+               path={religiousAffairs.innerPageAit.path}
+               element={<InnerPageAit />}
             />
          </Route>
       </Routes>
