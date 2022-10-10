@@ -146,6 +146,9 @@ export const CLIENT_ROUTES = {
       innerPageRamadan: {
          path: '/din-ishteri/ramazan/:id',
       },
+      innerPageMosques: {
+         path: '/din-ishteri/mechitter/:id',
+      },
    },
    youthAffairs: {
       headOfCommittee: {
