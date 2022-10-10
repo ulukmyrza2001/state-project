@@ -92,16 +92,16 @@ export const CLIENT_ROUTES = {
          label: 'Doctor Advice',
       },
       innerPageHospitals: {
-         path: '/admin/salamattykty-saktoo/oorukanalar/:id',
+         path: '/salamattykty-saktoo/oorukanalar/:id',
       },
       innerPageParamedicPoint: {
-         path: '/admin/salamattykty-saktoo/PHAP/:id',
+         path: '/salamattykty-saktoo/PHAP/:id',
       },
       innerPageOMS: {
-         path: '/admin/salamattykty-saktoo/OMS/:id',
+         path: '/salamattykty-saktoo/OMS/:id',
       },
       innerPageDoctorAdvice: {
-         path: '/admin/salamattykty-saktoo/darygerdin-keneshi/:id',
+         path: '/salamattykty-saktoo/darygerdin-keneshi/:id',
       },
    },
    religiousAffairs: {
@@ -182,6 +182,22 @@ export const CLIENT_ROUTES = {
       offersForYouth: {
          path: '/jashtar-ishteri/jashtarga-sunushtar',
          label: 'Offers For Youth',
+      },
+      // INNER PAGES
+      innerHeadOfCommittee: {
+         path: '/jashtar-ishteri/komitet-jetekchisi/:id',
+      },
+      innerSportActivities: {
+         path: '/jashtar-ishteri/sport-ishteri/:id',
+      },
+      innerActiveYouth: {
+         path: '/jashtar-ishteri/jigerduu-jashtar/:id',
+      },
+      innerInitiativies: {
+         path: '/jashtar-ishteri/demilgeler/:id',
+      },
+      innerOffersForYouth: {
+         path: '/jashtar-ishteri/jashtarga-sunushtar/:id',
       },
    },
    agriculture: {
