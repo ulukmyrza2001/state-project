@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import ClientLayout from '../components/layout'
 import TemplateLeaderShipPages from '../components/temaplate-leadership-pages'
 import MainPage from '../pages/main'
+import Prayer from '../pages/religions/prayer'
 import { CLIENT_ROUTES } from '../utils/constants/routes'
 
 // LEADERSHIP
@@ -58,7 +59,8 @@ const InnerPageEvents = React.lazy(() =>
    import('../pages/education/inner-page-events')
 )
 const ClientRoutes = () => {
-   const { MAIN, LEADERSHIP, education, healthCare } = CLIENT_ROUTES
+   const { MAIN, LEADERSHIP, education, healthCare, religiousAffairs } =
+      CLIENT_ROUTES
 
    return (
       <Routes>
@@ -102,6 +104,11 @@ const ClientRoutes = () => {
                />
                <Route path={education.GRT.path} element={<GRT />} />
                <Route path={education.аctivities.path} element={<Events />} />
+               {/* --------- */}
+               <Route
+                  path={religiousAffairs.prayer.path}
+                  element={<Prayer />}
+               />
             </Route>
             {/* ============================ */}
             <Route
