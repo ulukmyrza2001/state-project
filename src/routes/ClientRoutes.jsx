@@ -79,6 +79,8 @@ const Ait = React.lazy(() => import('../pages/religious/ait'))
 const InnerPageAit = React.lazy(() =>
    import('../pages/religious/inner-page-ait')
 )
+const Ramadan = React.lazy(() => import('../pages/religious/ramadan'))
+const InnerPageRamadan = React.lazy(()=>import('../pages/religious/inner-page-ramadan'))
 
 const ClientRoutes = () => {
    const { MAIN, LEADERSHIP, education, healthCare, religiousAffairs } =
@@ -132,6 +134,10 @@ const ClientRoutes = () => {
                   element={<Prayer />}
                />
                <Route path={religiousAffairs.ait.path} element={<Ait />} />
+               <Route
+                  path={religiousAffairs.ramadan.path}
+                  element={<Ramadan />}
+               />
             </Route>
             {/* ============================ */}
             <Route
@@ -183,6 +189,14 @@ const ClientRoutes = () => {
             <Route
                path={religiousAffairs.innerPagePrayer.path}
                element={<InnerPagePrayer />}
+            />
+            <Route
+               path={religiousAffairs.innerPagePrayer.path}
+               element={<InnerPagePrayer />}
+            />
+            <Route
+               path={religiousAffairs.innerPageRamadan.path}
+               element={<InnerPageRamadan />}
             />
             {/* HEALSCARE INNER PAGES */}
             <Route

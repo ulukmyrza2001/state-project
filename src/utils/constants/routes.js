@@ -144,7 +144,7 @@ export const CLIENT_ROUTES = {
          path: '/din-ishteri/namaz/:id',
       },
       innerPageRamadan: {
-         path: '/din-ishteri/ait/:id',
+         path: '/din-ishteri/ramazan/:id',
       },
    },
    youthAffairs: {
