@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import videoMady from '../../assets/video/mady.MP4'
+import CarouselComponent from './CarouselComponent'
 
 const MainPage = () => {
    return (
@@ -13,10 +14,7 @@ const MainPage = () => {
             type="video/mp4"
          />
          <Effect>
-            <Text>
-               Эл журттун ажырагыс бүтүндүгү жана бир жакадан баш, бир жеңден
-               кол чыгарган ички биримдиги.
-            </Text>
+            <CarouselComponent />
          </Effect>
       </MainStyled>
    )
