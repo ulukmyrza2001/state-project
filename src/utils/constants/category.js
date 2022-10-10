@@ -11,7 +11,7 @@ import { AiFillBank, AiFillStar } from 'react-icons/ai'
 import { TbFiretruck } from 'react-icons/tb'
 import { CLIENT_ROUTES } from './routes'
 
-const { LEADERSHIP, education, healthCare } = CLIENT_ROUTES
+const { LEADERSHIP, education, healthCare, religiousAffairs } = CLIENT_ROUTES
 
 export const NAVIGATIONS = [
    {
@@ -161,6 +161,7 @@ export const NAVIGATIONS = [
          {
             id: uuid(),
             title: 'Намаз',
+            path: religiousAffairs.prayer.path,
          },
          {
             id: uuid(),

@@ -49,7 +49,7 @@ const TemplateLeaderShipPages = ({
             <InnerHeader>
                <HeaderLeft>
                   <TitleHeader>{`Мады айыл өкмөтү / ${
-                     findOneCategory(pathname).title
+                     findOneCategory(pathname)?.title
                   }`}</TitleHeader>
                   <BreadCrumbs pathsArray={pathsArray} />
                </HeaderLeft>

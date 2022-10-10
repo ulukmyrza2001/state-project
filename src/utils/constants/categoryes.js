@@ -12,7 +12,7 @@ import { TbFiretruck } from 'react-icons/tb'
 import uuid from 'react-uuid'
 import { CLIENT_ROUTES } from './routes'
 
-const { LEADERSHIP, education, healthCare } = CLIENT_ROUTES
+const { LEADERSHIP, education, healthCare, religiousAffairs } = CLIENT_ROUTES
 
 export const CATEGORYES = [
    {
@@ -162,6 +162,7 @@ export const CATEGORYES = [
          {
             id: uuid(),
             title: 'Намаз',
+            path: religiousAffairs.prayer.path,
          },
          {
             id: uuid(),
