@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import DetailAit from './DetailAit'
+import DetailPrayer from './DetailPrayer'
 import TempleteInnerPage from '../../../components/temaplate-inner-pages'
 import { getOneData } from '../../../store/client-slice'
 import { localstorage } from '../../../utils/helpers/general'
@@ -15,7 +15,7 @@ const InnerPage = () => {
    const dispatch = useDispatch()
 
    useEffect(() => {
-      dispatch(getOneData({ category: 'religiousAit', id }))
+      dispatch(getOneData({ category: 'religiousNamaz', id }))
    }, [])
 
    const pathsArray = [
@@ -29,13 +29,13 @@ const InnerPage = () => {
       },
       {
          path: '/jetekchilik/apparat',
-         name: 'Aйт',
+         name: 'Намаз',
       },
    ]
    return (
       <TempleteInnerPage pathsArray={pathsArray}>
          {isLoading && <LoadingInnerPage />}
-         {!isLoading && <DetailAit oneData={oneData} />}
+         {!isLoading && <DetailPrayer oneData={oneData} />}
       </TempleteInnerPage>
    )
 }

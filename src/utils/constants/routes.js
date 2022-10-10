@@ -140,6 +140,12 @@ export const CLIENT_ROUTES = {
       innerPageAit: {
          path: '/din-ishteri/ait/:id',
       },
+      innerPagePrayer: {
+         path: '/din-ishteri/namaz/:id',
+      },
+      innerPageRamadan: {
+         path: '/din-ishteri/ait/:id',
+      },
    },
    youthAffairs: {
       headOfCommittee: {

@@ -72,7 +72,9 @@ const InnerPageEvents = React.lazy(() =>
 )
 // RELIGIOUS
 const Prayer = React.lazy(() => import('../pages/religious/prayer'))
-
+const InnerPagePrayer = React.lazy(() =>
+   import('../pages/religious/inner-page-prayer')
+)
 const Ait = React.lazy(() => import('../pages/religious/ait'))
 const InnerPageAit = React.lazy(() =>
    import('../pages/religious/inner-page-ait')
@@ -177,6 +179,10 @@ const ClientRoutes = () => {
             <Route
                path={religiousAffairs.innerPageAit.path}
                element={<InnerPageAit />}
+            />
+            <Route
+               path={religiousAffairs.innerPagePrayer.path}
+               element={<InnerPagePrayer />}
             />
             {/* HEALSCARE INNER PAGES */}
             <Route
