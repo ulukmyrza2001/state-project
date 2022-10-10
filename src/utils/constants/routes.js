@@ -152,6 +152,9 @@ export const CLIENT_ROUTES = {
       innerPageMadrasas: {
          path: '/din-ishteri/medreseler/:id',
       },
+      innerPagePilgrimage: {
+         path: '/din-ishteri/azhylyk/:id',
+      },
    },
    youthAffairs: {
       headOfCommittee: {
