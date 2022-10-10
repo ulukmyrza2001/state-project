@@ -149,6 +149,9 @@ export const CLIENT_ROUTES = {
       innerPageMosques: {
          path: '/din-ishteri/mechitter/:id',
       },
+      innerPageMadrasas: {
+         path: '/din-ishteri/medreseler/:id',
+      },
    },
    youthAffairs: {
       headOfCommittee: {
