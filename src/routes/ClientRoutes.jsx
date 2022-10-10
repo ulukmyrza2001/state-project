@@ -20,10 +20,23 @@ const InnerPageLeadership = React.lazy(() =>
 )
 // HEALTHCARE
 const Hospital = React.lazy(() => import('../pages/healthcare/hospitals'))
-const FAPS = React.lazy(() => import('../pages/healthcare/FAPS'))
+const Phaps = React.lazy(() => import('../pages/healthcare/FAPS'))
 const OMs = React.lazy(() => import('../pages/healthcare/OMS'))
 const DoctorAdvice = React.lazy(() =>
    import('../pages/healthcare/doctorsAdvice')
+)
+// HEALTHCARE INNER PAGES
+const InnerPhapPage = React.lazy(() =>
+   import('../pages/healthcare/innerPhapPage/index')
+)
+const InnerHospitalsPage = React.lazy(() =>
+   import('../pages/healthcare/innerHospitalsPages')
+)
+const InnerOmsPage = React.lazy(() =>
+   import('../pages/healthcare/innerOmsPage')
+)
+const InnerDoctorsAdvice = React.lazy(() =>
+   import('../pages/healthcare/innerDoctorsAdvice')
 )
 // SCHOOLS
 const Schools = React.lazy(() => import('../pages/education/schools'))
@@ -58,6 +71,7 @@ const Events = React.lazy(() => import('../pages/education/events'))
 const InnerPageEvents = React.lazy(() =>
    import('../pages/education/inner-page-events')
 )
+
 const ClientRoutes = () => {
    const { MAIN, LEADERSHIP, education, healthCare, religiousAffairs } =
       CLIENT_ROUTES
@@ -82,7 +96,7 @@ const ClientRoutes = () => {
                />
                <Route element={<Hospital />} path={healthCare.hospitals.path} />
                <Route
-                  element={<FAPS />}
+                  element={<Phaps />}
                   path={healthCare.paramedicPoint.path}
                />
                <Route element={<OMs />} path={healthCare.OMS.path} />
@@ -151,6 +165,23 @@ const ClientRoutes = () => {
             <Route
                path={education.innerPageActivities.path}
                element={<InnerPageEvents />}
+            />
+            {/* HEALSCARE INNER PAGES */}
+            <Route
+               path={healthCare.innerPageHospitals.path}
+               element={<InnerHospitalsPage />}
+            />
+            <Route
+               path={healthCare.innerPageParamedicPoint.path}
+               element={<InnerPhapPage />}
+            />
+            <Route
+               path={healthCare.innerPageOMS.path}
+               element={<InnerOmsPage />}
+            />
+            <Route
+               path={healthCare.innerPageDoctorAdvice.path}
+               element={<InnerDoctorsAdvice />}
             />
          </Route>
       </Routes>
