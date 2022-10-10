@@ -91,6 +91,18 @@ export const CLIENT_ROUTES = {
          path: '/salamattykty-saktoo/darygerdin-keneshi',
          label: 'Doctor Advice',
       },
+      innerPageHospitals: {
+         path: '/admin/salamattykty-saktoo/oorukanalar/:id',
+      },
+      innerPageParamedicPoint: {
+         path: '/admin/salamattykty-saktoo/PHAP/:id',
+      },
+      innerPageOMS: {
+         path: '/admin/salamattykty-saktoo/OMS/:id',
+      },
+      innerPageDoctorAdvice: {
+         path: '/admin/salamattykty-saktoo/darygerdin-keneshi/:id',
+      },
    },
    religiousAffairs: {
       mosques: {
