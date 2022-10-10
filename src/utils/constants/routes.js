@@ -158,6 +158,9 @@ export const CLIENT_ROUTES = {
       innerPagereligiousActivities: {
          path: '/din-ishteri/din-ishteri/:id',
       },
+      innerPageMorality: {
+         path: '/din-ishteri/adep-ahlak/:id',
+      },
    },
    youthAffairs: {
       headOfCommittee: {
