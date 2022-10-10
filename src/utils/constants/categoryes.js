@@ -19,6 +19,7 @@ const {
    religiousAffairs,
    youthAffairs,
    culture,
+   newsAndAnnouncements,
 } = CLIENT_ROUTES
 
 export const CATEGORYES = [
@@ -292,6 +293,7 @@ export const CATEGORYES = [
          {
             id: uuid(),
             title: 'Жаңылыктар жана кулактандыруу',
+            path: newsAndAnnouncements.newsAndAnnouncements.path,
          },
       ],
    },

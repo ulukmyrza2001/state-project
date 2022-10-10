@@ -18,6 +18,7 @@ const {
    religiousAffairs,
    youthAffairs,
    culture,
+   newsAndAnnouncements,
 } = CLIENT_ROUTES
 
 export const NAVIGATIONS = [
@@ -293,6 +294,7 @@ export const NAVIGATIONS_BOTTOM = [
          {
             id: uuid(),
             title: 'Жаңылыктар жана кулактандыруу',
+            path: newsAndAnnouncements.newsAndAnnouncements.path,
          },
       ],
    },

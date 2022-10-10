@@ -291,5 +291,8 @@ export const CLIENT_ROUTES = {
          path: '/Janylyktar-jana-kulaktandyruular/janylyktar-jana-kulaktandyruular',
          label: 'News and Announcements',
       },
+      innerPageNewsAndAnnouncements: {
+         path: '/Janylyktar-jana-kulaktandyruular/janylyktar-jana-kulaktandyruular/:id',
+      },
    },
 }

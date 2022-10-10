@@ -164,6 +164,15 @@ const CulturalEvents = React.lazy(() =>
 const InnerPageCulturalEvents = React.lazy(() =>
    import('../pages/culture/inner-page-cultural-events')
 )
+const InnerPageNews = React.lazy(() =>
+   import('../pages/news-and-announcements/inner-page-news-and-announcements')
+)
+
+//= ======NEW ANNOUNCEMENTS ======//
+
+const NewsAndAnnouncements = React.lazy(() =>
+   import('../pages/news-and-announcements')
+)
 
 const ClientRoutes = () => {
    const {
@@ -174,6 +183,7 @@ const ClientRoutes = () => {
       religiousAffairs,
       youthAffairs,
       culture,
+      newsAndAnnouncements,
    } = CLIENT_ROUTES
 
    return (
@@ -284,6 +294,11 @@ const ClientRoutes = () => {
                <Route
                   path={culture.culturalActivities.path}
                   element={<CulturalEvents />}
+               />
+               {/* ------- NEW ANNOUNCEMENTS */}
+               <Route
+                  path={newsAndAnnouncements.newsAndAnnouncements.path}
+                  element={<NewsAndAnnouncements />}
                />
             </Route>
             {/* INNER PAGES */}
@@ -420,6 +435,11 @@ const ClientRoutes = () => {
             <Route
                path={culture.innerPageCulturalActivities.path}
                element={<InnerPageCulturalEvents />}
+            />
+            {/* NEWS AND ANNOUNCEMENTS */}
+            <Route
+               path={newsAndAnnouncements.innerPageNewsAndAnnouncements.path}
+               element={<InnerPageNews />}
             />
          </Route>
       </Routes>
