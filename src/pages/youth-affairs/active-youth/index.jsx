@@ -17,8 +17,8 @@ const ActiveYouth = () => {
       data.map((item) => (
          <Card
             key={item.id}
-            title={item.hospitalName}
-            subTitle={item.address}
+            title={item.fullName}
+            subTitle={item.direction}
             item={item}
          />
       ))

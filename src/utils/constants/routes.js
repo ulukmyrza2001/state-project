@@ -159,6 +159,22 @@ export const CLIENT_ROUTES = {
          path: '/jashtar-ishteri/jashtarga-sunushtar',
          label: 'Offers For Youth',
       },
+      // INNER PAGES
+      innerHeadOfCommittee: {
+         path: '/jashtar-ishteri/komitet-jetekchisi/:id',
+      },
+      innerSportActivities: {
+         path: '/jashtar-ishteri/sport-ishteri/:id',
+      },
+      innerActiveYouth: {
+         path: '/jashtar-ishteri/jigerduu-jashtar/:id',
+      },
+      innerInitiativies: {
+         path: '/jashtar-ishteri/demilgeler/:id',
+      },
+      innerOffersForYouth: {
+         path: '/jashtar-ishteri/jashtarga-sunushtar/:id',
+      },
    },
    agriculture: {
       animalUsbandry: {

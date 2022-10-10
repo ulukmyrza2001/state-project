@@ -17,8 +17,8 @@ const HeadOfCommittee = () => {
       data.map((item) => (
          <Card
             key={item.id}
-            title={item.hospitalName}
-            subTitle={item.address}
+            title={item.managerDirectorName}
+            subTitle={item.managerName}
             item={item}
          />
       ))

@@ -55,6 +55,23 @@ const OffersForYouth = React.lazy(() =>
 const SportActivities = React.lazy(() =>
    import('../pages/youth-affairs/sport-activities')
 )
+// INNER YOUTH AFFAIRS PAGES
+const InnerHeadOfCommittee = React.lazy(() =>
+   import('../pages/youth-affairs/innerHeadOfCommittee')
+)
+const InnerActiveYouth = React.lazy(() =>
+   import('../pages/youth-affairs/innerActiveYouth')
+)
+const InnerOffersForYouth = React.lazy(() =>
+   import('../pages/youth-affairs/innerOffersForYouth')
+)
+const InnerSportActivities = React.lazy(() =>
+   import('../pages/youth-affairs/innerSportActivities')
+)
+const InnerInitiaves = React.lazy(() =>
+   import('../pages/youth-affairs/innerInitiaves')
+)
+// ______________________________________________________________________________________
 
 // SCHOOLS
 const Schools = React.lazy(() => import('../pages/education/schools'))
@@ -228,6 +245,26 @@ const ClientRoutes = () => {
                element={<InnerDoctorsAdvice />}
             />
             {/* // YOUTH AFFAIRS PAGES */}
+            <Route
+               path={youthAffairs.innerHeadOfCommittee.path}
+               element={<InnerHeadOfCommittee />}
+            />
+            <Route
+               path={youthAffairs.innerActiveYouth.path}
+               element={<InnerActiveYouth />}
+            />
+            <Route
+               path={youthAffairs.innerOffersForYouth.path}
+               element={<InnerOffersForYouth />}
+            />
+            <Route
+               path={youthAffairs.innerSportActivities.path}
+               element={<InnerSportActivities />}
+            />
+            <Route
+               path={youthAffairs.innerInitiativies.path}
+               element={<InnerInitiaves />}
+            />
          </Route>
       </Routes>
    )

@@ -9,7 +9,7 @@ const Initaitives = () => {
    const dispatch = useDispatch()
 
    useEffect(() => {
-      dispatch(clientGetData('youthInitiatives'))
+      dispatch(clientGetData('youthAffairsYI'))
    }, [])
 
    return (
@@ -17,7 +17,7 @@ const Initaitives = () => {
       data.map((item) => (
          <Card
             key={item.id}
-            title={item.hospitalName}
+            title={item.initiativesName}
             subTitle={item.address}
             item={item}
          />
