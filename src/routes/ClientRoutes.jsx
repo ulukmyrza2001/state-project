@@ -95,6 +95,12 @@ const Pilgrimare = React.lazy(() => import('../pages/religious/pilgrimage'))
 const InnerPagePilgrimage = React.lazy(() =>
    import('../pages/religious/inner-page-pilgrimare')
 )
+const ReligiousEvents = React.lazy(() =>
+   import('../pages/religious/religious-activities')
+)
+const InnerPageReligiousEvents = React.lazy(() =>
+   import('../pages/religious/inner-page-events')
+)
 const ClientRoutes = () => {
    const { MAIN, LEADERSHIP, education, healthCare, religiousAffairs } =
       CLIENT_ROUTES
@@ -162,6 +168,10 @@ const ClientRoutes = () => {
                <Route
                   path={religiousAffairs.pilgrimage.path}
                   element={<Pilgrimare />}
+               />
+               <Route
+                  path={religiousAffairs.religiousActivities.path}
+                  element={<ReligiousEvents />}
                />
             </Route>
             {/* ============================ */}
@@ -234,6 +244,10 @@ const ClientRoutes = () => {
             <Route
                path={religiousAffairs.innerPagePilgrimage.path}
                element={<InnerPagePilgrimage />}
+            />
+            <Route
+               path={religiousAffairs.innerPagereligiousActivities.path}
+               element={<InnerPageReligiousEvents />}
             />
             {/* HEALSCARE INNER PAGES */}
             <Route

@@ -155,6 +155,9 @@ export const CLIENT_ROUTES = {
       innerPagePilgrimage: {
          path: '/din-ishteri/azhylyk/:id',
       },
+      innerPagereligiousActivities: {
+         path: '/din-ishteri/din-ishteri/:id',
+      },
    },
    youthAffairs: {
       headOfCommittee: {
