@@ -4,7 +4,6 @@ import { Routes, Route } from 'react-router-dom'
 import ClientLayout from '../components/layout'
 import TemplateLeaderShipPages from '../components/temaplate-leadership-pages'
 import MainPage from '../pages/main'
-import Prayer from '../pages/religions/prayer'
 import { CLIENT_ROUTES } from '../utils/constants/routes'
 
 // LEADERSHIP
@@ -106,6 +105,41 @@ const Events = React.lazy(() => import('../pages/education/events'))
 const InnerPageEvents = React.lazy(() =>
    import('../pages/education/inner-page-events')
 )
+// RELIGIOUS
+const Prayer = React.lazy(() => import('../pages/religious/prayer'))
+const InnerPagePrayer = React.lazy(() =>
+   import('../pages/religious/inner-page-prayer')
+)
+const Ait = React.lazy(() => import('../pages/religious/ait'))
+const InnerPageAit = React.lazy(() =>
+   import('../pages/religious/inner-page-ait')
+)
+const Ramadan = React.lazy(() => import('../pages/religious/ramadan'))
+const InnerPageRamadan = React.lazy(() =>
+   import('../pages/religious/inner-page-ramadan')
+)
+const Mosques = React.lazy(() => import('../pages/religious/mosques'))
+const InnerPageMosque = React.lazy(() =>
+   import('../pages/religious/inner-page-mosques')
+)
+const Madrasas = React.lazy(() => import('../pages/religious/madrasas'))
+const InnerPageMadrasas = React.lazy(() =>
+   import('../pages/religious/inner-page-madrasas')
+)
+const Pilgrimare = React.lazy(() => import('../pages/religious/pilgrimage'))
+const InnerPagePilgrimage = React.lazy(() =>
+   import('../pages/religious/inner-page-pilgrimare')
+)
+const ReligiousEvents = React.lazy(() =>
+   import('../pages/religious/religious-activities')
+)
+const InnerPageReligiousEvents = React.lazy(() =>
+   import('../pages/religious/inner-page-events')
+)
+const Morality = React.lazy(() => import('../pages/religious/morality'))
+const InnerPageMorality = React.lazy(() =>
+   import('../pages/religious/inner-page-morality')
+)
 
 const ClientRoutes = () => {
    const {
@@ -184,6 +218,31 @@ const ClientRoutes = () => {
                   path={religiousAffairs.prayer.path}
                   element={<Prayer />}
                />
+               <Route path={religiousAffairs.ait.path} element={<Ait />} />
+               <Route
+                  path={religiousAffairs.ramadan.path}
+                  element={<Ramadan />}
+               />
+               <Route
+                  path={religiousAffairs.mosques.path}
+                  element={<Mosques />}
+               />
+               <Route
+                  path={religiousAffairs.madrasas.path}
+                  element={<Madrasas />}
+               />
+               <Route
+                  path={religiousAffairs.pilgrimage.path}
+                  element={<Pilgrimare />}
+               />
+               <Route
+                  path={religiousAffairs.religiousActivities.path}
+                  element={<ReligiousEvents />}
+               />
+               <Route
+                  path={religiousAffairs.morality.path}
+                  element={<Morality />}
+               />
             </Route>
             {/* ============================ */}
             <Route
@@ -226,6 +285,43 @@ const ClientRoutes = () => {
             <Route
                path={education.innerPageActivities.path}
                element={<InnerPageEvents />}
+            />
+            {/* -------RELIGIOUS------- */}
+            <Route
+               path={religiousAffairs.innerPageAit.path}
+               element={<InnerPageAit />}
+            />
+            <Route
+               path={religiousAffairs.innerPagePrayer.path}
+               element={<InnerPagePrayer />}
+            />
+            <Route
+               path={religiousAffairs.innerPagePrayer.path}
+               element={<InnerPagePrayer />}
+            />
+            <Route
+               path={religiousAffairs.innerPageRamadan.path}
+               element={<InnerPageRamadan />}
+            />
+            <Route
+               path={religiousAffairs.innerPageMosques.path}
+               element={<InnerPageMosque />}
+            />
+            <Route
+               path={religiousAffairs.innerPageMadrasas.path}
+               element={<InnerPageMadrasas />}
+            />
+            <Route
+               path={religiousAffairs.innerPagePilgrimage.path}
+               element={<InnerPagePilgrimage />}
+            />
+            <Route
+               path={religiousAffairs.innerPagereligiousActivities.path}
+               element={<InnerPageReligiousEvents />}
+            />
+            <Route
+               path={religiousAffairs.innerPageMorality.path}
+               element={<InnerPageMorality />}
             />
             {/* HEALSCARE INNER PAGES */}
             <Route
