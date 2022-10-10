@@ -11,7 +11,8 @@ import { AiFillBank, AiFillStar } from 'react-icons/ai'
 import { TbFiretruck } from 'react-icons/tb'
 import { CLIENT_ROUTES } from './routes'
 
-const { LEADERSHIP, education, healthCare, religiousAffairs } = CLIENT_ROUTES
+const { LEADERSHIP, education, healthCare, religiousAffairs, youthAffairs } =
+   CLIENT_ROUTES
 
 export const NAVIGATIONS = [
    {
@@ -114,22 +115,27 @@ export const NAVIGATIONS = [
          {
             id: uuid(),
             title: 'Комитет жетекчиси',
+            path: youthAffairs.headOfCommittee.path,
          },
          {
             id: uuid(),
             title: 'Жигердүү жаштар',
+            path: youthAffairs.activeYouth.path,
          },
          {
             id: uuid(),
             title: 'Жаштар үчүн сунуштар',
+            path: youthAffairs.offersForYouth.path,
          },
          {
             id: uuid(),
             title: 'Спорттук иш-чаралар',
+            path: youthAffairs.sportActivities.path,
          },
          {
             id: uuid(),
             title: 'Демилгелер',
+            path: youthAffairs.initiativies.path,
          },
       ],
    },
