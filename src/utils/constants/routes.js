@@ -247,6 +247,26 @@ export const CLIENT_ROUTES = {
          path: '/jashtar-ishteri/madanyat-synaktar',
          label: 'Cultural Competitions',
       },
+      innerPageCultureHouses: {
+         path: '/madanyat/madanyat-uiloru/:id',
+         label: 'Culture Houses',
+      },
+      innerPageMuseums: {
+         path: '/madanyat/mezeyler/:id',
+         label: 'Museums',
+      },
+      innerPageCulturalWorkers: {
+         path: '/madanyat/madanyat-kyzmatkerleri/:id',
+         label: 'Cultural Workers',
+      },
+      innerPageCulturalActivities: {
+         path: '/madanyat/madanyat-ish-charalar/:id',
+         label: 'Cultural Activities',
+      },
+      innerPageCulturalCompetitions: {
+         path: '/jashtar-ishteri/madanyat-synaktar/:id',
+         label: 'Cultural Competitions',
+      },
    },
    okm: {
       okm: {

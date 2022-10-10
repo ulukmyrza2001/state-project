@@ -85,9 +85,6 @@ export const API_ROUTES_GET = {
    museums: {
       path: 'agriculture/acEvent/museums',
    },
-   cultureContests: {
-      path: 'agriculture/acEvent/contests',
-   },
    housesOfCultures: {
       path: 'agriculture/acEvent/housesOfCultures',
    },
