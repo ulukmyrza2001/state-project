@@ -5,6 +5,7 @@ import videoMady from '../../assets/video/mady.MP4'
 import CarouselComponent from './CarouselComponent'
 import Slideshow from '../../components/carousel'
 import { clientGetData } from '../../store/client-slice'
+import TimePrayer from './time-prayer'
 
 const MainPage = () => {
    const dispatch = useDispatch()
@@ -29,6 +30,7 @@ const MainPage = () => {
          <NewsContent>
             <Slideshow news={data} />
          </NewsContent>
+         <TimePrayer />
       </>
    )
 }

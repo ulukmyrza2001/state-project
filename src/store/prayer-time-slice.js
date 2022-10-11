@@ -11,7 +11,7 @@ export const getPrayerTime = createAsyncThunk(
          )
 
          const result = await response.json()
-         return result
+         return result.data
       } catch (error) {
          return rejectWithValue(error.message)
       }
@@ -20,9 +20,25 @@ export const getPrayerTime = createAsyncThunk(
 
 const prayerTimeSlice = createSlice({
    name: 'prayer',
-   initialState: { prayerTimes: [], prayerTime: null },
+   initialState: { isLoading: false, prayerTimes: [], prayerTime: null },
    reducers: {},
-   extraReducers: {},
+   extraReducers: {
+      [getPrayerTime.pending]: (state) => {
+         state.isLoading = true
+      },
+      [getPrayerTime.fulfilled]: (state, action) => {
+         state.isLoading = false
+         state.prayerTimes = action.payload
+         state.prayerTime = action.payload.find(
+            (el) =>
+               String(new Date(el.date.readable).getDate()) ===
+               String(new Date().getDate())
+         )
+      },
+      [getPrayerTime.rejected]: (state) => {
+         state.isLoading = false
+      },
+   },
 })
 export const prayerTimeActions = prayerTimeSlice.actions
 export default prayerTimeSlice
