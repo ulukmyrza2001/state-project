@@ -164,14 +164,19 @@ const CulturalEvents = React.lazy(() =>
 const InnerPageCulturalEvents = React.lazy(() =>
    import('../pages/culture/inner-page-cultural-events')
 )
-const InnerPageNews = React.lazy(() =>
-   import('../pages/news-and-announcements/inner-page-news-and-announcements')
-)
 
 //= ======NEW ANNOUNCEMENTS ======//
 
 const NewsAndAnnouncements = React.lazy(() =>
    import('../pages/news-and-announcements')
+)
+const InnerPageNews = React.lazy(() =>
+   import('../pages/news-and-announcements/inner-page-news-and-announcements')
+)
+// --------CELEBRITIES--------//
+const Celebrities = React.lazy(() => import('../pages/celebrities'))
+const InnerPageCelebrities = React.lazy(() =>
+   import('../pages/celebrities/inner-page-celebrities')
 )
 
 const ClientRoutes = () => {
@@ -184,6 +189,7 @@ const ClientRoutes = () => {
       youthAffairs,
       culture,
       newsAndAnnouncements,
+      celebrities,
    } = CLIENT_ROUTES
 
    return (
@@ -299,6 +305,11 @@ const ClientRoutes = () => {
                <Route
                   path={newsAndAnnouncements.newsAndAnnouncements.path}
                   element={<NewsAndAnnouncements />}
+               />
+               {/* ---CELEBRITIES------ */}
+               <Route
+                  path={celebrities.celebrities.path}
+                  element={<Celebrities />}
                />
             </Route>
             {/* INNER PAGES */}
@@ -440,6 +451,11 @@ const ClientRoutes = () => {
             <Route
                path={newsAndAnnouncements.innerPageNewsAndAnnouncements.path}
                element={<InnerPageNews />}
+            />
+            {/* CELEBRITIES INNER PAGE */}
+            <Route
+               path={celebrities.innerPageCelebrities.path}
+               element={<InnerPageCelebrities />}
             />
          </Route>
       </Routes>

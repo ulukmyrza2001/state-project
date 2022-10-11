@@ -285,6 +285,9 @@ export const CLIENT_ROUTES = {
          path: '/ataktuular/ataktuular',
          label: 'Сelebrities',
       },
+      innerPageCelebrities: {
+         path: '/ataktuular/ataktuular/:id',
+      },
    },
    newsAndAnnouncements: {
       newsAndAnnouncements: {
