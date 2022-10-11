@@ -115,6 +115,23 @@ const AgroActivities = React.lazy(() =>
 )
 // INNER AGRI CULTURE
 
+const InnerAgroAdvices = React.lazy(() =>
+   import('../pages/agriCulture/innerAgroAdvices')
+)
+const InnerActivities = React.lazy(() =>
+   import('../pages/agriCulture/innerAgroActivities')
+)
+const InnerAnimalUsb = React.lazy(() =>
+   import('../pages/agriCulture/innerAnimalUsb')
+)
+const InnerLaws = React.lazy(() => import('../pages/agriCulture/innerLaws'))
+const InnerPasture = React.lazy(() =>
+   import('../pages/agriCulture/innerPastureComm')
+)
+const InnerSeedFarm = React.lazy(() =>
+   import('../pages/agriCulture/innerSeedsFarm')
+)
+
 // ________________________________________________________________________________
 const GRT = React.lazy(() => import('../pages/education/GRT'))
 const InnerPageGRT = React.lazy(() =>
@@ -306,6 +323,28 @@ const ClientRoutes = () => {
             <Route
                path={youthAffairs.innerInitiativies.path}
                element={<InnerInitiaves />}
+            />
+            {/* AGRO INNER PAGES */}
+            <Route
+               path={agriculture.innerAnimalUsbandry.path}
+               element={<InnerAnimalUsb />}
+            />{' '}
+            <Route
+               path={agriculture.innerPastureCommittee.path}
+               element={<InnerPasture />}
+            />{' '}
+            <Route
+               path={agriculture.innerSeedsFarm.path}
+               element={<InnerSeedFarm />}
+            />{' '}
+            <Route path={agriculture.innerLaws.path} element={<InnerLaws />} />{' '}
+            <Route
+               path={agriculture.innerAgroActivities.path}
+               element={<InnerActivities />}
+            />{' '}
+            <Route
+               path={agriculture.innerAgroAdvices.path}
+               element={<InnerAgroAdvices />}
             />
          </Route>
       </Routes>

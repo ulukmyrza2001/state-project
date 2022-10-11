@@ -201,6 +201,25 @@ export const CLIENT_ROUTES = {
          path: '/jashtar-ishteri/keneshter',
          label: 'Agro Advices',
       },
+      // INNER
+      innerAnimalUsbandry: {
+         path: '/aiyl-charba/mal-charba-comiteti/:id',
+      },
+      innerPastureCommittee: {
+         path: '/aiyl-charba/jaiyt-comiteti/:id',
+      },
+      innerSeedsFarm: {
+         path: '/aiyl-charba/uroon/:id',
+      },
+      innerLaws: {
+         path: '/aiyl-charba/myizamdar/:id',
+      },
+      innerAgroActivities: {
+         path: '/jashtar-ishteri/agro-ish-charalar/:id',
+      },
+      innerAgroAdvices: {
+         path: '/jashtar-ishteri/keneshter/:id',
+      },
    },
    culture: {
       cultureHouses: {
