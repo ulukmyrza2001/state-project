@@ -316,11 +316,11 @@ export const CLIENT_ROUTES = {
    },
    newsAndAnnouncements: {
       newsAndAnnouncements: {
-         path: '/Janylyktar-jana-kulaktandyruular/janylyktar-jana-kulaktandyruular',
+         path: '/Janylyktar-jana-kulaktandyruular',
          label: 'News and Announcements',
       },
       innerPageNewsAndAnnouncements: {
-         path: '/Janylyktar-jana-kulaktandyruular/janylyktar-jana-kulaktandyruular/:id',
+         path: '/Janylyktar-jana-kulaktandyruular/:id',
       },
    },
 }
