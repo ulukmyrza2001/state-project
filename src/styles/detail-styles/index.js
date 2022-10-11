@@ -5,6 +5,15 @@ export const WrapperText = styled(Flex)`
    @media (max-width: 800px) {
       width: 100%;
    }
+   p,
+   li,
+   span {
+      color: black !important;
+   }
+   ul,
+   ol {
+      margin-left: 20px !important;
+   }
 `
 export const Container = styled(Flex)`
    gap: 20px;
