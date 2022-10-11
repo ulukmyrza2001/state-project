@@ -5,9 +5,9 @@ import { getOneData } from '../../../store/client-slice'
 import { localstorage } from '../../../utils/helpers/general'
 import TempleteInnerPage from '../../../components/temaplate-inner-pages'
 import LoadingInnerPage from '../../../components/UI/loader/LoadingInnerPage'
-import DetailInnerAnimalUsb from './DetailInnerAnimalUsb'
+import DetailTazalyk from './DetailTazalyk'
 
-const InnerAnimalUsb = () => {
+const InnerTazalyk = () => {
    const { oneData, isLoading } = useSelector((state) => state.client)
 
    const { id } = useParams()
@@ -15,7 +15,7 @@ const InnerAnimalUsb = () => {
    const dispatch = useDispatch()
 
    useEffect(() => {
-      dispatch(getOneData({ category: 'agroAnimalUsbundry', id }))
+      dispatch(getOneData({ category: 'cleanliness', id }))
    }, [])
 
    const pathsArray = [
@@ -29,15 +29,15 @@ const InnerAnimalUsb = () => {
       },
       {
          path: '/jetekchilik/apparat',
-         name: `${oneData?.id}`,
+         name: `${oneData?.fullName}`,
       },
    ]
    return (
       <TempleteInnerPage pathsArray={pathsArray}>
          {isLoading && <LoadingInnerPage />}
-         {!isLoading && <DetailInnerAnimalUsb oneData={oneData} />}
+         {!isLoading && <DetailTazalyk oneData={oneData} />}
       </TempleteInnerPage>
    )
 }
 
-export default InnerAnimalUsb
+export default InnerTazalyk

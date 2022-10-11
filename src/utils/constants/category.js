@@ -22,6 +22,7 @@ const {
    newsAndAnnouncements,
    celebrities,
    okm,
+   cleanliness,
 } = CLIENT_ROUTES
 
 export const NAVIGATIONS = [
@@ -534,8 +535,9 @@ export const NAVIGATIONS_MOBILE = [
       title: 'Тазалык',
       innerList: [
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Тазалык',
+            path: cleanliness.cleanline.path,
          },
       ],
    },

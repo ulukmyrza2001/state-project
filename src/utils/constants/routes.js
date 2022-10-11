@@ -301,6 +301,9 @@ export const CLIENT_ROUTES = {
          path: '/tazalyk/tazalyk',
          label: 'Cleanliness',
       },
+      innerCleanline: {
+         path: '/tazalyk/tazalyk/:id',
+      },
    },
    celebrities: {
       celebrities: {
