@@ -23,6 +23,7 @@ const {
    newsAndAnnouncements,
    celebrities,
    okm,
+   cleanliness,
 } = CLIENT_ROUTES
 
 export const CATEGORYES = [
@@ -281,6 +282,7 @@ export const CATEGORYES = [
          {
             id: uuid(),
             title: 'Тазалык',
+            path: cleanliness.cleanline.path,
          },
       ],
    },
