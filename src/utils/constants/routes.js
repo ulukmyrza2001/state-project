@@ -298,11 +298,11 @@ export const CLIENT_ROUTES = {
    },
    cleanliness: {
       cleanline: {
-         path: '/tazalyk/tazalyk',
+         path: '/tazalyk',
          label: 'Cleanliness',
       },
       innerCleanline: {
-         path: '/tazalyk/tazalyk/:id',
+         path: '/tazalyk/:id',
       },
    },
    celebrities: {

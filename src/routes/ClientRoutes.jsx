@@ -216,8 +216,10 @@ const InnerPageCelebrities = React.lazy(() =>
 // ----MCHS---//
 const MCHS = React.lazy(() => import('../pages/MCHS'))
 const InnerPageMCHS = React.lazy(() => import('../pages/MCHS/inner-page-mchs'))
-const Tazalyk = React.lazy(() => import('../pages/tazalyk'))
-const InnerTazalyk = React.lazy(() => import('../pages/tazalyk/innerTazalyk'))
+const TazalykPage = React.lazy(() => import('../pages/tazalyk/index'))
+const InnerTazalyk = React.lazy(() =>
+   import('../pages/tazalyk/innerTazalyk/index')
+)
 
 const ClientRoutes = () => {
    const {
@@ -373,7 +375,10 @@ const ClientRoutes = () => {
                   element={<NewsAndAnnouncements />}
                />
                {/* TAZALYK */}
-               <Route path={cleanliness.cleanline.path} element={<Tazalyk />} />
+               <Route
+                  path={cleanliness.cleanline.path}
+                  element={<TazalykPage />}
+               />
 
                {/* ---CELEBRITIES------ */}
                <Route

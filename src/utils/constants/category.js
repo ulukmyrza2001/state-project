@@ -282,6 +282,7 @@ export const NAVIGATIONS_BOTTOM = [
          {
             id: uuid(),
             title: 'Тазалык',
+            path: cleanliness.cleanline.path,
          },
       ],
    },
