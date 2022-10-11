@@ -292,6 +292,9 @@ export const CLIENT_ROUTES = {
          path: '/OKM/okm',
          label: 'OKM',
       },
+      innerPageOKM: {
+         path: '/OKM/okm/:id',
+      },
    },
    cleanliness: {
       cleanline: {

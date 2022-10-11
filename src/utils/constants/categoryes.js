@@ -21,6 +21,8 @@ const {
    agriculture,
    culture,
    newsAndAnnouncements,
+   celebrities,
+   okm,
 } = CLIENT_ROUTES
 
 export const CATEGORYES = [
@@ -265,8 +267,9 @@ export const CATEGORYES = [
       icon: <TbFiretruck fontSize={20} />,
       innerList: [
          {
-            id: uuid(),
-            title: 'ӨКМ',
+            id: Math.random().toString(),
+            title: 'МЧС',
+            path: okm.okm.path,
          },
       ],
    },
@@ -289,6 +292,7 @@ export const CATEGORYES = [
          {
             id: uuid(),
             title: 'Атактуулар',
+            path: celebrities.celebrities.path,
          },
       ],
    },

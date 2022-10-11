@@ -213,6 +213,9 @@ const Celebrities = React.lazy(() => import('../pages/celebrities'))
 const InnerPageCelebrities = React.lazy(() =>
    import('../pages/celebrities/inner-page-celebrities')
 )
+// ----MCHS---//
+const MCHS = React.lazy(() => import('../pages/MCHS'))
+const InnerPageMCHS = React.lazy(() => import('../pages/MCHS/inner-page-mchs'))
 
 const ClientRoutes = () => {
    const {
@@ -226,6 +229,7 @@ const ClientRoutes = () => {
       culture,
       newsAndAnnouncements,
       celebrities,
+      okm,
    } = CLIENT_ROUTES
 
    return (
@@ -370,6 +374,8 @@ const ClientRoutes = () => {
                   path={celebrities.celebrities.path}
                   element={<Celebrities />}
                />
+               {/* MCHS */}
+               <Route path={okm.okm.path} element={<MCHS />} />
             </Route>
             {/* INNER PAGES */}
             {/* ============LEADERSHIP INNER PAGES================ */}
@@ -538,6 +544,8 @@ const ClientRoutes = () => {
                path={celebrities.innerPageCelebrities.path}
                element={<InnerPageCelebrities />}
             />
+            {/* ----MCHS------ */}
+            <Route path={okm.innerPageOKM.path} element={<InnerPageMCHS />} />
          </Route>
       </Routes>
    )

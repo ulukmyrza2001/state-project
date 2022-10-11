@@ -20,6 +20,8 @@ const {
    agriculture,
    culture,
    newsAndAnnouncements,
+   celebrities,
+   okm,
 } = CLIENT_ROUTES
 
 export const NAVIGATIONS = [
@@ -290,6 +292,7 @@ export const NAVIGATIONS_BOTTOM = [
          {
             id: uuid(),
             title: 'Атактуулар',
+            path: celebrities.celebrities.path,
          },
       ],
    },
@@ -522,6 +525,7 @@ export const NAVIGATIONS_MOBILE = [
          {
             id: Math.random().toString(),
             title: 'МЧС',
+            path: okm.okm.path,
          },
       ],
    },
