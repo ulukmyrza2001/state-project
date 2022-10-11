@@ -97,6 +97,41 @@ const Kindergartens = React.lazy(() =>
 const InnerPageKindergartens = React.lazy(() =>
    import('../pages/education/inner-page-kindergartens')
 )
+
+// AGRI CULTURE
+
+const AnimalUsbandry = React.lazy(() =>
+   import('../pages/agriCulture/animalUsbandry')
+)
+const LawsPage = React.lazy(() => import('../pages/agriCulture/laws'))
+const PastureCommittee = React.lazy(() =>
+   import('../pages/agriCulture/pastureCommittee')
+)
+const SeedsFarm = React.lazy(() => import('../pages/agriCulture/seedsFarm'))
+const AgroAdvices = React.lazy(() => import('../pages/agriCulture/agroAdvices'))
+const AgroActivities = React.lazy(() =>
+   import('../pages/agriCulture/agroActivities')
+)
+// INNER AGRI CULTURE
+
+const InnerAgroAdvices = React.lazy(() =>
+   import('../pages/agriCulture/innerAgroAdvices')
+)
+const InnerActivities = React.lazy(() =>
+   import('../pages/agriCulture/innerAgroActivities')
+)
+const InnerAnimalUsb = React.lazy(() =>
+   import('../pages/agriCulture/innerAnimalUsb')
+)
+const InnerLaws = React.lazy(() => import('../pages/agriCulture/innerLaws'))
+const InnerPasture = React.lazy(() =>
+   import('../pages/agriCulture/innerPastureComm')
+)
+const InnerSeedFarm = React.lazy(() =>
+   import('../pages/agriCulture/innerSeedsFarm')
+)
+
+// ________________________________________________________________________________
 const GRT = React.lazy(() => import('../pages/education/GRT'))
 const InnerPageGRT = React.lazy(() =>
    import('../pages/education/inner-page-grt')
@@ -190,6 +225,7 @@ const ClientRoutes = () => {
       healthCare,
       religiousAffairs,
       youthAffairs,
+      agriculture,
       culture,
       newsAndAnnouncements,
       celebrities,
@@ -265,6 +301,29 @@ const ClientRoutes = () => {
                <Route
                   path={religiousAffairs.prayer.path}
                   element={<Prayer />}
+               />
+               {/* AGRO */}
+
+               <Route
+                  path={agriculture.animalUsbandry.path}
+                  element={<AnimalUsbandry />}
+               />
+               <Route
+                  path={agriculture.pastureCommittee.path}
+                  element={<PastureCommittee />}
+               />
+               <Route
+                  path={agriculture.seedsFarm.path}
+                  element={<SeedsFarm />}
+               />
+               <Route path={agriculture.laws.path} element={<LawsPage />} />
+               <Route
+                  path={agriculture.agroActivities.path}
+                  element={<AgroActivities />}
+               />
+               <Route
+                  path={agriculture.agroAdvices.path}
+                  element={<AgroAdvices />}
                />
                <Route path={religiousAffairs.ait.path} element={<Ait />} />
                <Route
@@ -436,7 +495,29 @@ const ClientRoutes = () => {
                path={youthAffairs.innerInitiativies.path}
                element={<InnerInitiaves />}
             />
-            {/* CULTURE INNER PAGES */}
+            {/* AGRO INNER PAGES */}
+            <Route
+               path={agriculture.innerAnimalUsbandry.path}
+               element={<InnerAnimalUsb />}
+            />
+            <Route
+               path={agriculture.innerPastureCommittee.path}
+               element={<InnerPasture />}
+            />
+            <Route
+               path={agriculture.innerSeedsFarm.path}
+               element={<InnerSeedFarm />}
+            />
+            <Route path={agriculture.innerLaws.path} element={<InnerLaws />} />
+            <Route
+               path={agriculture.innerAgroActivities.path}
+               element={<InnerActivities />}
+            />
+            <Route
+               path={agriculture.innerAgroAdvices.path}
+               element={<InnerAgroAdvices />}
+            />
+            {/* // CULTURE INNER PAGES */}
             <Route
                path={culture.innerPageMuseums.path}
                element={<InnerPageMuseums />}
