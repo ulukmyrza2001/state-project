@@ -29,6 +29,7 @@ const prayerTimeSlice = createSlice({
       [getPrayerTime.fulfilled]: (state, action) => {
          state.isLoading = false
          state.prayerTimes = action.payload
+
          state.prayerTime = action.payload.find(
             (el) =>
                String(new Date(el.date.readable).getDate()) ===

@@ -3,7 +3,8 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPrayerTime } from '../../../store/prayer-time-slice'
 import { Flex } from '../../../styles/style-for-positions/style'
-import { Title } from '../../../styles/typography/typography'
+import { Text, Title } from '../../../styles/typography/typography'
+import { converterDate } from '../../../utils/helpers/general'
 
 let isActiveDhuhr = false
 let isActiveAsr = false
@@ -76,6 +77,11 @@ const TimePrayer = () => {
    return (
       <Container>
          <h1>Бугунку кунго карата намаз убактысы (Мады)</h1>
+         <Flex gap="100px" align="center">
+            <Text>{converterDate(new Date())}</Text>
+            <Text>Айдын аты: {prayerTime?.date?.hijri?.weekday?.en}</Text>
+         </Flex>
+
          <Flex gap="50px">
             <PrayerTimeStyled
                isActive={isActiveFajr}
