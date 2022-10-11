@@ -98,6 +98,24 @@ const Kindergartens = React.lazy(() =>
 const InnerPageKindergartens = React.lazy(() =>
    import('../pages/education/inner-page-kindergartens')
 )
+
+// AGRI CULTURE
+
+const AnimalUsbandry = React.lazy(() =>
+   import('../pages/agriCulture/animalUsbandry')
+)
+const LawsPage = React.lazy(() => import('../pages/agriCulture/laws'))
+const PastureCommittee = React.lazy(() =>
+   import('../pages/agriCulture/pastureCommittee')
+)
+const SeedsFarm = React.lazy(() => import('../pages/agriCulture/seedsFarm'))
+const AgroAdvices = React.lazy(() => import('../pages/agriCulture/agroAdvices'))
+const AgroActivities = React.lazy(() =>
+   import('../pages/agriCulture/agroActivities')
+)
+// INNER AGRI CULTURE
+
+// ________________________________________________________________________________
 const GRT = React.lazy(() => import('../pages/education/GRT'))
 const InnerPageGRT = React.lazy(() =>
    import('../pages/education/inner-page-grt')
@@ -115,6 +133,7 @@ const ClientRoutes = () => {
       healthCare,
       religiousAffairs,
       youthAffairs,
+      agriculture,
    } = CLIENT_ROUTES
 
    return (
@@ -183,6 +202,29 @@ const ClientRoutes = () => {
                <Route
                   path={religiousAffairs.prayer.path}
                   element={<Prayer />}
+               />
+               {/* AGRO */}
+
+               <Route
+                  path={agriculture.animalUsbandry.path}
+                  element={<AnimalUsbandry />}
+               />
+               <Route
+                  path={agriculture.pastureCommittee.path}
+                  element={<PastureCommittee />}
+               />
+               <Route
+                  path={agriculture.seedsFarm.path}
+                  element={<SeedsFarm />}
+               />
+               <Route path={agriculture.laws.path} element={<LawsPage />} />
+               <Route
+                  path={agriculture.agroActivities.path}
+                  element={<AgroActivities />}
+               />
+               <Route
+                  path={agriculture.agroAdvices.path}
+                  element={<AgroAdvices />}
                />
             </Route>
             {/* ============================ */}

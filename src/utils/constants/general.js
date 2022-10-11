@@ -60,6 +60,9 @@ export const API_ROUTES_GET = {
    agroAdvice: {
       path: 'agriculture/tips',
    },
+   agroPasture: {
+      path: 'agriculture/pasture',
+   },
    agroAnimalUsbundry: {
       path: 'agriculture/animalHusbandry',
    },
@@ -68,6 +71,9 @@ export const API_ROUTES_GET = {
    },
    agroLaws: {
       path: 'agriculture/laws',
+   },
+   acEvent: {
+      path: 'agriculture/acEvent',
    },
 }
 export const REGEXP_EMAIL = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i

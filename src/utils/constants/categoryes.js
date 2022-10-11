@@ -12,8 +12,14 @@ import { TbFiretruck } from 'react-icons/tb'
 import uuid from 'react-uuid'
 import { CLIENT_ROUTES } from './routes'
 
-const { LEADERSHIP, education, healthCare, religiousAffairs, youthAffairs } =
-   CLIENT_ROUTES
+const {
+   LEADERSHIP,
+   education,
+   healthCare,
+   religiousAffairs,
+   youthAffairs,
+   agriculture,
+} = CLIENT_ROUTES
 
 export const CATEGORYES = [
    {
@@ -188,26 +194,32 @@ export const CATEGORYES = [
          {
             id: uuid(),
             title: 'Мал чарба комитети',
+            path: agriculture.animalUsbandry.path,
          },
          {
             id: uuid(),
             title: 'Жайыт комитети',
+            path: agriculture.pastureCommittee.path,
          },
          {
             id: uuid(),
             title: 'Үрөөн чарбасы',
+            path: agriculture.seedsFarm.path,
          },
          {
             id: uuid(),
             title: 'Мыйзамдар',
+            path: agriculture.laws.path,
          },
          {
             id: uuid(),
             title: 'Кеңештер',
+            path: agriculture.agroAdvices.path,
          },
          {
             id: uuid(),
             title: 'Иш-чаралар',
+            path: agriculture.agroActivities.path,
          },
       ],
    },
