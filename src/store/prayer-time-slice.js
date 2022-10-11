@@ -11,7 +11,6 @@ export const getPrayerTime = createAsyncThunk(
          )
 
          const result = await response.json()
-         console.log(result)
          return result
       } catch (error) {
          return rejectWithValue(error.message)

@@ -18,6 +18,8 @@ const {
    religiousAffairs,
    youthAffairs,
    agriculture,
+   culture,
+   newsAndAnnouncements,
 } = CLIENT_ROUTES
 
 export const NAVIGATIONS = [
@@ -153,22 +155,27 @@ export const NAVIGATIONS = [
          {
             id: uuid(),
             title: 'Мечиттер',
+            path: religiousAffairs.mosques.path,
          },
          {
             id: uuid(),
             title: 'Медреселер',
+            path: religiousAffairs.madrasas.path,
          },
          {
             id: uuid(),
             title: 'Ажылык',
+            path: religiousAffairs.pilgrimage.path,
          },
          {
             id: uuid(),
             title: 'Айт',
+            path: religiousAffairs.ait.path,
          },
          {
             id: uuid(),
             title: 'Рамазан',
+            path: religiousAffairs.ramadan.path,
          },
          {
             id: uuid(),
@@ -178,10 +185,12 @@ export const NAVIGATIONS = [
          {
             id: uuid(),
             title: 'Адеп-ахлак',
+            path: religiousAffairs.morality.path,
          },
          {
             id: uuid(),
             title: 'Диний иш-чаралар',
+            path: religiousAffairs.religiousActivities.path,
          },
       ],
    },
@@ -232,22 +241,22 @@ export const NAVIGATIONS_BOTTOM = [
          {
             id: uuid(),
             title: 'Маданият үйлөрү',
+            path: culture.cultureHouses.path,
          },
          {
             id: uuid(),
             title: 'Музейлер',
+            path: culture.museums.path,
          },
          {
             id: uuid(),
             title: 'Маданият кызматкерлери',
+            path: culture.culturalWorkers.path,
          },
          {
             id: uuid(),
             title: 'Маданий иш-чаралар',
-         },
-         {
-            id: uuid(),
-            title: 'Маданий сынактар',
+            path: culture.culturalActivities.path,
          },
       ],
    },
@@ -292,6 +301,7 @@ export const NAVIGATIONS_BOTTOM = [
          {
             id: uuid(),
             title: 'Жаңылыктар жана кулактандыруу',
+            path: newsAndAnnouncements.newsAndAnnouncements.path,
          },
       ],
    },

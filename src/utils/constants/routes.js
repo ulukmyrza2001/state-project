@@ -137,6 +137,30 @@ export const CLIENT_ROUTES = {
          path: '/din-ishteri/din-ishteri',
          label: 'Religious Activities',
       },
+      innerPageAit: {
+         path: '/din-ishteri/ait/:id',
+      },
+      innerPagePrayer: {
+         path: '/din-ishteri/namaz/:id',
+      },
+      innerPageRamadan: {
+         path: '/din-ishteri/ramazan/:id',
+      },
+      innerPageMosques: {
+         path: '/din-ishteri/mechitter/:id',
+      },
+      innerPageMadrasas: {
+         path: '/din-ishteri/medreseler/:id',
+      },
+      innerPagePilgrimage: {
+         path: '/din-ishteri/azhylyk/:id',
+      },
+      innerPagereligiousActivities: {
+         path: '/din-ishteri/din-ishteri/:id',
+      },
+      innerPageMorality: {
+         path: '/din-ishteri/adep-ahlak/:id',
+      },
    },
    youthAffairs: {
       headOfCommittee: {
@@ -242,6 +266,26 @@ export const CLIENT_ROUTES = {
          path: '/jashtar-ishteri/madanyat-synaktar',
          label: 'Cultural Competitions',
       },
+      innerPageCultureHouses: {
+         path: '/madanyat/madanyat-uiloru/:id',
+         label: 'Culture Houses',
+      },
+      innerPageMuseums: {
+         path: '/madanyat/mezeyler/:id',
+         label: 'Museums',
+      },
+      innerPageCulturalWorkers: {
+         path: '/madanyat/madanyat-kyzmatkerleri/:id',
+         label: 'Cultural Workers',
+      },
+      innerPageCulturalActivities: {
+         path: '/madanyat/madanyat-ish-charalar/:id',
+         label: 'Cultural Activities',
+      },
+      innerPageCulturalCompetitions: {
+         path: '/jashtar-ishteri/madanyat-synaktar/:id',
+         label: 'Cultural Competitions',
+      },
    },
    okm: {
       okm: {
@@ -260,11 +304,17 @@ export const CLIENT_ROUTES = {
          path: '/ataktuular/ataktuular',
          label: 'Сelebrities',
       },
+      innerPageCelebrities: {
+         path: '/ataktuular/ataktuular/:id',
+      },
    },
    newsAndAnnouncements: {
       newsAndAnnouncements: {
          path: '/Janylyktar-jana-kulaktandyruular/janylyktar-jana-kulaktandyruular',
          label: 'News and Announcements',
+      },
+      innerPageNewsAndAnnouncements: {
+         path: '/Janylyktar-jana-kulaktandyruular/janylyktar-jana-kulaktandyruular/:id',
       },
    },
 }

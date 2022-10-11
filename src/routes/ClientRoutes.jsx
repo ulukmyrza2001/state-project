@@ -4,7 +4,6 @@ import { Routes, Route } from 'react-router-dom'
 import ClientLayout from '../components/layout'
 import TemplateLeaderShipPages from '../components/temaplate-leadership-pages'
 import MainPage from '../pages/main'
-import Prayer from '../pages/religions/prayer'
 import { CLIENT_ROUTES } from '../utils/constants/routes'
 
 // LEADERSHIP
@@ -141,6 +140,79 @@ const Events = React.lazy(() => import('../pages/education/events'))
 const InnerPageEvents = React.lazy(() =>
    import('../pages/education/inner-page-events')
 )
+// RELIGIOUS
+const Prayer = React.lazy(() => import('../pages/religious/prayer'))
+const InnerPagePrayer = React.lazy(() =>
+   import('../pages/religious/inner-page-prayer')
+)
+const Ait = React.lazy(() => import('../pages/religious/ait'))
+const InnerPageAit = React.lazy(() =>
+   import('../pages/religious/inner-page-ait')
+)
+const Ramadan = React.lazy(() => import('../pages/religious/ramadan'))
+const InnerPageRamadan = React.lazy(() =>
+   import('../pages/religious/inner-page-ramadan')
+)
+const Mosques = React.lazy(() => import('../pages/religious/mosques'))
+const InnerPageMosque = React.lazy(() =>
+   import('../pages/religious/inner-page-mosques')
+)
+const Madrasas = React.lazy(() => import('../pages/religious/madrasas'))
+const InnerPageMadrasas = React.lazy(() =>
+   import('../pages/religious/inner-page-madrasas')
+)
+const Pilgrimare = React.lazy(() => import('../pages/religious/pilgrimage'))
+const InnerPagePilgrimage = React.lazy(() =>
+   import('../pages/religious/inner-page-pilgrimare')
+)
+const ReligiousEvents = React.lazy(() =>
+   import('../pages/religious/religious-activities')
+)
+const InnerPageReligiousEvents = React.lazy(() =>
+   import('../pages/religious/inner-page-events')
+)
+const Morality = React.lazy(() => import('../pages/religious/morality'))
+const InnerPageMorality = React.lazy(() =>
+   import('../pages/religious/inner-page-morality')
+)
+//= ====CULTURE==========//
+
+const Museums = React.lazy(() => import('../pages/culture/museums'))
+const InnerPageMuseums = React.lazy(() =>
+   import('../pages/culture/inner-page-museums')
+)
+const CulturalHouses = React.lazy(() =>
+   import('../pages/culture/cultural-houses')
+)
+const InnerPageCulturalHouses = React.lazy(() =>
+   import('../pages/culture/inner-page-cultural-houses')
+)
+const CulturalWorkers = React.lazy(() =>
+   import('../pages/culture/cultural-workers')
+)
+const InnerPageCulturalWorkers = React.lazy(() =>
+   import('../pages/culture/inner-page-cultural-workers')
+)
+const CulturalEvents = React.lazy(() =>
+   import('../pages/culture/cultural-events')
+)
+const InnerPageCulturalEvents = React.lazy(() =>
+   import('../pages/culture/inner-page-cultural-events')
+)
+
+//= ======NEW ANNOUNCEMENTS ======//
+
+const NewsAndAnnouncements = React.lazy(() =>
+   import('../pages/news-and-announcements')
+)
+const InnerPageNews = React.lazy(() =>
+   import('../pages/news-and-announcements/inner-page-news-and-announcements')
+)
+// --------CELEBRITIES--------//
+const Celebrities = React.lazy(() => import('../pages/celebrities'))
+const InnerPageCelebrities = React.lazy(() =>
+   import('../pages/celebrities/inner-page-celebrities')
+)
 
 const ClientRoutes = () => {
    const {
@@ -151,6 +223,9 @@ const ClientRoutes = () => {
       religiousAffairs,
       youthAffairs,
       agriculture,
+      culture,
+      newsAndAnnouncements,
+      celebrities,
    } = CLIENT_ROUTES
 
    return (
@@ -158,6 +233,7 @@ const ClientRoutes = () => {
          <Route element={<ClientLayout />} path={MAIN.path}>
             <Route element={<MainPage />} path={MAIN.path} />
             <Route element={<TemplateLeaderShipPages />}>
+               {/* -----EMPLOYEES----- */}
                <Route
                   element={<Government />}
                   path={LEADERSHIP.GOVERNMENT.path}
@@ -170,6 +246,7 @@ const ClientRoutes = () => {
                   element={<VillageCouncil />}
                   path={LEADERSHIP.VILLAGE_COUNCIL.path}
                />
+               {/* -----HEALTH_CARE-------- */}
                <Route element={<Hospital />} path={healthCare.hospitals.path} />
                <Route
                   element={<Phaps />}
@@ -180,6 +257,7 @@ const ClientRoutes = () => {
                   element={<DoctorAdvice />}
                   path={healthCare.doctorAdvice.path}
                />
+               {/* -----EDUCATION------ */}
                <Route path={education.schools.path} element={<Schools />} />
                <Route
                   path={education.drivingSchool.path}
@@ -187,6 +265,8 @@ const ClientRoutes = () => {
                />
                <Route path={education.iyrymder.path} element={<Circles />} />
                <Route path={education.olympiads.path} element={<Olympiads />} />
+               <Route path={education.GRT.path} element={<GRT />} />
+               <Route path={education.аctivities.path} element={<Events />} />
                <Route
                   path={education.kindergartens.path}
                   element={<Kindergartens />}
@@ -212,10 +292,8 @@ const ClientRoutes = () => {
                   path={youthAffairs.sportActivities.path}
                   element={<SportActivities />}
                />
-               {/* ------------------ */}
-               <Route path={education.GRT.path} element={<GRT />} />
-               <Route path={education.аctivities.path} element={<Events />} />
-               {/* --------- */}
+               {/* --------RELIGIOUS---------- */}
+
                <Route
                   path={religiousAffairs.prayer.path}
                   element={<Prayer />}
@@ -243,8 +321,58 @@ const ClientRoutes = () => {
                   path={agriculture.agroAdvices.path}
                   element={<AgroAdvices />}
                />
+               <Route path={religiousAffairs.ait.path} element={<Ait />} />
+               <Route
+                  path={religiousAffairs.ramadan.path}
+                  element={<Ramadan />}
+               />
+               <Route
+                  path={religiousAffairs.mosques.path}
+                  element={<Mosques />}
+               />
+               <Route
+                  path={religiousAffairs.madrasas.path}
+                  element={<Madrasas />}
+               />
+               <Route
+                  path={religiousAffairs.pilgrimage.path}
+                  element={<Pilgrimare />}
+               />
+               <Route
+                  path={religiousAffairs.religiousActivities.path}
+                  element={<ReligiousEvents />}
+               />
+               <Route
+                  path={religiousAffairs.morality.path}
+                  element={<Morality />}
+               />
+               {/* -----CULTURE------ */}
+               <Route path={culture.museums.path} element={<Museums />} />
+               <Route
+                  path={culture.cultureHouses.path}
+                  element={<CulturalHouses />}
+               />
+               <Route
+                  path={culture.culturalWorkers.path}
+                  element={<CulturalWorkers />}
+               />
+               <Route
+                  path={culture.culturalActivities.path}
+                  element={<CulturalEvents />}
+               />
+               {/* ------- NEW ANNOUNCEMENTS */}
+               <Route
+                  path={newsAndAnnouncements.newsAndAnnouncements.path}
+                  element={<NewsAndAnnouncements />}
+               />
+               {/* ---CELEBRITIES------ */}
+               <Route
+                  path={celebrities.celebrities.path}
+                  element={<Celebrities />}
+               />
             </Route>
-            {/* ============================ */}
+            {/* INNER PAGES */}
+            {/* ============LEADERSHIP INNER PAGES================ */}
             <Route
                path={LEADERSHIP.INNER_PAGE_GOVERNMENT_APPARATUS.path}
                element={<InnerPageLeadership />}
@@ -253,7 +381,7 @@ const ClientRoutes = () => {
                path={LEADERSHIP.INNER_PAGE_VILLAGE_COUNCIL.path}
                element={<InnerPageLeadership />}
             />
-            {/* ============================ */}
+            {/* =============EDUCATION INNER PAGES=============== */}
             <Route
                path={education.innerPageSchools.path}
                element={<InnerPageSchools />}
@@ -286,7 +414,44 @@ const ClientRoutes = () => {
                path={education.innerPageActivities.path}
                element={<InnerPageEvents />}
             />
-            {/* HEALSCARE INNER PAGES */}
+            {/* -------RELIGIOUS INNER PAGES------- */}
+            <Route
+               path={religiousAffairs.innerPageAit.path}
+               element={<InnerPageAit />}
+            />
+            <Route
+               path={religiousAffairs.innerPagePrayer.path}
+               element={<InnerPagePrayer />}
+            />
+            <Route
+               path={religiousAffairs.innerPagePrayer.path}
+               element={<InnerPagePrayer />}
+            />
+            <Route
+               path={religiousAffairs.innerPageRamadan.path}
+               element={<InnerPageRamadan />}
+            />
+            <Route
+               path={religiousAffairs.innerPageMosques.path}
+               element={<InnerPageMosque />}
+            />
+            <Route
+               path={religiousAffairs.innerPageMadrasas.path}
+               element={<InnerPageMadrasas />}
+            />
+            <Route
+               path={religiousAffairs.innerPagePilgrimage.path}
+               element={<InnerPagePilgrimage />}
+            />
+            <Route
+               path={religiousAffairs.innerPagereligiousActivities.path}
+               element={<InnerPageReligiousEvents />}
+            />
+            <Route
+               path={religiousAffairs.innerPageMorality.path}
+               element={<InnerPageMorality />}
+            />
+            {/* HEALTHCARE INNER PAGES */}
             <Route
                path={healthCare.innerPageHospitals.path}
                element={<InnerHospitalsPage />}
@@ -303,7 +468,7 @@ const ClientRoutes = () => {
                path={healthCare.innerPageDoctorAdvice.path}
                element={<InnerDoctorsAdvice />}
             />
-            {/* // YOUTH AFFAIRS PAGES */}
+            {/* // YOUTH AFFAIRS INNER PAGES */}
             <Route
                path={youthAffairs.innerHeadOfCommittee.path}
                element={<InnerHeadOfCommittee />}
@@ -328,23 +493,50 @@ const ClientRoutes = () => {
             <Route
                path={agriculture.innerAnimalUsbandry.path}
                element={<InnerAnimalUsb />}
-            />{' '}
+            />
             <Route
                path={agriculture.innerPastureCommittee.path}
                element={<InnerPasture />}
-            />{' '}
+            />
             <Route
                path={agriculture.innerSeedsFarm.path}
                element={<InnerSeedFarm />}
-            />{' '}
-            <Route path={agriculture.innerLaws.path} element={<InnerLaws />} />{' '}
+            />
+            <Route path={agriculture.innerLaws.path} element={<InnerLaws />} />
             <Route
                path={agriculture.innerAgroActivities.path}
                element={<InnerActivities />}
-            />{' '}
+            />
             <Route
                path={agriculture.innerAgroAdvices.path}
                element={<InnerAgroAdvices />}
+            />
+            {/* // CULTURE INNER PAGES */}
+            <Route
+               path={culture.innerPageMuseums.path}
+               element={<InnerPageMuseums />}
+            />
+            <Route
+               path={culture.innerPageCultureHouses.path}
+               element={<InnerPageCulturalHouses />}
+            />
+            <Route
+               path={culture.innerPageCulturalWorkers.path}
+               element={<InnerPageCulturalWorkers />}
+            />
+            <Route
+               path={culture.innerPageCulturalActivities.path}
+               element={<InnerPageCulturalEvents />}
+            />
+            {/* NEWS AND ANNOUNCEMENTS */}
+            <Route
+               path={newsAndAnnouncements.innerPageNewsAndAnnouncements.path}
+               element={<InnerPageNews />}
+            />
+            {/* CELEBRITIES INNER PAGE */}
+            <Route
+               path={celebrities.innerPageCelebrities.path}
+               element={<InnerPageCelebrities />}
             />
          </Route>
       </Routes>
