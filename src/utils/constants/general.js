@@ -78,9 +78,6 @@ export const API_ROUTES_GET = {
    agroActivites: {
       path: 'agriculture/acEvent',
    },
-   agroPasture: {
-      path: 'agriculture/pasture',
-   },
 
    cultureWorkers: {
       path: 'agriculture/acEvent/culturalFigures',
