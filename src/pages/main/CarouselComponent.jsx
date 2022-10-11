@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import React, { useEffect, useState } from 'react'
-import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
+import { motion, AnimateSharedLayout } from 'framer-motion'
 
 const data = [
    'Эл журттун ажырагыс бүтүндүгү жана бир жакадан баш, бир жеңден кол чыгарган ички биримдиги.',
@@ -45,12 +45,15 @@ const CarouselComponent = () => {
                key={el}
                initial={{
                   opacity: 0,
+                  x: '100%',
                }}
                animate={{
                   opacity: 1,
+                  x: 0,
                }}
                exit={{
                   opacity: 0,
+                  x: '-100%',
                }}
             >
                {el}
