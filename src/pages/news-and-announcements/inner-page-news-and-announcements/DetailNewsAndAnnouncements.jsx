@@ -1,7 +1,6 @@
 import React from 'react'
 import parse from 'html-react-parser'
 import {
-   A,
    Container,
    Text,
    WrapperImage,
@@ -9,6 +8,7 @@ import {
    WrapperText,
 } from '../../../styles/detail-styles'
 import { Flex } from '../../../styles/style-for-positions/style'
+import { converterDate } from '../../../utils/helpers/general'
 
 const DetailNewsAndAnnouncements = ({ oneData }) => {
    return (
@@ -24,7 +24,7 @@ const DetailNewsAndAnnouncements = ({ oneData }) => {
                <Text>{parse(String(oneData?.text))}</Text>
             </WrapperText>
             <Flex direction="column" margin="20px 0 0 0" gap="6px">
-               <p>{oneData?.dateOfNewAnnouncement}</p>
+               <p>{converterDate(oneData?.dateOfNewAnnouncement)}</p>
             </Flex>
          </WrapperLeftContent>
          <WrapperImage>

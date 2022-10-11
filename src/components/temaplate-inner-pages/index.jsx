@@ -1,28 +1,13 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react'
-import { ImFacebook2 } from 'react-icons/im'
-import { BsWhatsapp, BsInstagram } from 'react-icons/bs'
 import styled, { createGlobalStyle } from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { MdOutlineKeyboardBackspace } from 'react-icons/md'
+import { Button } from '@mui/material'
 import { Flex } from '../../styles/style-for-positions/style'
 import BreadCrumbs from '../UI/breadcrumbs/BreadCrumbs'
 
-const SOCIAL_ICONS = [<ImFacebook2 />, <BsInstagram />, <BsWhatsapp />]
-
-const socialsRender = (socials) => {
-   return SOCIAL_ICONS.map((icon, i) => (
-      <Social key={i} to={socials[i]}>
-         {icon}
-      </Social>
-   ))
-}
-
-const TempleteInnerPage = ({
-   socials = ['sdf', 'df', 'df'],
-   children,
-   pathsArray,
-}) => {
+const TempleteInnerPage = ({ children, pathsArray }) => {
+   const navigate = useNavigate()
    return (
       <Container>
          <GlobalStyle />
@@ -32,7 +17,14 @@ const TempleteInnerPage = ({
                   <BreadCrumbs pathsArray={pathsArray} />
                </HeaderLeft>
                <Flex gap="7px" align="center">
-                  {socialsRender(socials)}
+                  <Button
+                     sx={{
+                        color: 'black',
+                     }}
+                     onClick={() => navigate(-1)}
+                  >
+                     <MdOutlineKeyboardBackspace fontSize={20} />
+                  </Button>
                </Flex>
             </InnerHeader>
          </Header>
@@ -40,6 +32,7 @@ const TempleteInnerPage = ({
       </Container>
    )
 }
+
 const GlobalStyle = createGlobalStyle`
     body{
         background: #f1f1f1;
