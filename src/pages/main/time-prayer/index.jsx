@@ -4,7 +4,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getPrayerTime } from '../../../store/prayer-time-slice'
 import { Flex } from '../../../styles/style-for-positions/style'
 import { Text, Title } from '../../../styles/typography/typography'
-import { converterDate } from '../../../utils/helpers/general'
+import {
+   converterDate,
+   getTime,
+   timeToDate,
+} from '../../../utils/helpers/general'
+import Clock from './Clock'
 
 let isActiveDhuhr = false
 let isActiveAsr = false
@@ -19,19 +24,6 @@ const TimePrayer = () => {
    useEffect(() => {
       dispatch(getPrayerTime())
    }, [])
-
-   const getTime = (time) => time && time.split(' ')[0]
-
-   function timeToDate(time) {
-      if (time) {
-         const chunks = time.split(':')
-         const date = new Date()
-         date.setHours(Number(chunks[0]))
-         date.setMinutes(Number(chunks[1]))
-         return date
-      }
-      return null
-   }
 
    const Fajr = getTime(prayerTime?.timings?.Fajr)
    const Sunrise = getTime(prayerTime?.timings?.Sunrise)
@@ -73,6 +65,7 @@ const TimePrayer = () => {
          isActiveFajr = true
       }
    }
+   console.log('uluk')
 
    return (
       <Container>
@@ -81,21 +74,19 @@ const TimePrayer = () => {
             <Text>{converterDate(new Date())}</Text>
             <Text>Айдын аты: {prayerTime?.date?.hijri?.weekday?.en}</Text>
          </Flex>
-
-         <Flex gap="50px">
+         <Clock />
+         <Flex wrap="wrap" width="100%" justify="center" gap="50px">
             <PrayerTimeStyled
                isActive={isActiveFajr}
                align="center"
                direction="column"
                gap="10px"
             >
-               <Title size="40px">{getTime(prayerTime?.timings?.Fajr)}</Title>
+               <Title size="40px">{Fajr}</Title>
                <p>Багымдат</p>
             </PrayerTimeStyled>
             <PrayerTimeStyled align="center" direction="column" gap="10px">
-               <Title size="40px">
-                  {getTime(prayerTime?.timings?.Sunrise)}
-               </Title>
+               <Title size="40px">{getTime(Sunrise)}</Title>
                <p>Кун чыгуу</p>
             </PrayerTimeStyled>
             <PrayerTimeStyled
@@ -104,7 +95,7 @@ const TimePrayer = () => {
                direction="column"
                gap="10px"
             >
-               <Title size="40px">{getTime(prayerTime?.timings?.Dhuhr)}</Title>
+               <Title size="40px">{Dhuhr}</Title>
                <p>Бешим</p>
             </PrayerTimeStyled>
             <PrayerTimeStyled
@@ -113,7 +104,7 @@ const TimePrayer = () => {
                direction="column"
                gap="10px"
             >
-               <Title size="40px">{getTime(prayerTime?.timings?.Asr)}</Title>
+               <Title size="40px">{Asr}</Title>
                <p>Аср</p>
             </PrayerTimeStyled>
             <PrayerTimeStyled
@@ -152,11 +143,14 @@ const Container = styled.div`
 `
 const PrayerTimeStyled = styled(Flex)`
    padding: 1rem;
-   border: ${({ isActive }) => (isActive ? '1px solid #4e8e8c' : 'none')};
+   border: ${({ isActive }) => (isActive ? '1px solid #061742' : 'none')};
    border-radius: 50%;
    p {
-      color: gray;
+      color: ${({ isActive }) => (isActive ? '#061742' : 'gray')};
       font-size: 20px;
+   }
+   h3 {
+      color: ${({ isActive }) => (isActive ? '#061742' : '')};
    }
 `
 
