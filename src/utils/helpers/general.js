@@ -98,7 +98,7 @@ export function timeToDate(time) {
       const date = new Date()
       date.setHours(Number(chunks[0]))
       date.setMinutes(Number(chunks[1]))
-      return date
+      return date.getTime()
    }
    return null
 }

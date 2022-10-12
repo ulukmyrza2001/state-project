@@ -8,14 +8,14 @@ export default function Clock() {
    }, [])
 
    return (
-      <div className="Clock">
-         <h2 className="Digits">
+      <div>
+         <h1>
             {`0${date.getHours()}`.slice(-2)}
             <span>:</span>
             {`0${date.getMinutes()}`.slice(-2)}
             <span>:</span>
             {`0${date.getSeconds()}`.slice(-2)}
-         </h2>
+         </h1>
       </div>
    )
 }
