@@ -1,36 +1,43 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
+import { useDispatch, useSelector } from 'react-redux'
 import videoMady from '../../assets/video/mady.MP4'
+import CarouselComponent from './CarouselComponent'
+import Slideshow from '../../components/carousel'
+import { clientGetData } from '../../store/client-slice'
+import TimePrayer from './time-prayer'
 
 const MainPage = () => {
+   const dispatch = useDispatch()
+   const { data } = useSelector((state) => state.client)
+   useEffect(() => {
+      dispatch(clientGetData('news'))
+   }, [])
    return (
-      <MainStyled>
-         <VideoBackground
-            src={videoMady}
-            autoPlay
-            muted
-            loop
-            type="video/mp4"
-         />
-         <Effect>
-            <Text>
-               Эл журттун ажырагыс бүтүндүгү жана бир жакадан баш, бир жеңден
-               кол чыгарган ички биримдиги.
-            </Text>
-         </Effect>
-      </MainStyled>
+      <>
+         <MainStyled>
+            <VideoBackground
+               src={videoMady}
+               autoPlay
+               muted
+               loop
+               type="video/mp4"
+            />
+            <Effect>
+               <CarouselComponent />
+            </Effect>
+         </MainStyled>
+         <NewsContent>
+            <Slideshow news={data} />
+         </NewsContent>
+         <TimePrayer />
+      </>
    )
 }
-const Text = styled.h1`
-   color: white;
-   font-size: 50px;
-   max-width: 70%;
-   text-align: center;
-   @media screen and (max-width: 800px) {
-      max-width: 90%;
-      font-size: 30px;
-      margin-top: 200px;
-   }
+const NewsContent = styled.div`
+   width: 100%;
+   margin: auto;
+   padding: 1rem;
 `
 const MainStyled = styled.div`
    width: 100%;
@@ -48,9 +55,6 @@ const Effect = styled.div`
    display: flex;
    justify-content: center;
    align-items: center;
-   @media screen and (max-width: 800px) {
-      align-items: flex-start;
-   }
 `
 const VideoBackground = styled.video`
    position: absolute;

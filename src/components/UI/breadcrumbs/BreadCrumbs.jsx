@@ -42,14 +42,14 @@ const StyledCrumbs = styled(Breadcrumbs)`
 `
 const LinkStyleControl = styled(Link)`
    font-size: 13px;
-   color: #a4a4a4;
+   color: #323542;
    text-decoration: none;
    display: flex;
    align-items: center;
    justify-content: center;
    font-weight: 200;
    :hover {
-      color: gray;
+      color: #000;
    }
    @media (max-width: 400px) {
       font-size: 12px;

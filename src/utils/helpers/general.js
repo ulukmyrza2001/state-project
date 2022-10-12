@@ -42,3 +42,50 @@ export const findOneCategory = (pathname) => {
    )
    return oneCategory
 }
+
+export const converterDate = (date) => {
+   const incomingDate = new Date(date)
+   let convertedMonth = 'январь'
+   const month = incomingDate.getMonth() + 1
+   const year = incomingDate.getFullYear()
+   const day = incomingDate.getDate()
+   switch (month) {
+      case 2:
+         convertedMonth = 'февраль'
+         break
+      case 3:
+         convertedMonth = 'март'
+         break
+      case 4:
+         convertedMonth = 'апрель'
+         break
+      case 5:
+         convertedMonth = 'май'
+         break
+      case 6:
+         convertedMonth = 'июнь'
+         break
+      case 7:
+         convertedMonth = 'июль'
+         break
+      case 8:
+         convertedMonth = 'август'
+         break
+      case 9:
+         convertedMonth = 'сентябрь'
+         break
+      case 10:
+         convertedMonth = 'октябрь'
+         break
+      case 11:
+         convertedMonth = 'ноябрь'
+         break
+      case 12:
+         convertedMonth = 'декабрь'
+         break
+      default:
+         convertedMonth = 'январь'
+         break
+   }
+   return `${day}-${convertedMonth} ${year}-жыл.`
+}
