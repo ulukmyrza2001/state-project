@@ -6,6 +6,7 @@ import CarouselComponent from './CarouselComponent'
 import Slideshow from '../../components/carousel'
 import { clientGetData } from '../../store/client-slice'
 import TimePrayer from './time-prayer'
+import Weather from './weather'
 
 const MainPage = () => {
    const dispatch = useDispatch()
@@ -30,6 +31,7 @@ const MainPage = () => {
          <NewsContent>
             <Slideshow news={data} />
          </NewsContent>
+         <Weather />
          <TimePrayer />
       </>
    )

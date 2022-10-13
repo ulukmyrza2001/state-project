@@ -30,7 +30,6 @@ export const getOneData = createAsyncThunk(
       }
    }
 )
-
 const initialState = {
    isLoading: false,
    government: [],
