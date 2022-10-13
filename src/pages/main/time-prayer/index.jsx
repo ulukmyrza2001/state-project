@@ -36,40 +36,32 @@ const TimePrayer = () => {
    const Isha = getTime(prayerTime?.timings?.Isha)
    const Lastthird = getTime(prayerTime?.timings?.Lastthird)
 
-   useEffect(() => {
-      if (prayerTime) {
-         if (currentTime > timeToDate(Dhuhr) && currentTime < timeToDate(Asr)) {
-            isActiveDhuhr = true
-         }
-
-         if (
-            currentTime > timeToDate(Asr) &&
-            currentTime < timeToDate(Maghrib)
-         ) {
-            isActiveAsr = true
-         }
-
-         if (
-            currentTime > timeToDate(Maghrib) &&
-            currentTime < timeToDate(Isha)
-         ) {
-            isActiveMaghrib = true
-         }
-
-         if (
-            currentTime < timeToDate(Lastthird) ||
-            currentTime > timeToDate(Maghrib)
-         ) {
-            isActiveIsha = true
-         }
-         if (
-            currentTime > timeToDate(Lastthird) &&
-            currentTime < timeToDate(Sunrise)
-         ) {
-            isActiveFajr = true
-         }
+   if (prayerTime) {
+      if (currentTime > timeToDate(Dhuhr) && currentTime < timeToDate(Asr)) {
+         isActiveDhuhr = true
       }
-   }, [])
+
+      if (currentTime > timeToDate(Asr) && currentTime < timeToDate(Maghrib)) {
+         isActiveAsr = true
+      }
+
+      if (currentTime > timeToDate(Maghrib) && currentTime < timeToDate(Isha)) {
+         isActiveMaghrib = true
+      }
+
+      if (
+         currentTime < timeToDate(Lastthird) ||
+         currentTime > timeToDate(Maghrib)
+      ) {
+         isActiveIsha = true
+      }
+      if (
+         currentTime > timeToDate(Lastthird) &&
+         currentTime < timeToDate(Sunrise)
+      ) {
+         isActiveFajr = true
+      }
+   }
 
    return (
       <Container photo={islamPhoto}>

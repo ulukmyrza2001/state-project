@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Slideshow from '../../components/carousel'
-import { clientGetData } from '../../store/client-slice'
+import { getNewsState } from '../../store/news-slice'
 
 const News = () => {
    const dispatch = useDispatch()
-   const { data } = useSelector((state) => state.client)
+   const { newsState } = useSelector((state) => state.news)
 
    useEffect(() => {
-      dispatch(clientGetData('news'))
+      dispatch(getNewsState())
    }, [])
 
-   return <Slideshow news={data} />
+   return <Slideshow news={newsState} />
 }
 
 export default News
