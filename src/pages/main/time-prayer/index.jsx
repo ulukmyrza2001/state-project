@@ -79,7 +79,7 @@ const TimePrayer = () => {
                gap="50px"
                margin="20px 0"
             >
-               <Flex
+               <PrayerTimeStyled
                   isActive={isActiveFajr}
                   align="center"
                   direction="column"
@@ -87,7 +87,7 @@ const TimePrayer = () => {
                >
                   <Title size="40px">{Fajr}</Title>
                   <p>Багымдат</p>
-               </Flex>
+               </PrayerTimeStyled>
                <PrayerTimeStyled align="center" direction="column" gap="10px">
                   <Title size="40px">{getTime(Sunrise)}</Title>
                   <p>Кун чыгуу</p>
