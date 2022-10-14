@@ -145,7 +145,7 @@ export const List = styled.ul`
    background: ${({ headerBackground }) =>
       headerBackground
          ? 'transparent'
-         : ' linear-gradient(-45deg, #1b1374, #011835)'};
+         : ' linear-gradient(-45deg, #022755, #041935)'};
    animation: gradientBG 15s ease infinite;
    @keyframes gradientBG {
       0% {

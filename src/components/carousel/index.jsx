@@ -55,7 +55,9 @@ const Slideshow = ({ news = [] }) => {
    return (
       <div className="slideshow">
          <Flex width="100%" margin="4rem 0 4rem 0">
-            <TitleSection>Жаңылыктар жана кулактандыруулар</TitleSection>
+            <TitleSection>
+               Мамлекеттик жаңылыктар жана кулактандыруулар
+            </TitleSection>
          </Flex>
          <GlobalStyle />
          <Flex direction="column" gap="0">

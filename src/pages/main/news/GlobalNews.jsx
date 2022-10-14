@@ -36,7 +36,9 @@ const GlobalNews = () => {
    return (
       <Container>
          <Flex width="100%" margin="4rem 0 4rem 0">
-            <TitleSection>Жаңылыктар жана кулактандыруулар</TitleSection>
+            <TitleSection>
+               Дуйнолук жаңылыктар жана кулактандыруулар
+            </TitleSection>
          </Flex>
          <GridContainer>
             {newsWorld.map((item) => (

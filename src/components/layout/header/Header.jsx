@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Link, useLocation } from 'react-router-dom'
 import gerb from '../../../assets/icons/GERB.svg'
@@ -15,10 +15,16 @@ const Header = () => {
    const [isScroll, setIsScroll] = useState(false)
    const [showMenuBurger, setShowMenuBurger] = useState(false)
 
-   window.addEventListener('scroll', () => {
+   const scrollHandler = useCallback(() => {
       if (scrollHeader()) setIsScroll(true)
       else setIsScroll(false)
-   })
+   }, [])
+
+   useEffect(() => {
+      window.addEventListener('scroll', () => scrollHandler())
+
+      return () => window.removeEventListener('scroll', scrollHandler)
+   }, [scrollHandler])
 
    const headerHeight = pathname !== '/' || isScroll
 
@@ -63,7 +69,7 @@ export const HeaderStyled = styled.header`
    background: ${({ headerBackground }) =>
       !headerBackground
          ? 'transparent'
-         : 'linear-gradient(-45deg, #1b1374, #011835)'};
+         : ' linear-gradient(-45deg, #022755, #041935)'};
    background-size: 400% 400%;
    animation: gradientBG 15s ease infinite;
    display: flex;
