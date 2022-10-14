@@ -3,8 +3,9 @@ import styled from '@emotion/styled'
 import videoMady from '../../assets/video/mady.MP4'
 import CarouselComponent from './CarouselComponent'
 import TimePrayer from './time-prayer'
-import News from './News'
+import News from './news/News'
 import Weather from './weather'
+import GlobalNews from './news/GlobalNews'
 
 const MainPage = () => {
    return (
@@ -24,6 +25,9 @@ const MainPage = () => {
          <NewsContent>
             <News />
          </NewsContent>
+         <div>
+            <GlobalNews />
+         </div>
          <Weather />
          <TimePrayer />
       </>
