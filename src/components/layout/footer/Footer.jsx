@@ -149,7 +149,7 @@ const Footer = () => {
          </WrapperFooter>
          <UnderFooter>
             <InnerUnderFooter>
-               <span>Copyright © 2022 T.C. GOS PROJECT</span>
+               <span>Copyright © 2022 T.C. DD COMPANY. Все права защищены</span>
                <WrapperIcons>
                   <li>
                      <a href="https://www.facebook.com/" target="_blnk">

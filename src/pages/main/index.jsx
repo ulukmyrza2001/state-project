@@ -24,7 +24,9 @@ const MainPage = () => {
          <NewsContent>
             <News />
          </NewsContent>
-         <GlobalNews />
+         <NewsContent>
+            <GlobalNews />
+         </NewsContent>
          {/* <Weather /> */}
          <TimePrayer />
       </>
