@@ -15,8 +15,8 @@ const delay = 5500
 
 const breadCrumb = {
    id: uuid(),
-   title: 'Жаңылыктар жана кулактандыруулар',
-   path: CLIENT_ROUTES.newsAndAnnouncements.newsAndAnnouncements.path,
+   title: 'Жаңылыктар жана кулактандыруулар (Мамлекеттик)',
+   path: CLIENT_ROUTES.newsAndAnnouncementsState.newsAndAnnouncements.path,
 }
 
 const Slideshow = ({ news = [] }) => {
@@ -46,7 +46,9 @@ const Slideshow = ({ news = [] }) => {
    }, [index])
 
    const navigateToInnerPageNews = (id) => {
-      navigate(`/Janylyktar-jana-kulaktandyruular/${id}`)
+      navigate(
+         `${CLIENT_ROUTES.newsAndAnnouncementsState.newsAndAnnouncements.path}/${id}`
+      )
       localstorage.save('link', breadCrumb)
    }
 

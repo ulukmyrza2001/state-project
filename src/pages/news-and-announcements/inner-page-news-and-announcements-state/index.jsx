@@ -1,21 +1,25 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import DetailNewsAndAnnouncements from './DetailNewsAndAnnouncements'
+import DetailNewsAndAnnouncementsState from './DetailNewsAndAnnouncementsState'
 import TempleteInnerPage from '../../../components/temaplate-inner-pages'
-import { getOneData } from '../../../store/client-slice'
 import { localstorage } from '../../../utils/helpers/general'
 import LoadingInnerPage from '../../../components/UI/loader/LoadingInnerPage'
+import { getOneStateNews } from '../../../store/news-slice'
 
 const InnerPage = () => {
-   const { oneData, isLoading } = useSelector((state) => state.client)
+   const { oneNewsState, isLoading } = useSelector((state) => state.news)
 
    const { id } = useParams()
 
    const dispatch = useDispatch()
 
+   const localData = localstorage.get('link')
+
    useEffect(() => {
-      dispatch(getOneData({ category: 'news', id }))
+      dispatch(
+         getOneStateNews({ id, offset: +localstorage.get('offset') || 1 })
+      )
    }, [])
 
    const pathsArray = [
@@ -24,18 +28,20 @@ const InnerPage = () => {
          name: 'Уй',
       },
       {
-         path: localstorage.get('link').path,
-         name: localstorage.get('link').title,
+         path: localData?.path,
+         name: localData?.title,
       },
       {
          path: '/jetekchilik/apparat',
-         name: 'Жанылыктар жана кулактандыруулар',
+         name: 'Мамлекеттик',
       },
    ]
    return (
       <TempleteInnerPage pathsArray={pathsArray}>
          {isLoading && <LoadingInnerPage />}
-         {!isLoading && <DetailNewsAndAnnouncements oneData={oneData} />}
+         {!isLoading && (
+            <DetailNewsAndAnnouncementsState oneData={oneNewsState} />
+         )}
       </TempleteInnerPage>
    )
 }

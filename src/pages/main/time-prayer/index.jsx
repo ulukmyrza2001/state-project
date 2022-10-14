@@ -10,7 +10,7 @@ import {
    timeToDate,
 } from '../../../utils/helpers/general'
 import Clock from './Clock'
-import islamPhoto from '../../../assets/images/islam.jpg'
+import islamPhoto from '../../../assets/images/prayer.jpg'
 
 let isActiveDhuhr = false
 let isActiveAsr = false
@@ -68,8 +68,10 @@ const TimePrayer = () => {
          <PrayerTimeWrapper direction="column" align="center" gap="30px">
             <h1>Бугунку кунго карата намаз убактысы (Мады)</h1>
             <Flex gap="100px" align="center">
-               <Text>{converterDate(new Date())}</Text>
-               <Text>Айдын аты: {prayerTime?.date?.hijri?.weekday?.en}</Text>
+               <Text color="#c2b7bf">{converterDate(new Date())}</Text>
+               <Text color="#c2b7bf">
+                  Кундун аты аты: {prayerTime?.date?.hijri?.weekday?.en}
+               </Text>
             </Flex>
             <Clock />
             <Flex
@@ -79,7 +81,7 @@ const TimePrayer = () => {
                gap="50px"
                margin="20px 0"
             >
-               <Flex
+               <PrayerTimeStyled
                   isActive={isActiveFajr}
                   align="center"
                   direction="column"
@@ -87,7 +89,7 @@ const TimePrayer = () => {
                >
                   <Title size="40px">{Fajr}</Title>
                   <p>Багымдат</p>
-               </Flex>
+               </PrayerTimeStyled>
                <PrayerTimeStyled align="center" direction="column" gap="10px">
                   <Title size="40px">{getTime(Sunrise)}</Title>
                   <p>Кун чыгуу</p>
@@ -151,7 +153,9 @@ const Container = styled.div`
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
-   background-attachment: fixed;
+   h1 {
+      color: #0d1550;
+   }
 `
 const PrayerTimeWrapper = styled(Flex)`
    position: relative;

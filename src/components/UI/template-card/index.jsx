@@ -5,9 +5,11 @@ import { AiOutlineArrowRight } from 'react-icons/ai'
 import { Flex } from '../../../styles/style-for-positions/style'
 import { localstorage } from '../../../utils/helpers/general'
 
-const Card = ({ item, title, subTitle }) => {
-   const { state } = useLocation()
-   const localLink = useMemo(() => localstorage.get('link'), [])
+const Card = ({ item, title, subTitle, offset }) => {
+   const savePathsToLocalStorage = () => {
+      if (offset) localstorage.save('offset', offset)
+   }
+
    return (
       <Wrapper>
          <Container gap="20px">
@@ -28,10 +30,7 @@ const Card = ({ item, title, subTitle }) => {
                   <SubTitle>{subTitle}</SubTitle>
                </WrapperTitle>
             </Flex>
-            <LinkStyle
-               onClick={() => localstorage.save('link', state || localLink)}
-               to={`${item?.id}`}
-            >
+            <LinkStyle onClick={savePathsToLocalStorage} to={`${item?.id}`}>
                Толук маалымат алуу <IconRight />{' '}
             </LinkStyle>
          </Container>

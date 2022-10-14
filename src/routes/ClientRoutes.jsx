@@ -203,10 +203,20 @@ const InnerPageCulturalEvents = React.lazy(() =>
 //= ======NEW ANNOUNCEMENTS ======//
 
 const NewsAndAnnouncements = React.lazy(() =>
-   import('../pages/news-and-announcements')
+   import('../pages/news-and-announcements/state-news/index')
 )
-const InnerPageNews = React.lazy(() =>
-   import('../pages/news-and-announcements/inner-page-news-and-announcements')
+const InnerPageStateNews = React.lazy(() =>
+   import(
+      '../pages/news-and-announcements/inner-page-news-and-announcements-state'
+   )
+)
+const NewsAndAnnouncementsWorld = React.lazy(() =>
+   import('../pages/news-and-announcements/world-news')
+)
+const InnerPageWorldNews = React.lazy(() =>
+   import(
+      '../pages/news-and-announcements/inner-page-news-and-announcements-world'
+   )
 )
 // --------CELEBRITIES--------//
 const Celebrities = React.lazy(() => import('../pages/celebrities'))
@@ -231,7 +241,8 @@ const ClientRoutes = () => {
       youthAffairs,
       agriculture,
       culture,
-      newsAndAnnouncements,
+      newsAndAnnouncementsState,
+      newsAndAnnouncementsWorld,
       celebrities,
       okm,
       cleanliness,
@@ -371,8 +382,12 @@ const ClientRoutes = () => {
                />
                {/* ------- NEW ANNOUNCEMENTS */}
                <Route
-                  path={newsAndAnnouncements.newsAndAnnouncements.path}
+                  path={newsAndAnnouncementsState.newsAndAnnouncements.path}
                   element={<NewsAndAnnouncements />}
+               />
+               <Route
+                  path={newsAndAnnouncementsWorld.newsAndAnnouncements.path}
+                  element={<NewsAndAnnouncementsWorld />}
                />
                {/* TAZALYK */}
                <Route
@@ -547,8 +562,16 @@ const ClientRoutes = () => {
             />
             {/* NEWS AND ANNOUNCEMENTS */}
             <Route
-               path={newsAndAnnouncements.innerPageNewsAndAnnouncements.path}
-               element={<InnerPageNews />}
+               path={
+                  newsAndAnnouncementsState.innerPageNewsAndAnnouncements.path
+               }
+               element={<InnerPageStateNews />}
+            />
+            <Route
+               path={
+                  newsAndAnnouncementsWorld.innerPageNewsAndAnnouncements.path
+               }
+               element={<InnerPageWorldNews />}
             />
             {/* CELEBRITIES INNER PAGE */}
             <Route
