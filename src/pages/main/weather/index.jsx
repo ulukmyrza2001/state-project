@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { getWeather } from '../../../store/weather-slice'
 
-const index = () => {
+const Weather = () => {
+   const dispatch = useDispatch()
+   useEffect(() => {
+      dispatch(getWeather())
+   }, [])
    return <div>index</div>
 }
 
-export default index
+export default Weather
