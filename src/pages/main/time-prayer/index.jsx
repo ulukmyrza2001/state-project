@@ -4,13 +4,21 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getPrayerTime } from '../../../store/prayer-time-slice'
 import { Flex } from '../../../styles/style-for-positions/style'
 import { Text, Title } from '../../../styles/typography/typography'
-import { converterDate } from '../../../utils/helpers/general'
+import {
+   converterDate,
+   getTime,
+   timeToDate,
+} from '../../../utils/helpers/general'
+import Clock from './Clock'
+import islamPhoto from '../../../assets/images/islam.jpg'
 
 let isActiveDhuhr = false
 let isActiveAsr = false
 let isActiveMaghrib = false
 let isActiveIsha = false
 let isActiveFajr = false
+
+const currentTime = new Date().getTime()
 
 const TimePrayer = () => {
    const dispatch = useDispatch()
@@ -19,19 +27,6 @@ const TimePrayer = () => {
    useEffect(() => {
       dispatch(getPrayerTime())
    }, [])
-
-   const getTime = (time) => time && time.split(' ')[0]
-
-   function timeToDate(time) {
-      if (time) {
-         const chunks = time.split(':')
-         const date = new Date()
-         date.setHours(Number(chunks[0]))
-         date.setMinutes(Number(chunks[1]))
-         return date
-      }
-      return null
-   }
 
    const Fajr = getTime(prayerTime?.timings?.Fajr)
    const Sunrise = getTime(prayerTime?.timings?.Sunrise)
@@ -42,101 +37,103 @@ const TimePrayer = () => {
    const Lastthird = getTime(prayerTime?.timings?.Lastthird)
 
    if (prayerTime) {
-      if (
-         new Date().getTime() > timeToDate(Dhuhr).getTime() &&
-         new Date().getTime() < timeToDate(Asr).getTime()
-      ) {
+      if (currentTime > timeToDate(Dhuhr) && currentTime < timeToDate(Asr)) {
          isActiveDhuhr = true
       }
 
-      if (
-         new Date().getTime() > timeToDate(Asr).getTime() &&
-         new Date().getTime() < timeToDate(Maghrib).getTime()
-      ) {
+      if (currentTime > timeToDate(Asr) && currentTime < timeToDate(Maghrib)) {
          isActiveAsr = true
       }
 
-      if (
-         new Date().getTime() > timeToDate(Maghrib).getTime() &&
-         new Date().getTime() < timeToDate(Isha).getTime()
-      ) {
+      if (currentTime > timeToDate(Maghrib) && currentTime < timeToDate(Isha)) {
          isActiveMaghrib = true
       }
 
-      if (new Date().getTime() < timeToDate(Lastthird).getTime()) {
+      if (
+         currentTime < timeToDate(Lastthird) ||
+         currentTime > timeToDate(Maghrib)
+      ) {
          isActiveIsha = true
       }
       if (
-         new Date().getTime() > timeToDate(Lastthird).getTime() &&
-         new Date().getTime() < timeToDate(Sunrise).getTime()
+         currentTime > timeToDate(Lastthird) &&
+         currentTime < timeToDate(Sunrise)
       ) {
          isActiveFajr = true
       }
    }
 
    return (
-      <Container>
-         <h1>Бугунку кунго карата намаз убактысы (Мады)</h1>
-         <Flex gap="100px" align="center">
-            <Text>{converterDate(new Date())}</Text>
-            <Text>Айдын аты: {prayerTime?.date?.hijri?.weekday?.en}</Text>
-         </Flex>
-
-         <Flex gap="50px">
-            <PrayerTimeStyled
-               isActive={isActiveFajr}
+      <Container photo={islamPhoto}>
+         <PrayerTimeWrapper direction="column" align="center" gap="30px">
+            <h1>Бугунку кунго карата намаз убактысы (Мады)</h1>
+            <Flex gap="100px" align="center">
+               <Text>{converterDate(new Date())}</Text>
+               <Text>Айдын аты: {prayerTime?.date?.hijri?.weekday?.en}</Text>
+            </Flex>
+            <Clock />
+            <Flex
+               wrap="wrap"
+               justify="center"
                align="center"
-               direction="column"
-               gap="10px"
+               gap="50px"
+               margin="20px 0"
             >
-               <Title size="40px">{getTime(prayerTime?.timings?.Fajr)}</Title>
-               <p>Багымдат</p>
-            </PrayerTimeStyled>
-            <PrayerTimeStyled align="center" direction="column" gap="10px">
-               <Title size="40px">
-                  {getTime(prayerTime?.timings?.Sunrise)}
-               </Title>
-               <p>Кун чыгуу</p>
-            </PrayerTimeStyled>
-            <PrayerTimeStyled
-               isActive={isActiveDhuhr}
-               align="center"
-               direction="column"
-               gap="10px"
-            >
-               <Title size="40px">{getTime(prayerTime?.timings?.Dhuhr)}</Title>
-               <p>Бешим</p>
-            </PrayerTimeStyled>
-            <PrayerTimeStyled
-               isActive={isActiveAsr}
-               align="center"
-               direction="column"
-               gap="10px"
-            >
-               <Title size="40px">{getTime(prayerTime?.timings?.Asr)}</Title>
-               <p>Аср</p>
-            </PrayerTimeStyled>
-            <PrayerTimeStyled
-               isActive={isActiveMaghrib}
-               align="center"
-               direction="column"
-               gap="10px"
-            >
-               <Title size="40px">
-                  {getTime(prayerTime?.timings?.Maghrib)}
-               </Title>
-               <p>Шам</p>
-            </PrayerTimeStyled>
-            <PrayerTimeStyled
-               isActive={isActiveIsha}
-               align="center"
-               direction="column"
-               gap="10px"
-            >
-               <Title size="40px">{getTime(prayerTime?.timings?.Isha)}</Title>
-               <p>Куптан</p>
-            </PrayerTimeStyled>
-         </Flex>
+               <PrayerTimeStyled
+                  isActive={isActiveFajr}
+                  align="center"
+                  direction="column"
+                  gap="10px"
+               >
+                  <Title size="40px">{Fajr}</Title>
+                  <p>Багымдат</p>
+               </PrayerTimeStyled>
+               <PrayerTimeStyled align="center" direction="column" gap="10px">
+                  <Title size="40px">{getTime(Sunrise)}</Title>
+                  <p>Кун чыгуу</p>
+               </PrayerTimeStyled>
+               <PrayerTimeStyled
+                  isActive={isActiveDhuhr}
+                  align="center"
+                  direction="column"
+                  gap="10px"
+               >
+                  <Title size="40px">{Dhuhr}</Title>
+                  <p>Бешим</p>
+               </PrayerTimeStyled>
+               <PrayerTimeStyled
+                  isActive={isActiveAsr}
+                  align="center"
+                  direction="column"
+                  gap="10px"
+               >
+                  <Title size="40px">{Asr}</Title>
+                  <p>Аср</p>
+               </PrayerTimeStyled>
+               <PrayerTimeStyled
+                  isActive={isActiveMaghrib}
+                  align="center"
+                  direction="column"
+                  gap="10px"
+               >
+                  <Title size="40px">
+                     {getTime(prayerTime?.timings?.Maghrib)}
+                  </Title>
+                  <p>Шам</p>
+               </PrayerTimeStyled>
+               <PrayerTimeStyled
+                  isActive={isActiveIsha}
+                  align="center"
+                  direction="column"
+                  gap="10px"
+               >
+                  <Title size="40px">
+                     {getTime(prayerTime?.timings?.Isha)}
+                  </Title>
+                  <p>Куптан</p>
+               </PrayerTimeStyled>
+            </Flex>
+         </PrayerTimeWrapper>
       </Container>
    )
 }
@@ -148,15 +145,31 @@ const Container = styled.div`
    justify-content: center;
    align-items: center;
    gap: 40px;
-   padding: 0rem 1rem 10rem 1rem;
+   padding: 11rem 1rem;
+   background-color: #f1f1f1;
+   background: url(${islamPhoto});
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-attachment: fixed;
+`
+const PrayerTimeWrapper = styled(Flex)`
+   position: relative;
+   backdrop-filter: blur(40px);
+   border-radius: 8px;
+   padding: 0.7rem;
 `
 const PrayerTimeStyled = styled(Flex)`
    padding: 1rem;
-   border: ${({ isActive }) => (isActive ? '1px solid #4e8e8c' : 'none')};
+   border: ${({ isActive }) => (isActive ? '1px solid #09203e' : 'none')};
+   z-index: 2;
    border-radius: 50%;
    p {
-      color: gray;
-      font-size: 20px;
+      color: #09203e;
+      font-size: 25px;
+   }
+   h3 {
+      color: #09203e;
    }
 `
 

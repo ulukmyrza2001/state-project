@@ -89,3 +89,16 @@ export const converterDate = (date) => {
    }
    return `${day}-${convertedMonth} ${year}-жыл.`
 }
+
+export const getTime = (time) => time && time.split(' ')[0]
+
+export function timeToDate(time) {
+   if (time) {
+      const chunks = time.split(':')
+      const date = new Date()
+      date.setHours(Number(chunks[0]))
+      date.setMinutes(Number(chunks[1]))
+      return date.getTime()
+   }
+   return null
+}
