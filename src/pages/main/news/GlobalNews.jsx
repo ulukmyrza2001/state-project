@@ -35,6 +35,9 @@ const GlobalNews = () => {
 
    return (
       <Container>
+         <Flex width="100%" margin="4rem 0 4rem 0">
+            <TitleSection>Жаңылыктар жана кулактандыруулар</TitleSection>
+         </Flex>
          <GridContainer>
             {newsWorld.map((item) => (
                <Card
@@ -62,12 +65,16 @@ const GlobalNews = () => {
 }
 
 const Container = styled.div`
+   max-width: 1200px;
    width: 100%;
+   margin: 0 auto;
    display: flex;
-   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+   padding-bottom: 5rem;
 `
 const GridContainer = styled(Grid)`
-   width: 90%;
+   width: 100%;
    max-width: 1440px;
    grid-gap: 15px;
    @media (min-width: 160px) {
@@ -112,6 +119,7 @@ const Title = styled.span`
 const Card = styled.div`
    align-self: start;
    cursor: pointer;
+   margin-bottom: 20px;
    :hover ${Title} {
       color: #191270;
       text-decoration: underline;
@@ -123,11 +131,16 @@ const Date = styled.p`
    display: flex;
    align-items: center;
    gap: 5px;
-   /* justify-content: start; */
    color: grey;
    h1 {
       color: #1a1471;
       font-size: 35px;
+   }
+`
+const TitleSection = styled.h1`
+   color: black;
+   @media screen and (max-width: 800px) {
+      font-size: 19px;
    }
 `
 export default GlobalNews

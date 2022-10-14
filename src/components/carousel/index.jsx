@@ -47,7 +47,7 @@ const Slideshow = ({ news = [] }) => {
 
    const navigateToInnerPageNews = (id) => {
       navigate(
-         `${CLIENT_ROUTES.newsAndAnnouncementsState.innerPageNewsAndAnnouncements.path}/${id}`
+         `${CLIENT_ROUTES.newsAndAnnouncementsState.newsAndAnnouncements.path}/${id}`
       )
       localstorage.save('link', breadCrumb)
    }
