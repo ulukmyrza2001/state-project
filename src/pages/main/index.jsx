@@ -4,7 +4,6 @@ import videoMady from '../../assets/video/mady.MP4'
 import CarouselComponent from './CarouselComponent'
 import TimePrayer from './time-prayer'
 import News from './news/News'
-import Weather from './weather'
 import GlobalNews from './news/GlobalNews'
 
 const MainPage = () => {
@@ -25,10 +24,8 @@ const MainPage = () => {
          <NewsContent>
             <News />
          </NewsContent>
-         <div>
-            <GlobalNews />
-         </div>
-         <Weather />
+         <GlobalNews />
+         {/* <Weather /> */}
          <TimePrayer />
       </>
    )

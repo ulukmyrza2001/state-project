@@ -18,8 +18,6 @@ const InnerDoctorsAdvice = () => {
       dispatch(getOneData({ category: 'healthDoctorAdvice', id }))
    }, [])
 
-   console.log(oneData)
-
    const pathsArray = [
       {
          path: '/',

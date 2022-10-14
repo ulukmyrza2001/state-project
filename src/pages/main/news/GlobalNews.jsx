@@ -1,12 +1,22 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import uuid from 'react-uuid'
 import styled from 'styled-components'
 import { getNewsWorld } from '../../../store/news-slice'
 import { Flex, Grid } from '../../../styles/style-for-positions/style'
-import { converterDate } from '../../../utils/helpers/general'
+import { CLIENT_ROUTES } from '../../../utils/constants/routes'
+import { converterDate, localstorage } from '../../../utils/helpers/general'
+
+const breadCrumb = {
+   id: uuid(),
+   title: 'Дуйнолук Жаңылыктар жана кулактандыруулар',
+   path: CLIENT_ROUTES.newsAndAnnouncementsWorld.newsAndAnnouncements.path,
+}
 
 const GlobalNews = () => {
    const dispatch = useDispatch()
+   const navigate = useNavigate()
    const { newsWorld } = useSelector((state) => state.news)
 
    useEffect(() => {
@@ -15,11 +25,22 @@ const GlobalNews = () => {
    const getYear = (date) => converterDate(date).split(' ')[2]
    const getMonth = (date) => converterDate(date).split(' ')[1]
    const getDay = (date) => converterDate(date).split(' ')[0]
+
+   const navigateToInnerGlobalPage = (id) => {
+      navigate(
+         `${CLIENT_ROUTES.newsAndAnnouncementsWorld.newsAndAnnouncements.path}/${id}`
+      )
+      localstorage.save('link', breadCrumb)
+   }
+
    return (
       <Container>
          <GridContainer>
             {newsWorld.map((item) => (
-               <Card key={item.id}>
+               <Card
+                  key={item.id}
+                  onClick={() => navigateToInnerGlobalPage(item.id)}
+               >
                   <ZoomImg>
                      <img src={item?.fileInformation.photo} alt="IMG..." />
                   </ZoomImg>
@@ -92,7 +113,8 @@ const Card = styled.div`
    align-self: start;
    cursor: pointer;
    :hover ${Title} {
-      color: #b31fb8;
+      color: #191270;
+      text-decoration: underline;
    }
 `
 

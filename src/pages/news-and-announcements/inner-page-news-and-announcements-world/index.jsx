@@ -8,7 +8,7 @@ import LoadingInnerPage from '../../../components/UI/loader/LoadingInnerPage'
 import { getOneWorldNews } from '../../../store/news-slice'
 
 const InnerPage = () => {
-   const { oneNewsState, isLoading } = useSelector((state) => state.news)
+   const { oneNewsWorld, isLoading } = useSelector((state) => state.news)
 
    const { id } = useParams()
 
@@ -40,7 +40,7 @@ const InnerPage = () => {
       <TempleteInnerPage pathsArray={pathsArray}>
          {isLoading && <LoadingInnerPage />}
          {!isLoading && (
-            <DetailNewsAndAnnouncementsWorld oneData={oneNewsState} />
+            <DetailNewsAndAnnouncementsWorld oneData={oneNewsWorld} />
          )}
       </TempleteInnerPage>
    )
