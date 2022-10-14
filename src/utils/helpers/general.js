@@ -87,7 +87,7 @@ export const converterDate = (date) => {
          convertedMonth = 'январь'
          break
    }
-   return `${day}-${convertedMonth} ${year}-жыл.`
+   return `${day} ${convertedMonth} ${year}`
 }
 
 export const getTime = (time) => time && time.split(' ')[0]

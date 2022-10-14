@@ -21,6 +21,7 @@ export const Flex = styled.div`
    margin: ${({ margin }) => margin || '0'};
    height: ${({ height }) => height || ''};
    max-width: ${({ maxWidth }) => maxWidth || ''};
+   padding: ${({ p }) => p || ''};
    /* @media (max-width: 800px) {
       flex-direction: ${(props) => props.mobileDirection || 'row'};
       justify-content: ${(props) => props.mobileJustify || 'start'};
