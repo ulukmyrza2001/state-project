@@ -8,7 +8,7 @@ const ContainerHeader = () => {
    return (
       <>
          <Header />
-         {pathname === '/' && <HeaderBottom />}
+         <HeaderBottom />
       </>
    )
 }
