@@ -20,7 +20,8 @@ const {
    youthAffairs,
    agriculture,
    culture,
-   newsAndAnnouncements,
+   newsAndAnnouncementsState,
+   newsAndAnnouncementsWorld,
    celebrities,
    okm,
    cleanliness,
@@ -305,8 +306,13 @@ export const CATEGORYES = [
       innerList: [
          {
             id: uuid(),
-            title: 'Жаңылыктар жана кулактандыруу',
-            path: newsAndAnnouncements.newsAndAnnouncements.path,
+            title: 'Жаңылыктар жана кулактандыруу (Мамлекеттик)',
+            path: newsAndAnnouncementsState.newsAndAnnouncements.path,
+         },
+         {
+            id: uuid(),
+            title: 'Жаңылыктар жана кулактандыруу (Дуйнолук)',
+            path: newsAndAnnouncementsWorld.newsAndAnnouncements.path,
          },
       ],
    },

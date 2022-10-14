@@ -10,7 +10,7 @@ import {
 import { Flex } from '../../../styles/style-for-positions/style'
 import { converterDate } from '../../../utils/helpers/general'
 
-const DetailNewsAndAnnouncements = ({ oneData }) => {
+const DetailNewsAndAnnouncementsState = ({ oneData }) => {
    return (
       <Container>
          <WrapperLeftContent>
@@ -34,4 +34,4 @@ const DetailNewsAndAnnouncements = ({ oneData }) => {
    )
 }
 
-export default DetailNewsAndAnnouncements
+export default DetailNewsAndAnnouncementsState

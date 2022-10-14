@@ -314,13 +314,22 @@ export const CLIENT_ROUTES = {
          path: '/ataktuular/ataktuular/:id',
       },
    },
-   newsAndAnnouncements: {
+   newsAndAnnouncementsState: {
       newsAndAnnouncements: {
-         path: '/Janylyktar-jana-kulaktandyruular',
+         path: '/mamlekettik/janylyktar-jana-kulaktandyruular',
          label: 'News and Announcements',
       },
       innerPageNewsAndAnnouncements: {
-         path: '/Janylyktar-jana-kulaktandyruular/:id',
+         path: '/mamlekettik/janylyktar-jana-kulaktandyruular/:id',
+      },
+   },
+   newsAndAnnouncementsWorld: {
+      newsAndAnnouncements: {
+         path: '/duino/janylyktar-jana-kulaktandyruular',
+         label: 'News and Announcements',
+      },
+      innerPageNewsAndAnnouncements: {
+         path: '/duino/janylyktar-jana-kulaktandyruular/:id',
       },
    },
 }
