@@ -49,7 +49,7 @@ const GlobalNews = () => {
                   <ZoomImg>
                      <img src={item?.fileInformation.photo} alt="IMG..." />
                   </ZoomImg>
-                  <Flex align="flex-start">
+                  <Flex align="flex-start" gap="5px">
                      <Date>
                         <h1>{getDay(item?.dateOfNewAnnouncement)}</h1>
                         <div>
@@ -82,7 +82,7 @@ const GridContainer = styled(Grid)`
    @media (min-width: 160px) {
       grid-template-columns: repeat(1, 1fr);
    }
-   @media (min-width: 760px) {
+   @media (min-width: 700px) {
       grid-template-columns: repeat(2, 1fr);
    }
    @media (min-width: 960px) {
@@ -111,7 +111,7 @@ const ZoomImg = styled.div`
 
 const Title = styled.span`
    width: 70%;
-   padding-top: 5px;
+   padding-top: 2px;
    text-overflow: ellipsis;
    display: -webkit-box;
    -webkit-line-clamp: 2;
@@ -126,6 +126,9 @@ const Card = styled.div`
       color: #191270;
       text-decoration: underline;
    }
+   :hover {
+      box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.1);
+   }
 `
 
 const Date = styled.p`
@@ -137,6 +140,9 @@ const Date = styled.p`
    h1 {
       color: #1a1471;
       font-size: 35px;
+   }
+   div {
+      color: #1a1471;
    }
 `
 const TitleSection = styled.h1`
