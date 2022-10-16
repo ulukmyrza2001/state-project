@@ -22,7 +22,7 @@ export const NAVIGATIONS = [
          {
             id: Math.random().toString(),
             title: 'Өкмөт',
-            path: GOVERNMENT.path,
+            path: LEADERSHIP.GOVERNMENT.path,
          },
          {
             id: uuid(),
@@ -32,7 +32,7 @@ export const NAVIGATIONS = [
          {
             id: Math.random().toString(),
             title: 'Айылдык кеңеш',
-            path: VILLAGE_COUNCIL.path,
+            path: LEADERSHIP.VILLAGE_COUNCIL.path,
          },
       ],
    },
