@@ -16,6 +16,7 @@ export const clientGetData = createAsyncThunk(
       }
    }
 )
+
 export const getOneData = createAsyncThunk(
    'getOneData/client',
    async ({ id, category }, { rejectWithValue }) => {
@@ -30,7 +31,6 @@ export const getOneData = createAsyncThunk(
       }
    }
 )
-
 const initialState = {
    isLoading: false,
    government: [],

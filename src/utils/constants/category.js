@@ -11,7 +11,20 @@ import { AiFillBank, AiFillStar } from 'react-icons/ai'
 import { TbFiretruck } from 'react-icons/tb'
 import { CLIENT_ROUTES } from './routes'
 
-const { LEADERSHIP, education, healthCare } = CLIENT_ROUTES
+const {
+   LEADERSHIP,
+   education,
+   healthCare,
+   religiousAffairs,
+   youthAffairs,
+   agriculture,
+   culture,
+   newsAndAnnouncementsState,
+   newsAndAnnouncementsWorld,
+   celebrities,
+   okm,
+   cleanliness,
+} = CLIENT_ROUTES
 
 export const NAVIGATIONS = [
    {
@@ -20,8 +33,8 @@ export const NAVIGATIONS = [
       icon: <MdOutlineManageAccounts fontSize={20} />,
       innerList: [
          {
-            id: Math.random().toString(),
-            title: 'Өкмөт',
+            id: uuid(),
+            title: 'Окмот',
             path: LEADERSHIP.GOVERNMENT.path,
          },
          {
@@ -30,15 +43,17 @@ export const NAVIGATIONS = [
             path: LEADERSHIP.GOVERNMENT_APPARATUS.path,
          },
          {
-            id: Math.random().toString(),
-            title: 'Айылдык кеңеш',
+            id: uuid(),
+            title: 'Айылдык кенеш',
             path: LEADERSHIP.VILLAGE_COUNCIL.path,
          },
       ],
    },
    {
-      id: Math.random().toString(),
+      id: uuid(),
       title: 'Билим берүү',
+      label: 'Мады айыл окмотунун жетекчилиги',
+      icon: <IoIosSchool fontSize={20} />,
       innerList: [
          {
             id: uuid(),
@@ -66,12 +81,14 @@ export const NAVIGATIONS = [
             path: education.kindergartens.path,
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Иш-чаралар',
+            path: education.аctivities.path,
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'ЖРТ (ОРТ)',
+            path: education.GRT.path,
          },
       ],
    },
@@ -96,8 +113,9 @@ export const NAVIGATIONS = [
             path: healthCare.OMS.path,
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Дарыгердин кеңеши',
+            path: healthCare.doctorAdvice.path,
          },
       ],
    },
@@ -107,24 +125,29 @@ export const NAVIGATIONS = [
       icon: <FaPeopleCarry fontSize={20} />,
       innerList: [
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Комитет жетекчиси',
+            path: youthAffairs.headOfCommittee.path,
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Жигердүү жаштар',
+            path: youthAffairs.activeYouth.path,
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Жаштар үчүн сунуштар',
+            path: youthAffairs.offersForYouth.path,
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Спорттук иш-чаралар',
+            path: youthAffairs.sportActivities.path,
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Демилгелер',
+            path: youthAffairs.initiativies.path,
          },
       ],
    },
@@ -136,34 +159,42 @@ export const NAVIGATIONS = [
          {
             id: uuid(),
             title: 'Мечиттер',
+            path: religiousAffairs.mosques.path,
          },
          {
             id: uuid(),
             title: 'Медреселер',
+            path: religiousAffairs.madrasas.path,
          },
          {
             id: uuid(),
             title: 'Ажылык',
+            path: religiousAffairs.pilgrimage.path,
          },
          {
             id: uuid(),
             title: 'Айт',
+            path: religiousAffairs.ait.path,
          },
          {
             id: uuid(),
             title: 'Рамазан',
+            path: religiousAffairs.ramadan.path,
          },
          {
             id: uuid(),
             title: 'Намаз',
+            path: religiousAffairs.prayer.path,
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Адеп-ахлак',
+            path: religiousAffairs.morality.path,
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Диний иш-чаралар',
+            path: religiousAffairs.religiousActivities.path,
          },
       ],
    },
@@ -173,28 +204,34 @@ export const NAVIGATIONS = [
       icon: <GiCow fontSize={20} />,
       innerList: [
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Мал чарба комитети',
+            path: agriculture.animalUsbandry.path,
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Жайыт комитети',
+            path: agriculture.pastureCommittee.path,
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Үрөөн чарбасы',
+            path: agriculture.seedsFarm.path,
          },
          {
             id: uuid(),
             title: 'Мыйзамдар',
+            path: agriculture.laws.path,
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Кеңештер',
+            path: agriculture.agroAdvices.path,
          },
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Иш-чаралар',
+            path: agriculture.agroActivities.path,
          },
       ],
    },
@@ -206,33 +243,34 @@ export const NAVIGATIONS_BOTTOM = [
       icon: <AiFillBank fontSize={20} />,
       innerList: [
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'Маданият үйлөрү',
+            path: culture.cultureHouses.path,
          },
          {
             id: uuid(),
             title: 'Музейлер',
+            path: culture.museums.path,
          },
          {
             id: uuid(),
             title: 'Маданият кызматкерлери',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Маданий иш-чаралар',
+            path: culture.culturalWorkers.path,
          },
          {
             id: uuid(),
-            title: 'Маданий сынактар',
+            title: 'Маданий иш-чаралар',
+            path: culture.culturalActivities.path,
          },
       ],
    },
    {
-      id: Math.random().toString(),
+      id: uuid(),
       title: 'ӨКМ',
+      icon: <TbFiretruck fontSize={20} />,
       innerList: [
          {
-            id: Math.random().toString(),
+            id: uuid(),
             title: 'ӨКМ',
          },
       ],
@@ -245,6 +283,7 @@ export const NAVIGATIONS_BOTTOM = [
          {
             id: uuid(),
             title: 'Тазалык',
+            path: cleanliness.cleanline.path,
          },
       ],
    },
@@ -256,16 +295,24 @@ export const NAVIGATIONS_BOTTOM = [
          {
             id: uuid(),
             title: 'Атактуулар',
+            path: celebrities.celebrities.path,
          },
       ],
    },
    {
-      id: Math.random().toString(),
+      id: uuid(),
       title: 'Жаңылыктар жана кулактандыруулар',
+      icon: <GiNewspaper fontSize={20} />,
       innerList: [
          {
-            id: Math.random().toString(),
-            title: 'Жаңылыктар жана кулактандыруу',
+            id: uuid(),
+            title: 'Жаңылыктар жана кулактандыруу (Мамлекеттик)',
+            path: newsAndAnnouncementsState.newsAndAnnouncements.path,
+         },
+         {
+            id: uuid(),
+            title: 'Жаңылыктар жана кулактандыруу (Дуйнолук)',
+            path: newsAndAnnouncementsWorld.newsAndAnnouncements.path,
          },
       ],
    },
@@ -276,253 +323,6 @@ export const NAVIGATIONS_BOTTOM = [
       innerList: [
          {
             id: uuid(),
-            title: 'Камера',
-         },
-      ],
-   },
-]
-export const NAVIGATIONS_MOBILE = [
-   {
-      id: Math.random().toString(),
-      title: 'Жетекчилик',
-      innerList: [
-         {
-            id: Math.random().toString(),
-            title: 'Өкмөт',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Аппарат',
-            path: LEADERSHIP.GOVERNMENT_APPARATUS.path,
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Айылдык кеңеш',
-         },
-      ],
-   },
-   {
-      id: Math.random().toString(),
-      title: 'Билим берүү',
-      innerList: [
-         {
-            id: Math.random().toString(),
-            title: 'Мектептер',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Авто мектептер',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Ийримдер',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Олимпиадалар',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Бала бакчалар',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Иш-чаралар',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'ЖРТ (ОРТ)',
-         },
-      ],
-   },
-   {
-      id: Math.random().toString(),
-      title: 'Саламаттыкты сактоо',
-      innerList: [
-         {
-            id: Math.random().toString(),
-            title: 'Ооруканалар',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'ФАПтар',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'ОМС',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Дарыгердин кеңеши',
-         },
-      ],
-   },
-   {
-      id: Math.random().toString(),
-      title: 'Жаштар иштери',
-      innerList: [
-         {
-            id: Math.random().toString(),
-            title: 'Комитет жетекчиси',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Жигердүү жаштар',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Жаштар үчүн сунуштар',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Спорттук иш-чаралар',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Демилгелер',
-         },
-      ],
-   },
-   {
-      id: Math.random().toString(),
-      title: 'Дин иштери',
-      innerList: [
-         {
-            id: Math.random().toString(),
-            title: 'Мечиттер',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Медреселер',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Ажылык',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Айт',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Рамазан',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Намаз',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Адеп-ахлак',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Диний иш-чаралар',
-         },
-      ],
-   },
-   {
-      id: Math.random().toString(),
-      title: 'Айыл чарба',
-      innerList: [
-         {
-            id: Math.random().toString(),
-            title: 'Мал чарба комитети',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Жайыт комитети',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Үрөөн чарбасы',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Мыйзамдар',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Кеңештер',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Иш-чаралар',
-         },
-      ],
-   },
-   {
-      id: Math.random().toString(),
-      title: 'Маданият',
-      innerList: [
-         {
-            id: Math.random().toString(),
-            title: 'Маданият үйлөрү',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Музейлер',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Маданият кызматкерлери',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Маданий иш-чаралар',
-         },
-         {
-            id: Math.random().toString(),
-            title: 'Маданий сынактар',
-         },
-      ],
-   },
-   {
-      id: Math.random().toString(),
-      title: 'ӨКМ',
-      innerList: [
-         {
-            id: Math.random().toString(),
-            title: 'ӨКМ',
-         },
-      ],
-   },
-   {
-      id: Math.random().toString(),
-      title: 'Тазалык',
-      innerList: [
-         {
-            id: Math.random().toString(),
-            title: 'Тазалык',
-         },
-      ],
-   },
-   {
-      id: Math.random().toString(),
-      title: 'Атактуулар',
-      innerList: [
-         {
-            id: Math.random().toString(),
-            title: 'Атактуулар',
-         },
-      ],
-   },
-   {
-      id: Math.random().toString(),
-      title: 'Жаңылыктар жана кулактандыруулар',
-      innerList: [
-         {
-            id: Math.random().toString(),
-            title: 'Жаңылыктар жана кулактандыруу',
-         },
-      ],
-   },
-   {
-      id: Math.random().toString(),
-      title: 'Камера',
-      innerList: [
-         {
-            id: Math.random().toString(),
             title: 'Камера',
          },
       ],

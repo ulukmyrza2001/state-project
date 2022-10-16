@@ -4,13 +4,15 @@ import styled from '@emotion/styled'
 import { AiOutlineCaretRight } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom'
 import Button from '../../UI/buttons/Button'
+import { localstorage } from '../../../utils/helpers/general'
 
 const MobileHeader = ({ isVisible, navigations, setShowMenuBurger }) => {
    const navigate = useNavigate()
 
    const navigateHandler = (detail) => {
-      navigate(`${detail.path}`, { state: detail })
+      navigate(`${detail.path}`)
       setShowMenuBurger(false)
+      localstorage.save('link', detail)
    }
 
    return (

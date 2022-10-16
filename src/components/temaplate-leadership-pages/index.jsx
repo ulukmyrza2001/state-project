@@ -49,7 +49,7 @@ const TemplateLeaderShipPages = ({
             <InnerHeader>
                <HeaderLeft>
                   <TitleHeader>{`Мады айыл өкмөтү / ${
-                     findOneCategory(pathname).title
+                     findOneCategory(pathname)?.title
                   }`}</TitleHeader>
                   <BreadCrumbs pathsArray={pathsArray} />
                </HeaderLeft>
@@ -149,7 +149,7 @@ const WrapperContent = styled(Flex)`
    }
 `
 const ContainerContent = styled.div`
-   max-width: 82%;
+   max-width: 80%;
    width: 100%;
    background: #ffffff;
    padding: 1rem;
@@ -169,7 +169,7 @@ const NavigationTitle = styled.div`
    font-size: 14px;
 `
 const NavigationBlock = styled.div`
-   width: 10%;
+   width: 20%;
    min-width: 240px;
    border-radius: 10px;
    background-color: #ffffff;

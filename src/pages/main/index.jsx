@@ -1,36 +1,41 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import videoMady from '../../assets/video/mady.MP4'
+import CarouselComponent from './CarouselComponent'
+import TimePrayer from './time-prayer'
+import News from './news/News'
+import GlobalNews from './news/GlobalNews'
 
 const MainPage = () => {
    return (
-      <MainStyled>
-         <VideoBackground
-            src={videoMady}
-            autoPlay
-            muted
-            loop
-            type="video/mp4"
-         />
-         <Effect>
-            <Text>
-               Эл журттун ажырагыс бүтүндүгү жана бир жакадан баш, бир жеңден
-               кол чыгарган ички биримдиги.
-            </Text>
-         </Effect>
-      </MainStyled>
+      <>
+         <MainStyled>
+            <VideoBackground
+               src={videoMady}
+               autoPlay
+               muted
+               loop
+               type="video/mp4"
+            />
+            <Effect>
+               <CarouselComponent />
+            </Effect>
+         </MainStyled>
+         <NewsContent>
+            <News />
+         </NewsContent>
+         <NewsContent>
+            <GlobalNews />
+         </NewsContent>
+         {/* <Weather /> */}
+         <TimePrayer />
+      </>
    )
 }
-const Text = styled.h1`
-   color: white;
-   font-size: 50px;
-   max-width: 70%;
-   text-align: center;
-   @media screen and (max-width: 800px) {
-      max-width: 90%;
-      font-size: 30px;
-      margin-top: 200px;
-   }
+const NewsContent = styled.div`
+   width: 100%;
+   margin: auto;
+   padding: 1rem;
 `
 const MainStyled = styled.div`
    width: 100%;
@@ -44,13 +49,14 @@ const Effect = styled.div`
    z-index: 1;
    width: 100%;
    height: 100vh;
-   background: #011835c5;
+   background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.8) 26%,
+      rgba(0, 0, 0, 0) 100%
+   );
    display: flex;
    justify-content: center;
    align-items: center;
-   @media screen and (max-width: 800px) {
-      align-items: flex-start;
-   }
 `
 const VideoBackground = styled.video`
    position: absolute;

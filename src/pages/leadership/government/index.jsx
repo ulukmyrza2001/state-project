@@ -5,6 +5,14 @@ import styled from 'styled-components'
 import { clientGetData } from '../../../store/client-slice'
 import { Flex } from '../../../styles/style-for-positions/style'
 import LoadingInnerPage from '../../../components/UI/loader/LoadingInnerPage'
+import {
+   A,
+   Container,
+   Text,
+   WrapperImage,
+   WrapperLeftContent,
+   WrapperText,
+} from '../../../styles/detail-styles'
 
 const Government = () => {
    const { government, isLoading } = useSelector((state) => state.client)
@@ -19,10 +27,10 @@ const Government = () => {
       government.map((item) => (
          <Container key={item.id}>
             <WrapperLeftContent>
-               <Flex width="100%" align="center" direction="column">
+               <WrapperText width="100%" align="center" direction="column">
                   <h3>Кызматкер жонундо маалымат</h3>
                   <Text>{parse(String(item?.text))}</Text>
-               </Flex>
+               </WrapperText>
                <div>
                   <p>
                      <b>Позициясы:</b> {item.positions} <br />
@@ -50,37 +58,37 @@ const Government = () => {
       ))
    )
 }
-const Container = styled(Flex)`
-   gap: 20px;
-   @media (max-width: 800px) {
-      justify-content: center;
-      align-items: center;
-      flex-direction: column-reverse;
-      flex-wrap: wrap;
-   }
-`
-const Wrapper = styled(Flex)``
-const WrapperLeftContent = styled(Flex)`
-   flex-direction: column;
-   justify-content: space-between;
-   gap: 10px 0;
-   @media (max-width: 800px) {
-      gap: 20px;
-   }
-`
-const Text = styled.p`
-   @media (max-width: 800px) {
-      text-align: center;
-   }
-`
-const A = styled.a`
-   color: black;
-`
+// const Container = styled(Flex)`
+//    gap: 20px;
+//    @media (max-width: 800px) {
+//       justify-content: center;
+//       align-items: center;
+//       flex-direction: column-reverse;
+//       flex-wrap: wrap;
+//    }
+// `
+// const Wrapper = styled(Flex)``
+// const WrapperLeftContent = styled(Flex)`
+//    flex-direction: column;
+//    justify-content: space-between;
+//    gap: 10px 0;
+//    @media (max-width: 800px) {
+//       gap: 20px;
+//    }
+// `
+// const Text = styled.p`
+//    @media (max-width: 800px) {
+//       text-align: center;
+//    }
+// `
+// const A = styled.a`
+//    color: black;
+// `
 
-const WrapperImage = styled.div`
-   img {
-      width: 250px;
-   }
-`
+// const WrapperImage = styled.div`
+//    img {
+//       width: 250px;
+//    }
+// `
 
 export default Government

@@ -20,7 +20,7 @@ export const API_ROUTES_GET = {
    educationEvents: {
       path: 'agriculture/acEvent/moeEvent',
    },
-   educationKinder: {
+   educationKinger: {
       path: 'agriculture/acEvent/kindergartens',
    },
    educationGRT: {
@@ -60,6 +60,9 @@ export const API_ROUTES_GET = {
    agroAdvice: {
       path: 'agriculture/tips',
    },
+   agroPasture: {
+      path: 'agriculture/pasture',
+   },
    agroAnimalUsbundry: {
       path: 'agriculture/animalHusbandry',
    },
@@ -68,6 +71,65 @@ export const API_ROUTES_GET = {
    },
    agroLaws: {
       path: 'agriculture/laws',
+   },
+   acEvent: {
+      path: 'agriculture/acEvent',
+   },
+   agroActivites: {
+      path: 'agriculture/acEvent',
+   },
+
+   cultureWorkers: {
+      path: 'agriculture/acEvent/culturalFigures',
+   },
+   cultureEvents: {
+      path: 'agriculture/acEvent/cultureEvents',
+   },
+   museums: {
+      path: 'agriculture/acEvent/museums',
+   },
+   housesOfCultures: {
+      path: 'agriculture/acEvent/housesOfCultures',
+   },
+
+   religiousMosques: {
+      path: 'agriculture/acEvent/mechitter',
+   },
+   religiousMadrasa: {
+      path: 'agriculture/acEvent/religionSchool',
+   },
+   religiousPilgrimage: {
+      path: 'agriculture/acEvent/hadj',
+   },
+   religiousAit: {
+      path: 'agriculture/acEvent/ait',
+   },
+   religiousRamadan: {
+      path: 'agriculture/acEvent/ramazan',
+   },
+   religiousMorality: {
+      path: 'agriculture/acEvent/ethics',
+   },
+   religiousNamaz: {
+      path: 'agriculture/acEvent/prayer',
+   },
+   religiousActivities: {
+      path: 'agriculture/acEvent/dEvent',
+   },
+   cleanliness: {
+      path: 'agriculture/acEvent/cleanliness',
+   },
+   newsState: {
+      path: 'agriculture/acEvent/stateNewsAnnouncement',
+   },
+   newsWorld: {
+      path: 'agriculture/acEvent/newsOfTheWorldAnnouncement',
+   },
+   OKM: {
+      path: 'agriculture/acEvent/mchs',
+   },
+   celebrities: {
+      path: 'agriculture/acEvent/celebrities',
    },
 }
 export const REGEXP_EMAIL = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i
