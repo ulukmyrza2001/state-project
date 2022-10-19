@@ -10,6 +10,7 @@ import { BsArrowRight } from 'react-icons/bs'
 import { Flex } from '../../styles/style-for-positions/style'
 import { CLIENT_ROUTES } from '../../utils/constants/routes'
 import { converterDate, localstorage } from '../../utils/helpers/general'
+import LoaderState from '../UI/loader/LoaderStateNews'
 
 const delay = 5500
 
@@ -19,7 +20,7 @@ const breadCrumb = {
    path: CLIENT_ROUTES.newsAndAnnouncementsState.newsAndAnnouncements.path,
 }
 
-const Slideshow = ({ news = [] }) => {
+const Slideshow = ({ news = [], isLoading }) => {
    const navigate = useNavigate()
    const [index, setIndex] = useState(0)
    const timeoutRef = useRef(null)
@@ -60,47 +61,52 @@ const Slideshow = ({ news = [] }) => {
             </TitleSection>
          </Flex>
          <GlobalStyle />
-         <Flex direction="column" gap="0">
-            <div
-               className="slideshowSlider"
-               style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
-            >
-               {news.map((item, index) => (
-                  <Div
-                     photo={item.fileInformation.photo}
-                     className="slide"
-                     key={index}
-                  >
-                     <Flex
-                        className="content"
-                        direction="column"
-                        width="100%"
-                        gap="10px"
+         {isLoading && <LoaderState />}
+         {!isLoading && (
+            <Flex direction="column" gap="0">
+               <div
+                  className="slideshowSlider"
+                  style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+               >
+                  {news.map((item, index) => (
+                     <Div
+                        photo={item.fileInformation.photo}
+                        className="slide"
+                        key={index}
                      >
-                        <h1>{item.title}</h1>
-                        <p>{converterDate(item.dateOfNewAnnouncement)}</p>
-                        <NavigateDiv
-                           onClick={() => navigateToInnerPageNews(item.id)}
+                        <Flex
+                           className="content"
+                           direction="column"
+                           width="100%"
+                           gap="10px"
                         >
-                           Кененирээк <BsArrowRight />
-                        </NavigateDiv>
-                     </Flex>
-                     <Effect />
-                  </Div>
-               ))}
-            </div>
-            <div className="slideshowDots">
-               {news.map((_, idx) => (
-                  <div
-                     key={idx}
-                     className={`slideshowDot${index === idx ? ' active' : ''}`}
-                     onClick={() => {
-                        setIndex(idx)
-                     }}
-                  />
-               ))}
-            </div>
-         </Flex>
+                           <h1>{item.title}</h1>
+                           <p>{converterDate(item.dateOfNewAnnouncement)}</p>
+                           <NavigateDiv
+                              onClick={() => navigateToInnerPageNews(item.id)}
+                           >
+                              Кененирээк <BsArrowRight />
+                           </NavigateDiv>
+                        </Flex>
+                        <Effect />
+                     </Div>
+                  ))}
+               </div>
+               <div className="slideshowDots">
+                  {news.map((_, idx) => (
+                     <div
+                        key={idx}
+                        className={`slideshowDot${
+                           index === idx ? ' active' : ''
+                        }`}
+                        onClick={() => {
+                           setIndex(idx)
+                        }}
+                     />
+                  ))}
+               </div>
+            </Flex>
+         )}
       </div>
    )
 }

@@ -16,7 +16,7 @@ const SideBarNav = () => {
       navigate(item.path)
    }
    const scrollHandler = useCallback(() => {
-      refd.current.style.marginTop = `${window.scrollY}px`
+      refd.current.style.marginTop = `${window.scrollY * 1.05}px`
    }, [window.scrollY])
 
    useEffect(() => {

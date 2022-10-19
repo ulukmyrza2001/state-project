@@ -5,13 +5,13 @@ import { getNewsState } from '../../../store/news-slice'
 
 const News = () => {
    const dispatch = useDispatch()
-   const { newsState } = useSelector((state) => state.news)
+   const { newsState, isLoading } = useSelector((state) => state.news)
 
    useEffect(() => {
       dispatch(getNewsState())
    }, [])
 
-   return <Slideshow news={newsState} />
+   return <Slideshow isLoading={isLoading} news={newsState} />
 }
 
 export default News
