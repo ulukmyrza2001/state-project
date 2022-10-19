@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useCallback, useRef } from 'react'
 import styled from '@emotion/styled'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { IoIosArrowForward } from 'react-icons/io'
@@ -7,6 +7,7 @@ import { findOneCategory, localstorage } from '../../utils/helpers/general'
 const SideBarNav = () => {
    const navigate = useNavigate()
    const { pathname } = useLocation()
+   const refd = useRef()
 
    const oneCategoryForNavigations = findOneCategory(pathname)
 
@@ -14,9 +15,17 @@ const SideBarNav = () => {
       localstorage.save('link', item)
       navigate(item.path)
    }
+   const scrollHandler = useCallback(() => {
+      refd.current.style.marginTop = `${window.scrollY}px`
+   }, [window.scrollY])
+
+   useEffect(() => {
+      window.addEventListener('scroll', scrollHandler)
+      return () => window.removeEventListener('scroll', scrollHandler)
+   }, [scrollHandler])
 
    return (
-      <NavigationBlock>
+      <NavigationBlock ref={refd}>
          <NavigationTitle>{oneCategoryForNavigations?.title}</NavigationTitle>
          <SiderBarStyled>
             {oneCategoryForNavigations?.innerList.map((item) => (
