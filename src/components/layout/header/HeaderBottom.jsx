@@ -17,7 +17,7 @@ const HeaderBottom = () => {
    const mouseMoveHander = useCallback((e) => {
       if (scrollHeader()) {
          if (e.clientY >= 756) setIsScroll(true)
-         if (e.clientY < 700) setIsScroll(false)
+         if (e.clientY < 590) setIsScroll(false)
       }
    }, [])
 
@@ -29,7 +29,7 @@ const HeaderBottom = () => {
    }, [])
 
    useEffect(() => {
-      window.addEventListener('mousemove', mouseMoveHander)
+      document.addEventListener('mousemove', mouseMoveHander)
       return () => {
          window.removeEventListener('mousemove', mouseMoveHander)
       }
