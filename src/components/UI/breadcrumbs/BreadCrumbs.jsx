@@ -56,7 +56,7 @@ const LinkStyleControl = styled(Link)`
    }
 `
 const LastPathStyle = styled(Title)`
-   text-transform: lowercase;
+   text-transform: capitalize;
    font-size: 13px;
    color: gray;
    font-weight: 200;
