@@ -21,10 +21,7 @@ const SideBarNav = () => {
 
    useEffect(() => {
       window.addEventListener('scroll', scrollHandler)
-      return () => {
-         window.removeEventListener('scroll', scrollHandler)
-         refd.current.style.marginTop = 0
-      }
+      return () => window.removeEventListener('scroll', scrollHandler)
    }, [scrollHandler])
 
    return (
