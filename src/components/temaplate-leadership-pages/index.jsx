@@ -26,11 +26,9 @@ const TemplateLeaderShipPages = ({
       'https://api.whatsapp.com/send/?phone=996554785515&text&type=phone_number&app_absent=0',
    ],
 }) => {
-   const { pathname, state } = useLocation()
+   const { pathname } = useLocation()
 
    const breadCrumbLinks = localstorage.get('link')
-
-   const title = state ? state?.title : breadCrumbLinks?.title
 
    const pathsArray = [
       {
@@ -39,9 +37,10 @@ const TemplateLeaderShipPages = ({
       },
       {
          path: '!#',
-         name: title,
+         name: breadCrumbLinks?.title,
       },
    ]
+
    return (
       <Container>
          <GlobalStyle />
@@ -49,7 +48,7 @@ const TemplateLeaderShipPages = ({
             <InnerHeader>
                <HeaderLeft>
                   <TitleHeader>{`Мады айыл өкмөтү / ${
-                     findOneCategory(pathname)?.title
+                     findOneCategory(pathname).title
                   }`}</TitleHeader>
                   <BreadCrumbs pathsArray={pathsArray} />
                </HeaderLeft>
@@ -60,10 +59,7 @@ const TemplateLeaderShipPages = ({
          </Header>
          <HeaderRight>
             <WrapperContent>
-               <NavigationBlock>
-                  <NavigationTitle>Навигация</NavigationTitle>
-                  <SideBarNav />
-               </NavigationBlock>
+               <SideBarNav />
                <ContainerContent>
                   <Outlet />
                </ContainerContent>
@@ -158,24 +154,6 @@ const ContainerContent = styled.div`
    @media (max-width: 800px) {
       min-width: 100%;
       max-width: 100%;
-   }
-`
-const NavigationTitle = styled.div`
-   padding: 15px 20px;
-   background-color: #dddd;
-   border-radius: 8px 8px 0 0;
-   font-weight: 400;
-   font-style: normal;
-   font-size: 14px;
-`
-const NavigationBlock = styled.div`
-   width: 20%;
-   min-width: 240px;
-   border-radius: 10px;
-   background-color: #ffffff;
-   margin-right: 15px;
-   @media (max-width: 800px) {
-      display: none;
    }
 `
 

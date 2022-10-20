@@ -69,6 +69,7 @@ export const Li = styled.li`
    height: 0;
    pointer-events: none;
    background-color: white;
+   box-shadow: 6px 5px 10px rgba(0, 0, 0, 0.3);
    :hover {
       color: #53538f;
       svg {

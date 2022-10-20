@@ -1,113 +1,94 @@
-import React, { Fragment, useState } from 'react'
-import styled from 'styled-components'
-import { AiOutlineCaretRight } from 'react-icons/ai'
-import { useNavigate } from 'react-router-dom'
-import { CATEGORYES } from '../../utils/constants/categoryes'
-import { localstorage } from '../../utils/helpers/general'
+import React, { useEffect, useCallback, useRef } from 'react'
+import styled from '@emotion/styled'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { IoIosArrowForward } from 'react-icons/io'
+import { findOneCategory, localstorage } from '../../utils/helpers/general'
 
 const SideBarNav = () => {
    const navigate = useNavigate()
-   const [listId, setlistId] = useState(null)
-   const isVisibleInner = (id) => listId === id
+   const { pathname } = useLocation()
+   const refd = useRef()
 
-   const toggleInnerMenu = (id) => {
-      switch (id) {
-         case listId:
-            setlistId(null)
-            break
-         default:
-            setlistId(id)
-            break
-      }
-   }
+   const oneCategoryForNavigations = findOneCategory(pathname)
 
-   const navigateHandler = (item) => {
+   const navigateToCategory = (item) => {
       localstorage.save('link', item)
-      navigate(`${item.path}`)
+      navigate(item.path)
    }
+   const scrollHandler = useCallback(() => {
+      refd.current.style.marginTop = `${window.scrollY * 1.05}px`
+   }, [window.scrollY])
+
+   useEffect(() => {
+      window.addEventListener('scroll', scrollHandler)
+      return () => window.removeEventListener('scroll', scrollHandler)
+   }, [scrollHandler])
 
    return (
-      <Container>
-         {CATEGORYES.map((el) => (
-            <Fragment key={el.id}>
-               <List onClick={() => toggleInnerMenu(el.id)}>
-                  <span
-                     style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '4px',
-                     }}
-                  >
-                     {el.icon} {el.title}
-                  </span>{' '}
-                  <Icon
-                     isvisibleinner={isVisibleInner(el.id) || undefined}
-                     fontSize={14}
-                  />
-               </List>
-               {el.innerList.map((item) => (
-                  <InnerList
-                     key={item.id}
-                     onClick={() => navigateHandler(item)}
-                     isvisibleinner={isVisibleInner(el.id)}
-                  >
-                     {item.title}
-                  </InnerList>
-               ))}
-            </Fragment>
-         ))}
-      </Container>
+      <NavigationBlock ref={refd}>
+         <NavigationTitle>{oneCategoryForNavigations?.title}</NavigationTitle>
+         <SiderBarStyled>
+            {oneCategoryForNavigations?.innerList.map((item) => (
+               <Li
+                  isActive={pathname === item.path}
+                  onClick={() => navigateToCategory(item)}
+                  key={item.id}
+               >
+                  {item.title}
+                  <div>
+                     <IoIosArrowForward />
+                  </div>
+               </Li>
+            ))}
+         </SiderBarStyled>
+      </NavigationBlock>
    )
 }
-const Icon = styled(AiOutlineCaretRight)`
-   transform: ${({ isvisibleinner }) =>
-      isvisibleinner ? 'rotate(90deg)' : 'rotate(0deg)'};
+const SiderBarStyled = styled.ul`
+   list-style: none;
 `
-const InnerList = styled.div`
-   width: 100%;
-   padding: ${({ isvisibleinner }) => (isvisibleinner ? '0.4rem' : '0rem')};
-   border-bottom: ${({ isvisibleinner }) =>
-      isvisibleinner ? '1px solid #cacaca' : 'none'};
-   height: ${({ isvisibleinner }) => (isvisibleinner ? 'fit-content' : '0px')};
-   color: ${({ isvisibleinner }) => (isvisibleinner ? 'black' : 'transparent')};
-   background-color: #dddddd;
-   pointer-events: ${({ isvisibleinner }) => (isvisibleinner ? '' : 'none')};
-   font-size: 13px;
+const Li = styled.li`
+   padding: 15px 20px;
+   border-bottom: 0 solid #f1f1f1;
+   border-top: 0.1px solid #f1f1f1;
    cursor: pointer;
-   :hover {
-      background-color: #cacaca;
-   }
-   :active {
-      opacity: 0.5;
-   }
-`
-const Container = styled.div`
-   max-width: 1000px;
    width: 100%;
-   overflow: scroll;
-   padding: 0.2rem;
-   margin: 0 auto;
-   background-color: #dddddd;
-   overflow: hidden;
-`
-const List = styled.div`
-   width: 100%;
-   padding: 0.5rem;
-   background-color: #dddddd;
-   color: black;
    display: flex;
-   align-items: center;
    justify-content: space-between;
-   gap: 10px;
-   margin-bottom: 6px;
-   font-size: 13px;
-   cursor: pointer;
-   :hover {
-      background-color: #cacaca;
-      padding-right: 5px;
+   align-items: center;
+   opacity: ${({ isActive }) => (isActive ? '0.5' : '1')};
+   pointer-events: ${({ isActive }) => (isActive ? 'none' : '')};
+   :last-child {
+      border-radius: 0 0 8px 8px;
    }
-   :active {
-      opacity: 0.5;
+   div {
+      display: flex;
+      transition: 0.5s;
+   }
+   :hover {
+      background-color: #dddddd;
+   }
+   :hover div {
+      transform: translateX(3px);
    }
 `
+const NavigationTitle = styled.div`
+   padding: 15px 20px;
+   background-color: #dddd;
+   border-radius: 8px 8px 0 0;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 14px;
+`
+const NavigationBlock = styled.div`
+   width: 20%;
+   min-width: 240px;
+   border-radius: 10px;
+   background-color: #ffffff;
+   margin-right: 15px;
+   @media (max-width: 800px) {
+      display: none;
+   }
+`
+
 export default SideBarNav

@@ -1,17 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import ContainerHeader from './header/ContainerHeader'
 import Footer from './footer/Footer'
 
 const LayoutClient = () => {
+   const { pathname } = useLocation()
+
+   const isVisibleFooter = pathname === '/'
+
    return (
       <>
          <ContainerHeader />
          <Main>
             <Outlet />
          </Main>
-         <Footer />
+         {isVisibleFooter && <Footer />}
       </>
    )
 }
