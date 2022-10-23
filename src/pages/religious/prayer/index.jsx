@@ -4,6 +4,7 @@ import parse from 'html-react-parser'
 import LoadingPage from '../../../components/UI/loader/LoadingPage'
 import Card from '../../../components/UI/template-card'
 import { clientGetData } from '../../../store/client-slice'
+import NamazCalendar from './namazCalendar'
 
 const Prayer = () => {
    const { data, isLoading } = useSelector((state) => state.client)
@@ -14,10 +15,20 @@ const Prayer = () => {
    }, [])
 
    return (
-      (isLoading && <LoadingPage />) ||
-      data.map((item) => (
-         <Card key={item.id} subTitle={parse(String(item.text))} item={item} />
-      ))
+      <>
+         <div>
+            <h2>Намаз убактылары</h2>
+            <NamazCalendar />
+         </div>
+         {(isLoading && <LoadingPage />) ||
+            data.map((item) => (
+               <Card
+                  key={item.id}
+                  subTitle={parse(String(item.text))}
+                  item={item}
+               />
+            ))}
+      </>
    )
 }
 

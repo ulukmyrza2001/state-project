@@ -4,7 +4,7 @@ import { FaFacebookF } from 'react-icons/fa'
 import { BsTwitter } from 'react-icons/bs'
 import { GrYoutube } from 'react-icons/gr'
 import { IoIosArrowRoundForward } from 'react-icons/io'
-import { ReactComponent as GERB } from '../../../assets/svg/GERB.svg'
+import LogoKGZ from '../../../assets/images/logo_ky.png'
 
 const BilimBeruuNav = [
    {
@@ -34,24 +34,6 @@ const BilimBeruuNav = [
    {
       id: 7,
       title: 'ОРТ',
-   },
-]
-const SalamattyktySaktooNav = [
-   {
-      id: 1,
-      title: 'Ооруканалары',
-   },
-   {
-      id: 2,
-      title: 'Фаптар',
-   },
-   {
-      id: 3,
-      title: 'Омс',
-   },
-   {
-      id: 4,
-      title: 'Дарыгердин кенеши',
    },
 ]
 const JashtarIshteriNav = [
@@ -96,19 +78,6 @@ const Footer = () => {
                   ))}
                </NavBlock>
                <NavBlock>
-                  <h2>САЛАМАТТЫКТЫ САКТОО</h2>
-                  {SalamattyktySaktooNav.map((item) => (
-                     <ul key={item.id}>
-                        <li>
-                           <div>
-                              <IoIosArrowRoundForward fontSize="20px" />
-                           </div>
-                           <a href="/">{item.title}</a>
-                        </li>
-                     </ul>
-                  ))}
-               </NavBlock>
-               <NavBlock>
                   <h2>Жаштар Иштери</h2>
                   {JashtarIshteriNav.map((item) => (
                      <ul key={item.id}>
@@ -136,8 +105,9 @@ const Footer = () => {
                </NavBlock>
                <WrapperBlock>
                   <WrapperLogo>
-                     <span>Ulukmyrza, BekBolsun, BaIaaly, BeyBars</span>
-                     <GERB />
+                     <a href="https://www.gov.kg/ky" target="_blunk">
+                        <img src={LogoKGZ} alt="" />
+                     </a>
                   </WrapperLogo>
                   <WrapperInforation>
                      <li>erkulow26@gmail.com</li>
@@ -237,15 +207,14 @@ const NavBlock = styled.div`
          align-items: center;
          div {
             display: flex;
-            transition: 0.4s;
+         }
+         :hover a {
+            color: #538ffc;
          }
          :hover div {
             transform: translateX(4px);
-            color: #ff9500;
          }
-         :hover a {
-            color: #ff9500;
-         }
+
          a {
             text-decoration: none;
             font-family: 'Open Sans', sans-serif;
@@ -253,7 +222,6 @@ const NavBlock = styled.div`
             font-size: 14px;
             line-height: 19px;
             color: #ffffff;
-            transition: 0.4s;
          }
       }
    }
