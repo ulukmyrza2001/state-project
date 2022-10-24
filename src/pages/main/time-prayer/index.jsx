@@ -70,7 +70,7 @@ const TimePrayer = () => {
             <Flex gap="100px" align="center">
                <Text color="#c2b7bf">{converterDate(new Date())}</Text>
                <Text color="#c2b7bf">
-                  Кундун аты аты: {prayerTime?.date?.hijri?.weekday?.en}
+                  Кундун аты: {prayerTime?.date?.hijri?.weekday?.en}
                </Text>
             </Flex>
             <Clock />

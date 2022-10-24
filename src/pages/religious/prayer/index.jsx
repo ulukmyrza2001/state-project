@@ -5,6 +5,7 @@ import LoadingPage from '../../../components/UI/loader/LoadingPage'
 import Card from '../../../components/UI/template-card'
 import { clientGetData } from '../../../store/client-slice'
 import NamazCalendar from './namazCalendar'
+import { Flex } from '../../../styles/style-for-positions/style'
 
 const Prayer = () => {
    const { data, isLoading } = useSelector((state) => state.client)
@@ -16,10 +17,10 @@ const Prayer = () => {
 
    return (
       <>
-         <div>
+         <Flex direction="column" gap="20px">
             <h2>Намаз убактылары</h2>
             <NamazCalendar />
-         </div>
+         </Flex>
          {(isLoading && <LoadingPage />) ||
             data.map((item) => (
                <Card

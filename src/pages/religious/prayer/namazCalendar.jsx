@@ -1,63 +1,112 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
+import {
+   Table,
+   TableBody,
+   TableCell,
+   tableCellClasses,
+   TableHead,
+   TableRow,
+} from '@mui/material'
 import { getPrayerTime } from '../../../store/prayer-time-slice'
+import { converterDate, getTime } from '../../../utils/helpers/general'
+
+const StyledTableCell = styled(TableCell)(() => ({
+   [`&.${tableCellClasses.head}`]: {
+      backgroundColor: '#424c5f',
+      color: 'white',
+      fontSize: 13,
+      fontFamily: 'PT Sans Narrow',
+      padding: '5px',
+      fontWeight: '600',
+      lineBreak: '2',
+      '@media (max-width:600px)': {
+         fontSize: '11px',
+      },
+   },
+   [`&.${tableCellClasses.body}`]: {
+      border: 0,
+      fontSize: 12,
+      color: '#363636',
+      padding: '5px',
+      fontFamily: 'PT Sans Narrow',
+      fontWeight: '500',
+   },
+}))
+
+const StyledTableRow = styled(TableRow)((props) => ({
+   background: `${props.isActive ? 'lightGray' : ''}`,
+   '&:hover': {
+      backgroundColor: '#D8D8D8',
+   },
+   '& td': {
+      color: `${props.isActive ? 'white' : ''}`,
+   },
+}))
 
 const NamazCalendar = () => {
    const dispatch = useDispatch()
 
-   const { prayerTimes, prayerTime } = useSelector((state) => state.prayer)
+   const { prayerTimes } = useSelector((state) => state.prayer)
 
    useEffect(() => {
       dispatch(getPrayerTime())
    }, [])
 
    return (
-      <div>
-         <Table>
-            <Thead>
-               <tr>
-                  <th>Число</th>
-                  <th>Фаджр</th>
-                  <th>Восход</th>
-                  <th>Зухр</th>
-                  <th>Аср</th>
-                  <th>Магриб</th>
-                  <th>Иша</th>
-               </tr>
-            </Thead>
-            <Tbody>
-               {prayerTimes.map((item) => (
-                  <tr key={Math.random()}>
-                     <td>{item.length}</td>
-                     <td>{item.timings.Fajr}</td>
-                     <td>{item.timings.Sunrise}</td>
-                     <td>{item.timings.Dhuhr}</td>
-                     <td>{item.timings.Asr}</td>
-                     <td>{item.timings.Maghrib}</td>
-                     <td>{item.timings.Isha}</td>
-                  </tr>
-               ))}
-            </Tbody>
-         </Table>
-      </div>
+      <Table>
+         <Head>
+            <TableRow>
+               <StyledTableCell>Число</StyledTableCell>
+               <StyledTableCell>Фаджр</StyledTableCell>
+               <StyledTableCell>Восход</StyledTableCell>
+               <StyledTableCell>Зухр</StyledTableCell>
+               <StyledTableCell>Аср</StyledTableCell>
+               <StyledTableCell>Магриб</StyledTableCell>
+               <StyledTableCell>Иша</StyledTableCell>
+            </TableRow>
+         </Head>
+         <Body>
+            {prayerTimes.map((item) => {
+               return (
+                  <StyledTableRow
+                     isActive={
+                        new Date().getDate() ===
+                        new Date(item.date.readable).getDate()
+                     }
+                     key={Math.random()}
+                  >
+                     <TableTitle>
+                        {converterDate(new Date(item.date.readable))}
+                     </TableTitle>
+                     <TableTitle>{getTime(item.timings.Fajr)}</TableTitle>
+                     <TableTitle>{getTime(item.timings.Sunrise)}</TableTitle>
+                     <TableTitle>{getTime(item.timings.Dhuhr)}</TableTitle>
+                     <TableTitle>{getTime(item.timings.Asr)}</TableTitle>
+                     <TableTitle>{getTime(item.timings.Maghrib)}</TableTitle>
+                     <TableTitle>{getTime(item.timings.Isha)}</TableTitle>
+                  </StyledTableRow>
+               )
+            })}
+         </Body>
+      </Table>
    )
 }
-const Table = styled.table`
-   border: 1px solid black;
-   width: 100%;
-   padding: 0;
-`
-const Thead = styled.thead`
-   th {
-      padding: 5px;
-   }
-`
-const Tbody = styled.tbody`
-   width: 100%;
-   td {
-      padding: 5px;
-   }
-`
 
+const Head = styled(TableHead)``
+
+const Body = styled(TableBody)``
+
+const TableTitle = styled(StyledTableCell)`
+   font-style: normal;
+   font-family: 'PT Sans Narrow';
+   font-weight: 500;
+   padding: 3px 7px;
+   align-self: flex-end;
+   @media (max-width: 450px) {
+      font-size: 16px;
+      line-height: 19px;
+   }
+`
 export default NamazCalendar
