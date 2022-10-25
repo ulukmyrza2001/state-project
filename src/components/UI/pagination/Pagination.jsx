@@ -20,7 +20,7 @@ const StyledPagination = styled(MuiPagination)`
    height: 22px;
    .MuiButtonBase-root {
       color: #bdbdbd;
-      font-family: 'Inter';
+      font-family: 'PT Sans Narrow';
       font-style: normal;
       font-weight: 500;
       font-size: 16px;

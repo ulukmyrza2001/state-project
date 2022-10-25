@@ -1,15 +1,10 @@
 import styled from 'styled-components'
-import React, { useMemo } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import { Flex } from '../../../styles/style-for-positions/style'
-import { localstorage } from '../../../utils/helpers/general'
 
-const Card = ({ item, title, subTitle, offset }) => {
-   const savePathsToLocalStorage = () => {
-      if (offset) localstorage.save('offset', offset)
-   }
-
+const Card = ({ item, title, subTitle }) => {
    return (
       <Wrapper>
          <Container gap="20px">
@@ -30,7 +25,7 @@ const Card = ({ item, title, subTitle, offset }) => {
                   <SubTitle>{subTitle}</SubTitle>
                </WrapperTitle>
             </Flex>
-            <LinkStyle onClick={savePathsToLocalStorage} to={`${item?.id}`}>
+            <LinkStyle to={`${item?.id}`}>
                Толук маалымат алуу <IconRight />{' '}
             </LinkStyle>
          </Container>

@@ -3,6 +3,21 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { baseFetch } from '../api/baseFetch'
 import { API_ROUTES_GET } from '../utils/constants/general'
 
+export const getCountOfNews = createAsyncThunk(
+   'getCountOfNews/news',
+   async (_, { rejectWithValue, dispatch }) => {
+      try {
+         const result = await baseFetch({
+            path: 'agriculture/acEvent/count-page',
+            method: 'GET',
+         })
+         return result
+      } catch (error) {
+         return rejectWithValue(error.message)
+      }
+   }
+)
+
 export const getNewsState = createAsyncThunk(
    'getNewsState/news',
    async (offset = 1, { rejectWithValue }) => {
@@ -67,6 +82,8 @@ const initialState = {
    newsWorld: [],
    oneNewsState: null,
    oneNewsWorld: null,
+   countOfState: 0,
+   countOfWorld: 0,
 }
 
 const newsSlice = createSlice({
@@ -78,6 +95,17 @@ const newsSlice = createSlice({
       },
    },
    extraReducers: {
+      [getCountOfNews.pending]: (state) => {
+         state.isLoading = true
+      },
+      [getCountOfNews.fulfilled]: (state, { payload }) => {
+         state.isLoading = false
+         state.countOfState = payload.state
+         state.countOfWorld = payload.world
+      },
+      [getCountOfNews.rejected]: (state) => {
+         state.isLoading = false
+      },
       [getNewsState.pending]: (state) => {
          state.isLoading = true
       },

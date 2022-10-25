@@ -4,12 +4,14 @@ import parse from 'html-react-parser'
 import { useSearchParams } from 'react-router-dom'
 import LoadingPage from '../../../components/UI/loader/LoadingPage'
 import Card from '../../../components/UI/template-card'
-import { getNewsWorld } from '../../../store/news-slice'
+import { getCountOfNews, getNewsWorld } from '../../../store/news-slice'
 import { Flex } from '../../../styles/style-for-positions/style'
 import Pagination from '../../../components/UI/pagination/Pagination'
 
 const NewsAndAnnouncements = () => {
-   const { newsWorld, isLoading } = useSelector((state) => state.news)
+   const { newsWorld, isLoading, countOfWorld } = useSelector(
+      (state) => state.news
+   )
    const dispatch = useDispatch()
    const [params, setParams] = useSearchParams()
    const [pagination, setPagination] = useState(+params.get('page') || 1)
@@ -19,6 +21,7 @@ const NewsAndAnnouncements = () => {
    useEffect(() => {
       setParams({ page: pagination })
       dispatch(getNewsWorld(pagination))
+      dispatch(getCountOfNews())
    }, [pagination])
 
    return (
@@ -33,11 +36,11 @@ const NewsAndAnnouncements = () => {
                   item={item}
                />
             ))}
-         {!!newsWorld.length && (
+         {countOfWorld > 1 && (
             <Flex width="100%" justify="center">
                <Pagination
                   onChange={paginationHandler}
-                  count={Math.ceil(3)}
+                  count={Math.ceil(+countOfWorld / 8)}
                   page={pagination}
                />
             </Flex>
