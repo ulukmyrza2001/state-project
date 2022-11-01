@@ -7,6 +7,7 @@ import Card from '../../../components/UI/template-card'
 import { getCountOfNews, getNewsWorld } from '../../../store/news-slice'
 import { Flex } from '../../../styles/style-for-positions/style'
 import Pagination from '../../../components/UI/pagination/Pagination'
+import { localstorage } from '../../../utils/helpers/general'
 
 const NewsAndAnnouncements = () => {
    const { newsWorld, isLoading, countOfWorld } = useSelector(
@@ -19,6 +20,7 @@ const NewsAndAnnouncements = () => {
    const paginationHandler = (event, value) => setPagination(value)
 
    useEffect(() => {
+      localstorage.save('offset', pagination)
       setParams({ page: pagination })
       dispatch(getNewsWorld(pagination))
       dispatch(getCountOfNews())
