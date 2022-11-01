@@ -2,13 +2,13 @@ import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Link, useLocation } from 'react-router-dom'
 import gerb from '../../../assets/icons/GERB.svg'
-import madyLogo from '../../../assets/icons/logoMady.png'
 import { scrollHeader } from '../../../utils/helpers/general'
 import { NAVIGATIONS } from '../../../utils/constants/category'
 import MobileHeader from './MobileHeader'
-import { Img, Logo, MenuBurger, StyledFlag } from './styles'
+import { Img, MenuBurger, StyledFlag } from './styles'
 import Navigations from './Navigations'
 import { CATEGORYES } from '../../../utils/constants/categoryes'
+import Logotip from '../../logo'
 
 const Header = () => {
    const { pathname } = useLocation()
@@ -43,11 +43,7 @@ const Header = () => {
          />
          <StyledFlag>
             <Link to="/">
-               <Logo
-                  isScroll={headerHeight}
-                  src={madyLogo}
-                  style={{ cursor: 'pointer' }}
-               />
+               <Logotip isScroll={headerHeight} />
             </Link>
          </StyledFlag>
          <MenuBurger onClick={() => setShowMenuBurger(!showMenuBurger)} />

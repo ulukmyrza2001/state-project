@@ -26,19 +26,6 @@ export const StyledFlag = styled.div`
       max-width: 110px;
    }
 `
-export const Logo = styled.img`
-   width: ${({ isScroll }) => (isScroll ? '80px' : '115px')};
-   height: 80%;
-   object-fit: cover;
-   margin-bottom: 10px;
-   @media (max-width: 1200px) {
-      width: 90px;
-   }
-   @media (max-width: 800px) {
-      margin-right: 30px;
-      margin-top: 5px;
-   }
-`
 export const Img = styled.img`
    border-radius: 50%;
    width: ${({ isScroll }) => (isScroll ? '50px' : '75px')};
