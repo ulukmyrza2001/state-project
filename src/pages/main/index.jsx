@@ -13,9 +13,11 @@ const MainPage = () => {
             <VideoBackground
                src={videoMady}
                autoPlay
+               auto
                muted
                loop
                type="video/mp4"
+               playsInline
             />
             <Effect>
                <CarouselComponent />
