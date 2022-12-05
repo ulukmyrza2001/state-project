@@ -3,115 +3,31 @@ import styled from 'styled-components'
 import { FaFacebookF } from 'react-icons/fa'
 import { BsTwitter } from 'react-icons/bs'
 import { GrYoutube } from 'react-icons/gr'
-import { IoIosArrowRoundForward } from 'react-icons/io'
 import LogoKGZ from '../../../assets/images/logo_ky.png'
-
-const BilimBeruuNav = [
-   {
-      id: 1,
-      title: 'Мектептер',
-   },
-   {
-      id: 2,
-      title: 'Авто мектептер',
-   },
-   {
-      id: 3,
-      title: 'Ийримдер',
-   },
-   {
-      id: 4,
-      title: 'Олимпиадалар',
-   },
-   {
-      id: 5,
-      title: 'Бала бакчалар',
-   },
-   {
-      id: 6,
-      title: 'Иш чаралар',
-   },
-   {
-      id: 7,
-      title: 'ОРТ',
-   },
-]
-const JashtarIshteriNav = [
-   {
-      id: 1,
-      title: 'Коммиттет жетекчиси',
-   },
-   {
-      id: 2,
-      title: 'Жигердуу жаштар',
-   },
-   {
-      id: 3,
-      title: 'Жаштар учун сунуштар',
-   },
-   {
-      id: 4,
-      title: 'Спорттук  иш чаралар',
-   },
-   {
-      id: 5,
-      title: 'Инициативалар',
-   },
-]
+import madyLogo from '../../../assets/icons/logoMady.png'
+import { Text } from '../../../styles/typography/typography'
 
 const Footer = () => {
    return (
       <>
          <WrapperFooter>
             <InnerFooter>
-               <NavBlock>
-                  <h2>БИЛИМ БЕРУУ</h2>
-                  {BilimBeruuNav.map((item) => (
-                     <ul key={item.id}>
-                        <li>
-                           <div>
-                              <IoIosArrowRoundForward fontSize="20px" />
-                           </div>
-                           <a href="/"> {item.title}</a>
-                        </li>
-                     </ul>
-                  ))}
-               </NavBlock>
-               <NavBlock>
-                  <h2>Жаштар Иштери</h2>
-                  {JashtarIshteriNav.map((item) => (
-                     <ul key={item.id}>
-                        <li>
-                           <div>
-                              <IoIosArrowRoundForward fontSize="20px" />
-                           </div>
-                           <a href="/">{item.title}</a>
-                        </li>
-                     </ul>
-                  ))}
-               </NavBlock>
-               <NavBlock>
-                  <h2>КАМЕРА</h2>
-                  {BilimBeruuNav.map((item) => (
-                     <ul key={item.id}>
-                        <li>
-                           <div>
-                              <IoIosArrowRoundForward fontSize="20px" />
-                           </div>
-                           <a href="/">{item.title}</a>
-                        </li>
-                     </ul>
-                  ))}
-               </NavBlock>
+               <WrapperLogo>
+                  <a href="/">
+                     <img src={madyLogo} alt="Logo..." />
+                  </a>
+                  <Text color="#ffffff">
+                     Кара-Суйский р-н, Мады айылы <br />
+                     715564 Ош Ошская обл.
+                  </Text>
+               </WrapperLogo>
                <WrapperBlock>
-                  <WrapperLogo>
-                     <a href="https://www.gov.kg/ky" target="_blunk">
-                        <img src={LogoKGZ} alt="" />
-                     </a>
-                  </WrapperLogo>
+                  <a href="https://www.gov.kg/ky" target="_blunk">
+                     <img src={LogoKGZ} alt="" />
+                  </a>
                   <WrapperInforation>
                      <li>erkulow26@gmail.com</li>
-                     <li>+996 (550) 500 556</li>
+                     <li>+996 (550) 75 55 95</li>
                      <li>Kyrgyzstan, Bishkek</li>
                   </WrapperInforation>
                </WrapperBlock>
@@ -180,58 +96,23 @@ const InnerFooter = styled.div`
    height: auto;
    padding: 20px 0;
    display: flex;
-   flex-wrap: wrap;
+   align-items: flex-start;
    justify-content: space-between;
-   gap: 25px;
-`
-const NavBlock = styled.div`
-   h2 {
-      font-family: 'Open Sans', sans-serif;
-      font-weight: 400;
-      font-size: 22px;
-      line-height: 60px;
-      color: #ffffff;
-   }
-   ul {
-      list-style: none;
-      font-family: 'Open Sans', sans-serif;
-      font-weight: 300;
-      font-size: 14px;
-      line-height: 19px;
-      color: #ffffff;
-      li {
-         margin: 10px 0;
-         gap: 5px;
-         cursor: pointer;
-         display: flex;
-         align-items: center;
-         div {
-            display: flex;
-         }
-         :hover a {
-            color: #538ffc;
-         }
-         :hover div {
-            transform: translateX(4px);
-         }
-
-         a {
-            text-decoration: none;
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 300;
-            font-size: 14px;
-            line-height: 19px;
-            color: #ffffff;
-         }
-      }
-   }
 `
 const WrapperBlock = styled.div`
-   width: 250px;
-   padding: 65px 0;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+`
+const WrapperLogo = styled.div`
    display: flex;
    flex-direction: column;
-   justify-content: center;
+   img {
+      height: 80%;
+      max-width: 150px;
+      width: 100%;
+      height: 100%;
+   }
 `
 
 const WrapperInforation = styled.ul`
@@ -250,30 +131,10 @@ const WrapperInforation = styled.ul`
       line-height: 19px;
       color: #ffffff;
       margin-top: 15px;
-      :hover ul {
-         border-color: #ff9500;
-      }
+      cursor: pointer;
    }
 `
-const WrapperLogo = styled.div`
-   display: flex;
-   justify-content: flex-end;
-   align-items: center;
-   height: 100%;
-   span {
-      font-family: 'Cairo', sans-serif;
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 30px;
-      color: #ffffff;
-      display: flex;
-      text-align: end;
-      margin-right: 5px;
-   }
-   div {
-      width: 170px;
-   }
-`
+
 const UnderFooter = styled.div`
    width: 100%;
    height: 35px;
