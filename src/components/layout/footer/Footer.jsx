@@ -36,7 +36,7 @@ const Footer = () => {
          <UnderFooter>
             <InnerUnderFooter>
                <span>Copyright © 2022 T.C. DD COMPANY. Все права защищены</span>
-               <WrapperIcons>
+               {/* <WrapperIcons>
                   <li>
                      <a href="https://www.facebook.com/" target="_blnk">
                         <FaFacebookF color="#1771e6" />
@@ -71,7 +71,7 @@ const Footer = () => {
                         />
                      </a>
                   </li>
-               </WrapperIcons>
+               </WrapperIcons> */}
             </InnerUnderFooter>
          </UnderFooter>
       </>
@@ -98,6 +98,10 @@ const InnerFooter = styled.div`
    display: flex;
    align-items: flex-start;
    justify-content: space-between;
+   @media (max-width: 630px) {
+      flex-direction: column;
+      align-items: center;
+   }
 `
 const WrapperBlock = styled.div`
    display: flex;
@@ -112,6 +116,9 @@ const WrapperLogo = styled.div`
       max-width: 150px;
       width: 100%;
       height: 100%;
+   }
+   @media (max-width: 630px) {
+      margin-bottom: 50px;
    }
 `
 
