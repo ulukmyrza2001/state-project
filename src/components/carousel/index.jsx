@@ -33,14 +33,15 @@ const Slideshow = ({ news = [], isLoading }) => {
 
    useEffect(() => {
       resetTimeout()
-      timeoutRef.current = setTimeout(
-         () =>
-            setIndex((prevIndex) =>
-               prevIndex === news.length - 1 ? 0 : prevIndex + 1
-            ),
-         delay
-      )
-
+      if (news.length !== 1) {
+         timeoutRef.current = setTimeout(
+            () =>
+               setIndex((prevIndex) =>
+                  prevIndex === news.length - 1 ? 0 : prevIndex + 1
+               ),
+            delay
+         )
+      }
       return () => {
          resetTimeout()
       }

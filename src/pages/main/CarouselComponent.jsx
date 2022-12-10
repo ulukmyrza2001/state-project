@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import React, { useEffect, useState } from 'react'
-import { motion, AnimateSharedLayout } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const data = [
    'Эл журттун ажырагыс бүтүндүгү жана бир жакадан баш, бир жеңден кол чыгарган ички биримдиги.',

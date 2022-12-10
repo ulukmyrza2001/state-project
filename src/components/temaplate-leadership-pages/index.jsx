@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
-import { BsWhatsapp, BsInstagram, BsLinkedin } from 'react-icons/bs'
+import { BsWhatsapp, BsInstagram, BsFacebook } from 'react-icons/bs'
 import { Outlet, useLocation } from 'react-router-dom'
 import { Flex } from '../../styles/style-for-positions/style'
 import { Title } from '../../styles/typography/typography'
@@ -9,7 +9,7 @@ import BreadCrumbs from '../UI/breadcrumbs/BreadCrumbs'
 import SideBarNav from './SideBarNav'
 import { findOneCategory, localstorage } from '../../utils/helpers/general'
 
-const SOCIAL_ICONS = [<BsLinkedin />, <BsInstagram />, <BsWhatsapp />]
+const SOCIAL_ICONS = [<BsFacebook />, <BsInstagram />, <BsWhatsapp />]
 
 const socialsRender = (socials) => {
    return SOCIAL_ICONS.map((icon, i) => (
@@ -21,9 +21,9 @@ const socialsRender = (socials) => {
 
 const TemplateLeaderShipPages = ({
    socials = [
-      'https://www.linkedin.com/in/ulukmyrza-zhanybekov-54905b23a/',
+      'https://www.facebook.com/mady.aymak?mibextid=ZbWKwL',
       'https://www.instagram.com/erkulow',
-      'https://api.whatsapp.com/send/?phone=996554785515&text&type=phone_number&app_absent=0',
+      'https://chat.whatsapp.com/FMR9RBTWvb2F52GTologsT',
    ],
 }) => {
    const { pathname } = useLocation()

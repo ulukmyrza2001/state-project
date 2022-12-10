@@ -29,7 +29,6 @@ const MainPage = () => {
          <NewsContent>
             <GlobalNews />
          </NewsContent>
-         {/* <Weather /> */}
          <TimePrayer />
       </>
    )
