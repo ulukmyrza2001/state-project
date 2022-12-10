@@ -9,7 +9,7 @@ import BreadCrumbs from '../UI/breadcrumbs/BreadCrumbs'
 import SideBarNav from './SideBarNav'
 import { findOneCategory, localstorage } from '../../utils/helpers/general'
 
-const SOCIAL_ICONS = [<BsFacebook />, <BsInstagram />, <BsWhatsapp />]
+const SOCIAL_ICONS = [<BsFacebook />, <BsWhatsapp />]
 
 const socialsRender = (socials) => {
    return SOCIAL_ICONS.map((icon, i) => (
@@ -22,7 +22,6 @@ const socialsRender = (socials) => {
 const TemplateLeaderShipPages = ({
    socials = [
       'https://www.facebook.com/mady.aymak?mibextid=ZbWKwL',
-      'https://www.instagram.com/erkulow',
       'https://chat.whatsapp.com/FMR9RBTWvb2F52GTologsT',
    ],
 }) => {
