@@ -34,17 +34,17 @@ export const NAVIGATIONS = [
       innerList: [
          {
             id: uuid(),
-            title: 'Окмот',
+            title: 'Өкмөт',
             path: LEADERSHIP.GOVERNMENT.path,
          },
          {
             id: uuid(),
-            title: 'Окмот аппараты',
+            title: 'Өкмөт аппараты',
             path: LEADERSHIP.GOVERNMENT_APPARATUS.path,
          },
          {
             id: uuid(),
-            title: 'Айылдык кенеш',
+            title: 'Айылдык кеңеш',
             path: LEADERSHIP.VILLAGE_COUNCIL.path,
          },
       ],
@@ -52,7 +52,7 @@ export const NAVIGATIONS = [
    {
       id: uuid(),
       title: 'Билим берүү',
-      label: 'Мады айыл окмотунун жетекчилиги',
+      label: 'Мады айыл өкмөтүнүн жетекчилиги',
       icon: <IoIosSchool fontSize={20} />,
       innerList: [
          {
@@ -311,7 +311,7 @@ export const NAVIGATIONS_BOTTOM = [
          },
          {
             id: uuid(),
-            title: 'Жаңылыктар жана кулактандыруу (Дуйнолук)',
+            title: 'Жаңылыктар жана кулактандыруу (Дүйнөлүк)',
             path: newsAndAnnouncementsWorld.newsAndAnnouncements.path,
          },
       ],
