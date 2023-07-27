@@ -37,15 +37,14 @@ const NewsAndAnnouncements = () => {
                   item={item}
                />
             ))}
-         {countOfState < 1 && (
-            <Flex width="100%" justify="center">
-               <Pagination
-                  onChange={paginationHandler}
-                  count={Math.ceil(+countOfState / 8)}
-                  page={pagination}
-               />
-            </Flex>
-         )}
+
+         <Flex width="100%" justify="center">
+            <Pagination
+               onChange={paginationHandler}
+               count={Math.ceil(+countOfState / 8)}
+               page={pagination}
+            />
+         </Flex>
       </>
    )
 }

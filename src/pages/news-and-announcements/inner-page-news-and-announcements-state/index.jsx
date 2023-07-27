@@ -29,11 +29,11 @@ const InnerPage = () => {
       },
       {
          path: localData?.path,
-         name: localData?.title,
+         name: 'Жанылыктар жана кулактандыруулар',
       },
       {
          path: '/jetekchilik/apparat',
-         name: 'Мамлекеттик',
+         name: 'Мыйзамдар жана токтомдор',
       },
    ]
    return (

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import parse from 'html-react-parser'
 import { useSearchParams } from 'react-router-dom'
@@ -38,15 +38,13 @@ const NewsAndAnnouncements = () => {
                   item={item}
                />
             ))}
-         {countOfWorld > 1 && (
-            <Flex width="100%" justify="center">
-               <Pagination
-                  onChange={paginationHandler}
-                  count={Math.ceil(+countOfWorld / 8)}
-                  page={pagination}
-               />
-            </Flex>
-         )}
+         <Flex width="100%" justify="center">
+            <Pagination
+               onChange={paginationHandler}
+               count={Math.ceil(+countOfWorld / 8)}
+               page={pagination}
+            />
+         </Flex>
       </>
    )
 }

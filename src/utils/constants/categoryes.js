@@ -306,12 +306,12 @@ export const CATEGORYES = [
       innerList: [
          {
             id: uuid(),
-            title: 'Жаңылыктар жана кулактандыруу (Мамлекеттик)',
+            title: 'Мыйзамдар жана токтомдор',
             path: newsAndAnnouncementsState.newsAndAnnouncements.path,
          },
          {
             id: uuid(),
-            title: 'Жаңылыктар жана кулактандыруу (Дүйнөлүк)',
+            title: 'Жаңылыктар жана кулактандыруу',
             path: newsAndAnnouncementsWorld.newsAndAnnouncements.path,
          },
       ],

@@ -16,7 +16,7 @@ const delay = 5500
 
 const breadCrumb = {
    id: uuid(),
-   title: 'Жаңылыктар жана кулактандыруулар (Мамлекеттик)',
+   title: 'Мыйзамдар жана токтомдор',
    path: CLIENT_ROUTES.newsAndAnnouncementsState.newsAndAnnouncements.path,
 }
 
@@ -57,9 +57,7 @@ const Slideshow = ({ news = [], isLoading }) => {
    return (
       <div className="slideshow">
          <Flex width="100%" margin="4rem 0 4rem 0">
-            <TitleSection>
-               Мамлекеттик жаңылыктар жана кулактандыруулар
-            </TitleSection>
+            <TitleSection>Мыйзамдар жана токтомдор</TitleSection>
          </Flex>
          <GlobalStyle />
          {isLoading && <LoaderState />}
